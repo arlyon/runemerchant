@@ -27,12 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CORS_ORIGIN_WHITELIST = (
+CORS_ORIGIN_WHITELIST = [
     'localhost:8080',
-)
-
-
-# Application definition
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -107,6 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning'
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/

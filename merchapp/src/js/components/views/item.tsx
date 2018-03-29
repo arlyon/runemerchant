@@ -1,7 +1,8 @@
 import React from 'react';
+import {IItemProps} from "../../api/search";
 import {Footer} from "../frame/footer";
 import {Header} from "../frame/header";
-import {IItemProps, Item} from "../item";
+import {Item} from "../item";
 import {Route, Switch} from 'react-router';
 
 interface IItemViewProps {

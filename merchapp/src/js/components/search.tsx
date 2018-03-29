@@ -1,14 +1,15 @@
 import React from 'react';
-import {IItemProps, Item} from "./item";
+import {IItemProps} from "../api/search";
+import {Item} from "./item";
 
 export interface ISearchProps {
     label?: string;
-    searchFunction: (str: string) => Promise<IItemProps[]>;
+    searchFunction: (str: string) => Promise<IItemProps[] | null>;
 }
 
 interface ISearchState {
     text: string;
-    items: IItemProps[];
+    items: IItemProps[] | null;
 }
 
 const placeHolders = [
@@ -37,13 +38,18 @@ export class SearchBar extends React.Component<ISearchProps, ISearchState> {
 
         this.setState({
             text,
-            items,
+            items: items ? items : [],
         });
     };
 
     public render(props?: ISearchProps, state?: {}, context?: any): JSX.Element {
 
-        const items = this.state.items.map((item: IItemProps) => <Item key={item.item_id} {...item} />);
+        let items = null;
+
+        if (this.state.items) {
+            items = this.state.items.map((item: IItemProps) => <Item key={item.item_id} {...item} />);
+        }
+
 
         return (
             <div className="search">

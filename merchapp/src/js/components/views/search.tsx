@@ -1,16 +1,16 @@
 import React from 'react';
-import {ApiSearch} from "../../api/search";
+import {ItemSearch} from "../../api/search";
 import {Footer} from "../frame/footer";
 import {Header} from "../frame/header";
 import {SearchBar} from "../search";
 
 export class SearchView extends React.Component<{}, {}> {
 
-    private search: ApiSearch;
+    private search: ItemSearch;
 
     constructor(props: {}) {
         super(props);
-        this.search = new ApiSearch();
+        this.search = new ItemSearch(3);
     }
 
     public render(props?: {}, state?: {}, context?: any): JSX.Element {

@@ -14,7 +14,12 @@ class MissingItem(models.Model):
 
 class ItemManager(models.QuerySet):
 
-    pass
+    def with_recent_price(self):
+        """
+        Adds the most recent flip to the returned items.
+        :return:
+        """
+        pass
 
 
 class Item(models.Model):
@@ -68,5 +73,6 @@ class Rune(Item):
     """
     A rune in runescape.
     """
+
     def get_usages(self):
         pass

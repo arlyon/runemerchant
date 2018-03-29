@@ -1,10 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-
-export interface IItemProps {
-    item_id: number;
-    name: string;
-}
+import {IItemProps} from "../api/search";
 
 export class Item extends React.Component<IItemProps, {}> {
     public render(props?: {}, state?: {}, context?: any): JSX.Element {
