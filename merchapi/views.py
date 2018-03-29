@@ -17,8 +17,6 @@ class ItemList(generics.ListAPIView):
     - **name:** *?name=[first]&name=[second]* - Gets all the items with name matching the list of parameters.
     - **members:** *?members=[true|false]* - Gets all items that are either members or non-members.
     """
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
 
     def get_queryset(self):
         """
@@ -38,6 +36,9 @@ class ItemList(generics.ListAPIView):
 
         return queryset
 
+    def get_serializer_class(self):
+        return ItemSerializer if self.request.version == 1 else None
+
 
 class ItemSingle(generics.RetrieveAPIView):
     """
@@ -46,28 +47,39 @@ class ItemSingle(generics.RetrieveAPIView):
 
     queryset = Item.objects.all()
     lookup_field = 'item_id'
-    serializer_class = ItemPriceLogSerializer
+
+    def get_serializer_class(self):
+        return ItemPriceLogSerializer if self.request.version == 1 else None
 
 
-class PriceLogList(generics.ListAPIView):
-    queryset = PriceLog.objects.filter(
-        date=Subquery(
-            PriceLog.objects
-                .filter(item=OuterRef('item'))
-                .values('item')
-                .annotate(last_price=Max('date'))
-                .values('last_price')[:1]
+class ItemPriceLogList(generics.ListAPIView):
+    """
+    Gets the most recent price logs for each item.
+    """
+
+    def get_queryset(self):
+        return PriceLog.objects.filter(
+            date=Subquery(
+                PriceLog.objects
+                    .filter(item=OuterRef('item'))
+                    .values('item')
+                    .annotate(last_price=Max('date'))
+                    .values('last_price')[:1]
+            )
         )
-    )
-    serializer_class = PriceLogItemSerializer
+
+    def get_serializer_class(self):
+        return PriceLogItemSerializer if self.request.version == 1 else None
 
 
 class PriceLogsForItem(generics.ListAPIView):
     """
     Gets the prices for an item.
+    todo add querystring for granularity and range
     """
 
     def get_queryset(self):
         return PriceLog.objects.filter(item__item_id=self.kwargs['item_id'])
 
-    serializer_class = PriceLogSerializer
+    def get_serializer_class(self):
+        return PriceLogSerializer if self.request.version == 1 else None
