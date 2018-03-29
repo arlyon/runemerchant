@@ -13,6 +13,9 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from datetime import timedelta
 
+from django.db.models import F, FloatField
+from django.db.models.functions import Cast
+
 BASE_DIR = settings.BASE_DIR
 OS_BUDDY = 'https://api.rsbuddy.com/grandExchange?a=guidePrice&i='
 
@@ -32,6 +35,19 @@ class FlipState(Enum):
     SOLD = 40
 
 
+class PriceManager(models.QuerySet):
+    """
+    A price manager.
+    """
+
+    def calculate_data(self):
+        return self.annotate(
+            profit=F('sell_price') - F('buy_price'),
+            roi=Cast(F('sell_price'), FloatField()) / Cast(F('buy_price'), FloatField()),
+            demand=Cast(F('buy_volume'), FloatField()) / Cast(F('sell_volume'), FloatField())
+        )
+
+
 class PriceLog(models.Model):
     """
     A single piece of price data for an item.
@@ -46,6 +62,8 @@ class PriceLog(models.Model):
 
     buy_volume = models.IntegerField(blank=True, null=True)
     sell_volume = models.IntegerField(blank=True, null=True)
+
+    objects = PriceManager.as_manager()
 
     def get_profit(self) -> int or None:
         """

@@ -12,6 +12,11 @@ class MissingItem(models.Model):
     name = models.CharField(max_length=256)
 
 
+class ItemManager(models.QuerySet):
+
+    pass
+
+
 class Item(models.Model):
     """
     An item in Runescape.
@@ -29,13 +34,15 @@ class Item(models.Model):
 
     favorites = models.ManyToManyField(Merchant, through='Favorite')
 
+    objects = ItemManager.as_manager()
+
     def get_most_recent_price(self) -> PriceLog or None:
         """
         Gets and saves price data for a particular item from the API.
         todo price data service that either gets cache or fetches
         :return: The price log data for the given item.
         """
-        return PriceLog.objects.filter(item=self).order_by('-date').first()
+        return PriceLog.objects.filter(item=self).latest('date')
 
     def get_profit(self, merchant: Merchant) -> int:
         """

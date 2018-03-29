@@ -1,10 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 
 from . import views
 
 urlpatterns = [
     # ex: /
-    path('items/<int:item_id>', views.item_get, name='index'),
-    path('items/<str:name>', views.item_search, name='index'),
-    path('items', views.ItemList.as_view(), name='index'),
+    path('<str:version>/items/<int:item_id>', views.ItemSingle.as_view(), name='item'),
+    path('<str:version>/items/', views.ItemList.as_view(), name='items'),
+    path('<str:version>/prices/', views.PriceLogList.as_view(), name='prices'),
 ]
