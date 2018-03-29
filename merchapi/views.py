@@ -1,3 +1,5 @@
+from typing import List
+
 from django.db import IntegrityError
 from django.db.models import OuterRef, Subquery, Max
 from rest_framework import generics, mixins
@@ -19,8 +21,9 @@ class ItemList(generics.ListAPIView):
     ### **Query Strings**
     This endpoint supports a set of querystring parameters:
 
-    - **name:** *?name=[first]&name=[second]* - Gets all the items with name matching the list of parameters.
+    - **name:** *?name=[query]* - Filters the items list to names matching the one given.
     - **members:** *?members=[true|false]* - Gets all items that are either members or non-members.
+    - **tag:** *?tag=[first]&tag=[second]* - Filters the items list by one or more tags.
     """
 
     def get_queryset(self):
@@ -29,15 +32,19 @@ class ItemList(generics.ListAPIView):
         """
         queryset = Item.objects.all()
 
-        name = self.request.query_params.getlist('name', None) or []
-        for string in name:
-            queryset = queryset.filter(name__contains=string)
+        name = self.request.query_params.get('name')
+        if name is not None:
+            queryset = queryset.filter(name__contains=name)
 
-        members = self.request.query_params.get('members', None) or []
+        members = self.request.query_params.get('members')
         if members in ['true', '1', 'y']:
             queryset = queryset.filter(members=True)
         elif members in ['false', '0', 'n']:
             queryset = queryset.filter(members=False)
+
+        tags: List[str] = self.request.query_params.getlist('tag', [])
+        for tag in tags:
+            queryset = queryset.filter(tag__name=tag.lower())
 
         return queryset
 

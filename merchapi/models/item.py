@@ -63,10 +63,18 @@ class Item(models.Model):
         return profit
 
     def __str__(self):
-        return "[" + str(self.item_id) + "] " + self.name
+        return self.name
 
     class Meta:
         verbose_name_plural = "Items"
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=256)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('name', 'item')
 
 
 class Rune(Item):
