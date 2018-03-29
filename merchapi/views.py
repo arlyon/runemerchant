@@ -10,19 +10,32 @@ class ItemList(generics.ListAPIView):
     """
     Gets all the items, with an optional search parameter
     to return all matching a given name.
+
+    ### **Query Strings**
+    This endpoint supports a set of querystring parameters:
+
+    - **name:** *?name=[first]&name=[second]* - Gets all the items with name matching the list of parameters.
+    - **members:** *?members=[true|false]* - Gets all items that are either members or non-members.
     """
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
 
     def get_queryset(self):
         """
-        Overrides the get queryset function to optionally
-        restrict the returned items to match a given name.
+        Overrides the get queryset function to inject the querystring.
         """
         queryset = Item.objects.all()
-        search = self.request.query_params.get('search', None)
-        if search is not None:
-            queryset = queryset.filter(name__contains=search)
+
+        name = self.request.query_params.getlist('name', None) or []
+        for string in name:
+            queryset = queryset.filter(name__contains=string)
+
+        members = self.request.query_params.get('members', None) or []
+        if members in ['true', '1', 'y']:
+            queryset = queryset.filter(members=True)
+        elif members in ['false', '0', 'n']:
+            queryset = queryset.filter(members=False)
+
         return queryset
 
 
@@ -55,7 +68,6 @@ class PriceLogsForItem(generics.ListAPIView):
     """
 
     def get_queryset(self):
-        return PriceLog.objects.filter(item__item_id = self.kwargs['item_id'])
-
+        return PriceLog.objects.filter(item__item_id=self.kwargs['item_id'])
 
     serializer_class = PriceLogSerializer
