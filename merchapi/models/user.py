@@ -19,6 +19,9 @@ class Favorite(models.Model):
     item = models.ForeignKey('Item', on_delete=models.CASCADE)
     user = models.ForeignKey(Merchant, on_delete=models.CASCADE)
 
+    class Meta:
+        unique_together = ('item', 'user')
+
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

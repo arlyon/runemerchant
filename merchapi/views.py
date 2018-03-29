@@ -1,9 +1,14 @@
+from django.db import IntegrityError
 from django.db.models import OuterRef, Subquery, Max
+from rest_framework import generics, mixins
+from rest_framework.authentication import TokenAuthentication, SessionAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.serializers import Serializer
 
-from merchapi.models import Item, PriceLog
+from merchapi.models import Item, PriceLog, Favorite
 from merchapi.serializers import ItemPriceLogSerializer, ItemSerializer, PriceLogItemSerializer, \
     PriceLogSerializer
-from rest_framework import generics
 
 
 class ItemList(generics.ListAPIView):
@@ -37,7 +42,7 @@ class ItemList(generics.ListAPIView):
         return queryset
 
     def get_serializer_class(self):
-        return ItemSerializer if self.request.version == 1 else None
+        return ItemSerializer
 
 
 class ItemSingle(generics.RetrieveAPIView):
@@ -49,7 +54,7 @@ class ItemSingle(generics.RetrieveAPIView):
     lookup_field = 'item_id'
 
     def get_serializer_class(self):
-        return ItemPriceLogSerializer if self.request.version == 1 else None
+        return ItemPriceLogSerializer
 
 
 class ItemPriceLogList(generics.ListAPIView):
@@ -69,7 +74,7 @@ class ItemPriceLogList(generics.ListAPIView):
         )
 
     def get_serializer_class(self):
-        return PriceLogItemSerializer if self.request.version == 1 else None
+        return PriceLogItemSerializer
 
 
 class PriceLogsForItem(generics.ListAPIView):
@@ -82,4 +87,45 @@ class PriceLogsForItem(generics.ListAPIView):
         return PriceLog.objects.filter(item__item_id=self.kwargs['item_id'])
 
     def get_serializer_class(self):
-        return PriceLogSerializer if self.request.version == 1 else None
+        return PriceLogSerializer
+
+
+class UserFavoriteList(generics.ListAPIView):
+    """
+    Gets the favorite items for a user.
+    """
+
+    authentication_classes = (SessionAuthentication, TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        return self.request.user.merchant.favorites.all()
+
+    def get_serializer_class(self):
+        return ItemSerializer
+
+
+class FavoriteCreateDestroy(generics.GenericAPIView, mixins.DestroyModelMixin):
+    """
+    Creates and deletes favorites for a given item id and authentication.
+    """
+
+    authentication_classes = (SessionAuthentication, TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    lookup_field = 'item_id'
+    serializer_class = Serializer
+
+    def get_queryset(self):
+        return self.request.user.merchant.favorite_set.all()
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+
+    def post(self, request, version, item_id):
+        try:
+            Favorite.objects.create(user=request.user.merchant, item_id=item_id)
+        except IntegrityError as ignore:
+            pass  # unique constraint failed, already added
+        finally:
+            return Response(None, 201)
