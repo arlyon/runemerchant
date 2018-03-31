@@ -1,15 +1,17 @@
+@import "normalize";
 @import "variables";
+
 @import "modules/card";
 @import "modules/tag";
 
 body {
   overflow-y: scroll;
   margin: 0;
-  min-width: 320px;
   font-family: $font-family;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   background-color: $background;
+  font-size: 18px;
 }
 
 #root {
@@ -18,8 +20,6 @@ body {
   flex-direction: column;
 
   > header.toolbar {
-    // box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-
     > div {
       display: flex;
       flex-direction: row;

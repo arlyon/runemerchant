@@ -1,16 +1,22 @@
 const path = require('path');
-
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+/**
+ * The prod build config that extracts css to an
+ * external file and minifies js/css.
+ */
 module.exports = {
-    entry: ['./src/js/main.tsx', './src/css/style.scss'],
+
+    entry: [
+        './src/js/prod.tsx',
+        './src/scss/style.scss'
+    ],
+
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
     },
-
-    devtool: 'source-map',
 
     module: {
         rules: [
@@ -26,27 +32,21 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].css',
-                            outputPath: path.resolve(__dirname, 'dist')
+                            outputPath: './'
                         }
                     },
                     {
-                        loader: 'extract-loader'
+                        loader: 'extract-loader',
+                        options: {publicPath: ""} // https://github.com/peerigon/extract-loader/issues/32
                     },
                     {
-                        loader: 'css-loader'
+                        loader: 'css-loader',
+                        options: {
+                            minimize: true
+                        }
                     },
                     {
                         loader: 'sass-loader',
-                        options: {
-                            importer: function (url, prev) {
-                                if (url.indexOf('@material') === 0) {
-                                    const filePath = url.split('@material')[1];
-                                    const nodeModulePath = `./node_modules/@material/${filePath}`;
-                                    return {file: require('path').resolve(nodeModulePath)};
-                                }
-                                return {file: url};
-                            }
-                        }
                     }
                 ]
             }
@@ -57,19 +57,14 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
 
-    mode: "development",
-
-    devServer: {
-        historyApiFallback: true,
-        contentBase: path.resolve(__dirname, 'dist'),
-        compress: true
-    },
+    mode: "production",
 
     plugins: [
         new CopyWebpackPlugin([
                 {from: 'src/static'}
             ],
-        ),
-        //new UglifyJSPlugin(),
-    ]
+        )
+    ],
+
+
 };

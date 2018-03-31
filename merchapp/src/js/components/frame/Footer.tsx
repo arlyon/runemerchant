@@ -11,8 +11,8 @@ export const Footer = () =>
                 Wiki</a>, and
                 the <a target="_blank" rel="noopener"
                        href="http://services.runescape.com/m=itemdb_oldschool/">Grand Exchange</a>.
-                Other data was manually compiled. All gathered data is
-                <a target="_blank" rel="noopener" href="https://www.github.com/arlyon/runemerch">available
+                Other data was manually compiled. All gathered data
+                is <a target="_blank" rel="noopener" href="https://www.github.com/arlyon/runemerch">available
                     for download</a>.
             </p>
             <p>
@@ -22,9 +22,8 @@ export const Footer = () =>
                 any of its affiliates or subsidiaries.
             </p>
             <p>
-                Copyright 2018 Alexander Lyon. This code is available
-                on <a target="_blank" rel="noopener"
-                      href="https://www.github.com/arlyon/runemerch">github</a>.
+                Want a feature? Got some ideas? This is a free and open source project by Alexander Lyon.
+                The code is available on <a target="_blank" rel="noopener" href="https://www.github.com/arlyon/runemerch">github</a>.
             </p>
         </section>
     </footer>;
