@@ -1,0 +1,12 @@
+@import "../variables.scss";
+
+span.tag {
+  background-color: $primary;
+  padding: 0 0.5em;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  span {
+    margin: auto;
+  }
+}

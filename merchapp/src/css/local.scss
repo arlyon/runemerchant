@@ -1,4 +1,6 @@
 @import "variables";
+@import "modules/card";
+@import "modules/tag";
 
 body {
   overflow-y: scroll;
@@ -16,25 +18,28 @@ body {
   flex-direction: column;
 
   > header.toolbar {
-    user-select: none;
-    background-color: $primary;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-weight: bold;
+    // box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 
-    a {
-      font-size: 2em;
-      text-decoration: none;
-      color: white;
-      margin: 0.5em;
+    > div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-weight: bold;
+
+      a {
+        font-size: 2em;
+        text-decoration: none;
+        color: black;
+        margin: 0.5em;
+      }
+
+      img {
+        height: 3em;
+        margin: 0 0 0 0.5em;
+        -webkit-user-drag: none;
+      }
     }
 
-    img {
-      height: 3em;
-      margin: 0 0 0 0.5em;
-      -webkit-user-drag: none;
-    }
   }
 
   > main {
@@ -42,24 +47,9 @@ body {
     display: flex;
     flex-direction: column;
 
-    &.container {
-      margin: 0 auto;
-      width: 95vw;
-
-      // tablet
-      @media only screen and (min-width: 768px) {
-        width: 730px;
-      }
-
-      // desktop
-      @media only screen and (min-width: 1200px) {
-        width: 1000px;
-
-      }
-    }
-
     &#fourofour {
-      background-color: $primary;
+      background: $primary;
+      background: linear-gradient(to bottom, $primary, #000a52);
 
       div {
         margin: auto auto;
@@ -114,6 +104,41 @@ body {
   }
 }
 
+div.searchContainer {
+  margin: 4em 0;
+}
+
 div.search {
-  font-size: 2em;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  > .tags {
+    font-size: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+  > input {
+    width: 100%;
+    font-size: 2em;
+    padding: 0.2em;
+    border: 0.1em solid $primary;
+    box-sizing: border-box;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  width: 95vw;
+
+  // tablet
+  @media only screen and (min-width: 768px) {
+    width: 730px;
+  }
+
+  // desktop
+  @media only screen and (min-width: 1200px) {
+    width: 1000px;
+
+  }
 }

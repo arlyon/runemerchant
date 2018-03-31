@@ -1,9 +1,8 @@
 import React from 'react';
-import {IItemProps} from "../../api/search";
-import {Footer} from "../frame/footer";
-import {Header} from "../frame/header";
-import {Item} from "../item";
-import {Route, Switch} from 'react-router';
+import {ApiItem} from "../api/datatypes";
+import {Footer} from "../components/frame/Footer";
+import {Header} from "../components/frame/Header";
+import {ListItem} from "../components/ListItem";
 
 interface IItemViewProps {
     id?: number;
@@ -11,7 +10,7 @@ interface IItemViewProps {
 }
 
 interface IItemViewState {
-    item: IItemProps;
+    item: ApiItem;
 }
 
 export class ItemView extends React.Component<IItemViewProps, IItemViewState> {
@@ -19,7 +18,7 @@ export class ItemView extends React.Component<IItemViewProps, IItemViewState> {
     constructor(props: IItemViewProps) {
         super(props);
         this.state = {
-            item: {} as IItemProps,
+            item: {} as ApiItem,
         };
     }
 
@@ -27,13 +26,13 @@ export class ItemView extends React.Component<IItemViewProps, IItemViewState> {
 
         if (this.props.id && this.state.item.item_id != this.props.id) {
             this.getItem(this.props.id);
-            return <div />;
+            return <div/>;
         } else {
             return (
                 <div id="root">
-                    <Header/>
+                    <Header name="RuneMerchant" image="/logo_black.svg"/>
                     <main className="container">
-                        <Item {...this.state.item} />
+                        <ListItem {...this.state.item} />
                     </main>
                     <Footer/>
                 </div>

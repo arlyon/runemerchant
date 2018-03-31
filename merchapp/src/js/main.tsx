@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Route} from "react-router";
 import {BrowserRouter as Router, Switch} from "react-router-dom";
-import {FourOFour} from "./components/views/404";
-import {ItemView} from "./components/views/item";
-import {SearchView} from "./components/views/search";
+import {FourOFour} from "./views/404";
+import {ItemView} from "./views/item";
+import {SearchView} from "./views/search";
 
 class App extends React.Component<{}, {}> {
     public render() {
