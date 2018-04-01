@@ -1,7 +1,6 @@
 from typing import List
 
 from django.db import IntegrityError
-from django.db.models import OuterRef, Subquery, Max
 from rest_framework import generics, mixins
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -9,8 +8,9 @@ from rest_framework.response import Response
 from rest_framework.serializers import Serializer
 
 from merchapi.models import Item, PriceLog, Favorite
-from merchapi.serializers import ItemPriceLogSerializer, ItemSerializer, PriceLogItemSerializer, \
-    PriceLogSerializer
+from merchapi.serializers.item import ItemFavoriteSerializer, ItemPriceLogSerializer, ItemPriceLogFavoriteSerializer
+from merchapi.serializers.base import ItemSerializer, PriceLogSerializer
+from merchapi.serializers.pricelog import PriceLogItemSerializer
 
 
 class ItemList(generics.ListAPIView):
@@ -24,13 +24,15 @@ class ItemList(generics.ListAPIView):
     - **name:** *?name=[query]* - Filters the items list to names matching the one given.
     - **members:** *?members=[true|false]* - Gets all items that are either members or non-members.
     - **tag:** *?tag=[first]&tag=[second]* - Filters the items list by one or more tags.
+    - **prices:** *?prices* - Additionally gets the prices for each item.
     """
+    authentication_classes = (SessionAuthentication, TokenAuthentication,)
 
     def get_queryset(self):
         """
         Overrides the get queryset function to inject the querystring.
         """
-        queryset = Item.objects.all()
+        queryset = Item.objects.with_favorited(self.request.user) if self.request.user else Item.objects.all()
 
         name = self.request.query_params.get('name')
         if name is not None:
@@ -49,39 +51,32 @@ class ItemList(generics.ListAPIView):
         return queryset
 
     def get_serializer_class(self):
-        return ItemSerializer
+        return ItemFavoriteSerializer if self.request.user else ItemSerializer
 
 
 class ItemSingle(generics.RetrieveAPIView):
     """
     Gets a single item from the database.
     """
+    authentication_classes = (SessionAuthentication, TokenAuthentication,)
 
-    queryset = Item.objects.all()
     lookup_field = 'item_id'
 
+    def get_queryset(self):
+        return Item.objects.with_favorited(self.request.user) \
+            if self.request.user.is_authenticated \
+            else Item.objects.all()
+
     def get_serializer_class(self):
-        return ItemPriceLogSerializer
+        return ItemPriceLogFavoriteSerializer if self.request.user.is_authenticated else ItemPriceLogSerializer
 
 
 class ItemPriceLogList(generics.ListAPIView):
     """
     Gets the most recent price logs for each item.
     """
-
-    def get_queryset(self):
-        return PriceLog.objects.filter(
-            date=Subquery(
-                PriceLog.objects
-                    .filter(item=OuterRef('item'))
-                    .values('item')
-                    .annotate(last_price=Max('date'))
-                    .values('last_price')[:1]
-            )
-        )
-
-    def get_serializer_class(self):
-        return PriceLogItemSerializer
+    queryset = PriceLog.objects.most_recent_for_each_item()
+    serializer_class = PriceLogItemSerializer
 
 
 class PriceLogsForItem(generics.ListAPIView):
@@ -93,13 +88,12 @@ class PriceLogsForItem(generics.ListAPIView):
     def get_queryset(self):
         return PriceLog.objects.filter(item__item_id=self.kwargs['item_id'])
 
-    def get_serializer_class(self):
-        return PriceLogSerializer
+    serializer_class = PriceLogSerializer
 
 
 class UserFavoriteList(generics.ListAPIView):
     """
-    Gets the favorite items for a user.
+    Gets the favorited items for a user.
     """
 
     authentication_classes = (SessionAuthentication, TokenAuthentication,)
@@ -108,13 +102,12 @@ class UserFavoriteList(generics.ListAPIView):
     def get_queryset(self):
         return self.request.user.merchant.favorites.all()
 
-    def get_serializer_class(self):
-        return ItemSerializer
+    serializer_class = ItemSerializer
 
 
 class FavoriteCreateDestroy(generics.GenericAPIView, mixins.DestroyModelMixin):
     """
-    Creates and deletes favorites for a given item id and authentication.
+    Manages the creation and deletion of favorites.
     """
 
     authentication_classes = (SessionAuthentication, TokenAuthentication,)
@@ -130,9 +123,37 @@ class FavoriteCreateDestroy(generics.GenericAPIView, mixins.DestroyModelMixin):
         return self.destroy(request, *args, **kwargs)
 
     def post(self, request, version, item_id):
+        """
+        Tries to add a favorited relation for a given item id
+        and returns a 404 if the item does not exist.
+        :param request: The request object.
+        :param version: The api version.
+        :param item_id: The item id.
+        :return: 409 if the relation exists already
+                 404 if the item does not exist
+                 201 if the create was successful
+        """
         try:
             Favorite.objects.create(user=request.user.merchant, item_id=item_id)
-        except IntegrityError as ignore:
-            pass  # unique constraint failed, already added
-        finally:
+        except IntegrityError as err:
+            if 'unique' in err.args[0].lower():
+                return Response({"detail": "Already exists."}, 409)
+            elif 'foreign key' in err.args[0].lower():
+                return Response({"detail": "Not found."}, 404)
+        else:
             return Response(None, 201)
+
+    def get(self, request, version, item_id):
+        """
+        Gets the status of the favorited for a given item id.
+        :param request: The request object.
+        :param version: The api version.
+        :param item_id: The item id.
+        :return: True / False if the item is or isn't favorited
+                 404 if the item does not exist.
+        """
+        try:
+            return Response(True) if Item.objects.with_favorited(request.user).get(
+                item_id=item_id).favorited else Response(False)
+        except Item.DoesNotExist:
+            return Response({"detail": "Not found."}, 404)

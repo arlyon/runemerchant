@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models import Count, Q
+from django.db.models.expressions import RawSQL
 
 from merchapi.models.flip import PriceLog, Flip
 from merchapi.models.user import Merchant
@@ -20,6 +22,14 @@ class ItemManager(models.QuerySet):
         :return:
         """
         pass
+
+    def with_favorited(self, user):
+        """
+        Annotates the items with the favorited status for a user.
+        :param user: The user to get the favorites for.
+        :return:
+        """
+        return self.annotate(favorited=Count('favorite', filter=Q(favorite__user_id=user.id)))
 
 
 class Item(models.Model):

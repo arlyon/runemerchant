@@ -13,7 +13,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from datetime import timedelta
 
-from django.db.models import F, FloatField
+from django.db.models import F, FloatField, Subquery, OuterRef, Max
 from django.db.models.functions import Cast
 
 BASE_DIR = settings.BASE_DIR
@@ -45,6 +45,17 @@ class PriceManager(models.QuerySet):
             profit=F('sell_price') - F('buy_price'),
             roi=Cast(F('sell_price'), FloatField()) / Cast(F('buy_price'), FloatField()),
             demand=Cast(F('buy_volume'), FloatField()) / Cast(F('sell_volume'), FloatField())
+        )
+
+    def most_recent_for_each_item(self):
+        return self.filter(
+            date=Subquery(
+                PriceLog.objects
+                    .filter(item=OuterRef('item'))
+                    .values('item')
+                    .annotate(last_price=Max('date'))
+                    .values('last_price')[:1]
+            )
         )
 
 
