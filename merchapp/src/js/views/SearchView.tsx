@@ -1,6 +1,6 @@
 import React from 'react';
 import {CachedSearch} from "../api/CachedSearch";
-import {ApiItem} from "../api/datatypes";
+import {ApiItem, ApiItemWithPriceLog} from "../api/datatypes";
 import {ListItem} from "../components/ListItem";
 import {TaggedSearchBar} from "../components/TaggedSearchBar";
 import {Footer} from "../components/frame/Footer";
@@ -16,7 +16,7 @@ const placeHolders = [
 ];
 
 interface ISearchViewState {
-    items: ApiItem[]
+    items: ApiItemWithPriceLog[]
 }
 
 export class SearchView extends React.Component<{}, ISearchViewState> {
@@ -42,7 +42,7 @@ export class SearchView extends React.Component<{}, ISearchViewState> {
             <div id="root">
                 <Header name="RuneMerchant" image="/logo_black.svg"/>
                 <main className="container">
-                    <div className="searchContainer">
+                    <div className="verticalContainer">
                         <TaggedSearchBar
                             searchChanged={this.searchChanged}
                             label="Find an item..."

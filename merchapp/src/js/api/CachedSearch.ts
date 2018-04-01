@@ -1,4 +1,4 @@
-import {ApiItem} from "./datatypes";
+import {ApiItemWithPriceLog} from "./datatypes";
 import ApiManager from "./MerchApi";
 
 /**
@@ -7,7 +7,7 @@ import ApiManager from "./MerchApi";
 export class CachedSearch {
 
     private readonly minCharacters: number;
-    private items: ApiItem[] | null;
+    private items: ApiItemWithPriceLog[] | null;
     private tags: string[];
     private name: string;
 
@@ -29,7 +29,7 @@ export class CachedSearch {
      * @param tags
      * @returns {Promise<APIItem[] | null>}
      */
-    public getItemByName = async (name=this.name, tags=this.tags): Promise<ApiItem[] | null> => {
+    public getItemByName = async (name=this.name, tags=this.tags): Promise<ApiItemWithPriceLog[] | null> => {
 
         this.name = name;
 
@@ -39,19 +39,19 @@ export class CachedSearch {
             // if the list of tags has changed, get from the server
             if (tags!.length !== this.tags.length) {
                 this.tags = tags || [];
-                this.items = await ApiManager.getItemByName(this.name, tags);
+                this.items = await ApiManager.getItemsWithPriceByName(this.name, tags);
             }
 
             // if the items list is not null, filter it instead of fetching
             if (this.items != null) {
                 return this.items.filter((item) => item.name.toLowerCase().includes(this.name.toLowerCase()));
             } else {
-                this.items = await ApiManager.getItemByName(this.name, tags);
+                this.items = await ApiManager.getItemsWithPriceByName(this.name, tags);
             }
         }
         // search if 3 characters and no tags
         else if (this.name.length == this.minCharacters) {
-            this.items = await ApiManager.getItemByName(this.name, tags)
+            this.items = await ApiManager.getItemsWithPriceByName(this.name, tags)
         }
         // invalid search, return null
         else {

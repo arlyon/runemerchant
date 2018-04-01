@@ -4,6 +4,10 @@
   "main": "src/main.ts",
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-10",
+    "@fortawesome/pro-light-svg-icons": "^5.1.0-7",
+    "@fortawesome/pro-solid-svg-icons": "^5.1.0-7",
+    "@fortawesome/react-fontawesome": "^0.1.0-8",
     "@types/react": "^16.0.40",
     "@types/react-dom": "^16.0.0",
     "@types/react-router": "^4.0.22",

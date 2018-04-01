@@ -1,8 +1,9 @@
 @import "normalize";
 @import "variables";
-
 @import "modules/card";
 @import "modules/tag";
+@import "modules/search";
+@import "modules/button";
 
 body {
   overflow-y: scroll;
@@ -12,6 +13,10 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: $background;
   font-size: 18px;
+}
+
+a {
+  color: inherit;
 }
 
 #root {
@@ -104,29 +109,6 @@ body {
   }
 }
 
-div.searchContainer {
-  margin: 4em 0;
-}
-
-div.search {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  > .tags {
-    font-size: 2em;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-  }
-  > input {
-    width: 100%;
-    font-size: 2em;
-    padding: 0.2em;
-    border: 0.1em solid $primary;
-    box-sizing: border-box;
-  }
-}
-
 .container {
   margin: 0 auto;
   width: 95vw;
@@ -140,5 +122,36 @@ div.search {
   @media only screen and (min-width: 1200px) {
     width: 1000px;
 
+  }
+}
+
+div.title {
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  h1 {
+    font-size: 1.33em;
+    margin: 0;
+  }
+  .right {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    align-items: center;
+  }
+}
+
+a.bold {
+  font-weight: bold;
+  font-size: 0.8em;
+  margin: 0 0.3em;
+}
+
+div.verticalContainer {
+  margin: 0;
+  // tablet
+  @media only screen and (min-width: 768px) {
+    margin: 4em 0;
   }
 }

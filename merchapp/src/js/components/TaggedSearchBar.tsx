@@ -77,8 +77,7 @@ export class TaggedSearchBar extends React.Component<ISearchProps, ISearchState>
      */
     private handleAddTag = (event: KeyboardEvent) => {
         if (
-            event.code === 'Space' &&
-            event.shiftKey &&
+            event.code === 'Enter' &&
             this.input === document.activeElement &&
             this.state.tags.length < 3
         ) {
@@ -155,7 +154,8 @@ export class TaggedSearchBar extends React.Component<ISearchProps, ISearchState>
     }
 
     componentDidMount() {
-        this.input!.focus()
+        this.input!.focus();
+        this.input!.setSelectionRange(this.state.text.length, this.state.text.length)
     }
 
     /**

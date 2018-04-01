@@ -26,6 +26,7 @@ export interface ApiPriceLogWithItem extends ApiPriceLog {
 export interface ApiItem {
     item_id: number;
     name: string;
+    description: string;
     members: boolean;
 
     store_price: number;
@@ -39,6 +40,13 @@ export interface ApiItem {
  */
 export interface ApiItemWithPriceLog extends ApiItem {
     price_log: ApiPriceLogWithItemID
+}
+
+/**
+ * A price log item with favorited.
+ */
+export interface ApiItemWithPriceLogAndFavorite extends ApiItemWithPriceLog {
+    favorited: boolean
 }
 
 /**

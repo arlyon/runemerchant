@@ -1,4 +1,11 @@
-import {ApiItem, ApiItemWithPriceLog, ApiPriceLogWithItem, ApiPriceLogWithItemID, ApiUser} from "./datatypes";
+import {
+    ApiItem,
+    ApiItemWithPriceLog,
+    ApiItemWithPriceLogAndFavorite,
+    ApiPriceLogWithItem,
+    ApiPriceLogWithItemID,
+    ApiUser
+} from "./datatypes";
 
 /**
  * A set of functions for interacting with the MerchApi
@@ -13,41 +20,59 @@ class MerchApi implements ItemApi, PriceApi, FavoriteApi, AuthApi {
 
     public async getItems() {
         const request = await fetch(`${this.base_url}/api/v1/items/`);
-        const data = await request.json();
-
-        return data as ApiItem[]
+        return await request.json();
     }
 
-    public async getItem(itemId: number) {
-        return {} as ApiItemWithPriceLog
+    public async getItem(itemId: number, token?: string) {
+        const headers = token ? new Headers({Authorization: `Token ${token}`}) : undefined;
+        const request = await fetch(`${this.base_url}/api/v1/items/${itemId}/`, {headers,});
+        return request.status === 404 ? null : await request.json()
     }
 
-    public async getItemByName(name: string, tags?: string[]) {
-        const tagstring = tags ? tags.map(tag => "&tag=" + tag).join("") : "";
-        const request = await fetch(`${this.base_url}/api/v1/items/?name=${name}${tagstring}`);
-        const data = await request.json();
+    public async getItemsByName(name: string, tags?: string[]) {
+        const tagString = tags ? tags.map(tag => "&tag=" + tag).join("") : "";
+        const request = await fetch(`${this.base_url}/api/v1/items/?name=${name}${tagString}`);
+        return await request.json()
+    }
 
-        return data as ApiItem[]
+    public async getItemsWithPriceByName(name: string, tags?: string[]) {
+        const tagString = tags ? tags.map(tag => "&tag=" + tag).join("") : "";
+        const request = await fetch(`${this.base_url}/api/v1/items/?name=${name}${tagString}&prices=true`);
+        return await request.json()
     }
 
     public async getPrices() {
-        return []
+        const request = await fetch(`${this.base_url}/api/v1/prices/`);
+        return await request.json()
     }
 
     public async getPriceLogsForItem(itemId: number) {
-        return []
+        const request = await fetch(`${this.base_url}/api/v1/items/${itemId}/prices/`);
+        return request.status === 404 ? null : await request.json()
     }
 
     public async getFavorites(token: string) {
-        return []
+        const headers = new Headers({Authorization: `Token ${token}`});
+        const request = await fetch(`${this.base_url}/api/v1/favorites/`, {headers,});
+        return await request.json()
     }
 
-    public async favoriteItem(token: string, itemId: number) {
-        return false
+    public async favoriteItem(itemId: number, token: string) {
+        const headers = new Headers({Authorization: `Token ${token}`});
+        const request = await fetch(`${this.base_url}/api/v1/items/${itemId}/favorite/`, {
+            headers,
+            method: 'POST'
+        });
+        return request.status == 201
     };
 
-    public async unFavoriteItem(token: string, itemId: number) {
-        return false
+    public async unFavoriteItem(itemId: number, token: string) {
+        const headers = new Headers({authorization: `Token ${token}`});
+        const request = await fetch(`${this.base_url}/api/v1/items/${itemId}/favorite/`, {
+            headers,
+            method: 'DELETE'
+        });
+        return request.status == 204
     }
 
     public async getUser() {
@@ -61,23 +86,32 @@ class MerchApi implements ItemApi, PriceApi, FavoriteApi, AuthApi {
 
 interface ItemApi {
     getItems: () => Promise<ApiItem[]>
-    getItem: (itemId: number) => Promise<ApiItemWithPriceLog>
-    getItemByName: (name: string) => Promise<ApiItem[]>
+
+    /**
+     * Gets the item corresponding to the given id, or null if the id is invalid.
+     * @param {number} itemId
+     * @param {string} token If included, adds the favorited status to the item.
+     * @returns {Promise<ApiItemWithPriceLog | ApiItemWithPriceLogAndFavorite | null>}
+     */
+    getItem: (itemId: number, token?: string) => Promise<ApiItemWithPriceLog | ApiItemWithPriceLogAndFavorite | null>
+
+    getItemsByName: (name: string, tags?: string[]) => Promise<ApiItem[]>
+    getItemsWithPriceByName: (name: string, tags?: string[]) => Promise<ApiItemWithPriceLog[]>
 }
 
 interface PriceApi {
-    getPriceLogsForItem: (itemId: number) => Promise<ApiPriceLogWithItemID[]>
+    getPriceLogsForItem: (itemId: number) => Promise<ApiPriceLogWithItemID[] | null>
     getPrices: () => Promise<ApiPriceLogWithItem[]>
 }
 
 interface FavoriteApi {
-    favoriteItem: (token: string, itemId: number) => Promise<boolean>
-    unFavoriteItem: (token: string, itemId: number) => Promise<boolean>
+    favoriteItem: (itemId: number, token: string) => Promise<boolean | null>
+    unFavoriteItem: (itemId: number, token: string) => Promise<boolean | null>
     getFavorites: (token: string) => Promise<ApiItem[]>
 }
 
 interface AuthApi {
-    login: (username: string, password: string) => Promise<string>
+    login: (username: string, password: string) => Promise<string | null>
     getUser: () => Promise<ApiUser>
 }
 

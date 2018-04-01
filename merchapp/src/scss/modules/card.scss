@@ -26,7 +26,20 @@ article.card {
           color: black;
           text-decoration: none;
         }
-        .tags {
+        .right {
+          .tooltip {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 0.5em;
+            &.profit {
+              color: $green
+            }
+            &.loss {
+              color: $red
+            }
+          }
           display: flex;
           flex-direction: row;
           align-items: stretch;
