@@ -16,13 +16,6 @@ class MissingItem(models.Model):
 
 class ItemManager(models.QuerySet):
 
-    def with_recent_price(self):
-        """
-        Adds the most recent flip to the returned items.
-        :return:
-        """
-        pass
-
     def with_favorited(self, user):
         """
         Annotates the items with the favorited status for a user.

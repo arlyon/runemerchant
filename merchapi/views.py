@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Iterable, Dict
 
 from django.db import IntegrityError
 from rest_framework import generics, mixins
@@ -7,10 +7,39 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.serializers import Serializer
 
-from merchapi.models import Item, PriceLog, Favorite
-from merchapi.serializers.item import ItemFavoriteSerializer, ItemPriceLogSerializer, ItemPriceLogFavoriteSerializer
+from merchapi.models import Item, PriceLog, Favorite, OuterRef, Max, Subquery
+from merchapi.serializers.item import ItemPriceLogSerializer, ItemPriceLogFavoriteSerializer, ItemFavoriteSerializer, \
+    SingleItemPriceLogSerializer, SingleItemPriceLogFavoriteSerializer
 from merchapi.serializers.base import ItemSerializer, PriceLogSerializer
 from merchapi.serializers.pricelog import PriceLogItemSerializer
+
+
+def item_generator(items: Iterable[Item], price_logs: Dict[int, PriceLog]):
+    for item in items:
+        item.price_log = price_logs[item.item_id] if item.item_id in price_logs else None
+        yield item
+
+
+def include_pricelogs(queryset) -> Iterable[Item]:
+    """
+    Takes a queryset of Items and merges in price data.
+    :param queryset:
+    :return:
+    """
+    latest_prices = PriceLog.objects.filter(
+        date=Subquery(
+            PriceLog.objects
+                .filter(item=OuterRef('item'))
+                .values('item')
+                .annotate(last_price=Max('date'))
+                .values('last_price')[:1]
+        )
+    )
+
+    return item_generator(
+        queryset.order_by('item_id'),
+        {price_log.item_id: price_log for price_log in latest_prices}
+    )
 
 
 class ItemList(generics.ListAPIView):
@@ -32,7 +61,8 @@ class ItemList(generics.ListAPIView):
         """
         Overrides the get queryset function to inject the querystring.
         """
-        queryset = Item.objects.with_favorited(self.request.user) if self.request.user else Item.objects.all()
+
+        queryset = Item.objects.all()
 
         name = self.request.query_params.get('name')
         if name is not None:
@@ -48,10 +78,26 @@ class ItemList(generics.ListAPIView):
         for tag in tags:
             queryset = queryset.filter(tag__name=tag.lower())
 
+        if self.request.user.is_authenticated:
+            queryset = queryset.with_favorited(self.request.user)
+
+        # adds the price to the item
+        if self.request.query_params.get('prices'):
+            return include_pricelogs(queryset)
+
         return queryset
 
     def get_serializer_class(self):
-        return ItemFavoriteSerializer if self.request.user else ItemSerializer
+        if self.request.user.is_authenticated:
+            if self.request.query_params.get('prices'):
+                return ItemPriceLogFavoriteSerializer
+            else:
+                return ItemFavoriteSerializer
+        else:
+            if self.request.query_params.get('prices'):
+                return ItemPriceLogSerializer
+            else:
+                return ItemSerializer
 
 
 class ItemSingle(generics.RetrieveAPIView):
@@ -63,15 +109,17 @@ class ItemSingle(generics.RetrieveAPIView):
     lookup_field = 'item_id'
 
     def get_queryset(self):
-        return Item.objects.with_favorited(self.request.user) \
-            if self.request.user.is_authenticated \
+        return (
+            Item.objects.with_favorited(self.request.user)
+            if self.request.user.is_authenticated
             else Item.objects.all()
+        )
 
     def get_serializer_class(self):
-        return ItemPriceLogFavoriteSerializer if self.request.user.is_authenticated else ItemPriceLogSerializer
+        return SingleItemPriceLogFavoriteSerializer if self.request.user.is_authenticated else SingleItemPriceLogSerializer
 
 
-class ItemPriceLogList(generics.ListAPIView):
+class PriceLogPerItemList(generics.ListAPIView):
     """
     Gets the most recent price logs for each item.
     """

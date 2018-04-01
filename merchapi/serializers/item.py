@@ -19,7 +19,28 @@ class ItemFavoriteSerializer(ItemSerializer):
 @composed_serializer
 class ItemPriceLogSerializer(ItemSerializer):
     """
-    Serializes an Item and embeds the most recent price log.
+    Serializes an Item and embeds the most recent
+    price log. Better performance for many items.
+    """
+    price_log = PriceLogSerializer()
+
+    class Meta:
+        fields = ('price_log',)
+
+
+@composed_serializer
+class ItemPriceLogFavoriteSerializer(ItemFavoriteSerializer, ItemPriceLogSerializer):
+    """
+    A composed serializer consisting of favorites.
+    """
+    pass
+
+
+@composed_serializer
+class SingleItemPriceLogSerializer(ItemSerializer):
+    """
+    Serializes an Item and embeds the most recent
+    price log. Better performance for a single item.
     """
     price_log = SerializerMethodField()
 
@@ -40,9 +61,8 @@ class ItemPriceLogSerializer(ItemSerializer):
 
 
 @composed_serializer
-class ItemPriceLogFavoriteSerializer(ItemFavoriteSerializer, ItemPriceLogSerializer):
+class SingleItemPriceLogFavoriteSerializer(ItemFavoriteSerializer, SingleItemPriceLogSerializer):
     """
     A composed serializer consisting of favorites.
     """
     pass
-
