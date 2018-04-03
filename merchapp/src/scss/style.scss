@@ -2,7 +2,7 @@
 @import "variables";
 @import "modules/card";
 @import "modules/tag";
-@import "modules/search";
+@import "modules/input";
 @import "modules/button";
 
 body {
@@ -25,21 +25,21 @@ a {
   flex-direction: column;
 
   > header.toolbar {
-    > div {
+    > div.title {
       display: flex;
       flex-direction: row;
       align-items: center;
       font-weight: bold;
 
-      a {
-        font-size: 2em;
+      a.logo {
+        font-size: 1.5em;
         text-decoration: none;
         color: black;
         margin: 0.5em;
       }
 
       img {
-        height: 3em;
+        height: 2em;
         margin: 0 0 0 0.5em;
         -webkit-user-drag: none;
       }
@@ -75,6 +75,7 @@ a {
   }
 
   > footer {
+    margin-top: 2em;
     text-align: center;
 
     section {
@@ -137,8 +138,8 @@ div.title {
   .right {
     display: flex;
     flex-direction: row;
-    margin-left: auto;
     align-items: center;
+    margin-left: auto;
   }
 }
 
@@ -148,10 +149,32 @@ a.bold {
   margin: 0 0.3em;
 }
 
-div.verticalContainer {
-  margin: 0;
+.vertical-container {
+  margin-top: 0;
+  margin-bottom: 0;
   // tablet
   @media only screen and (min-width: 768px) {
-    margin: 4em 0;
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+}
+
+.vertical-align {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.token-container {
+  display: flex;
+  .token {
+    margin: 2em auto;
+  }
+}
+
+a.token {
+  transition: color 0.1s ease-in-out;
+  &.valid {
+    color: $green;
   }
 }

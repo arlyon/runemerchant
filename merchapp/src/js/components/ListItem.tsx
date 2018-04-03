@@ -1,8 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {ApiItemWithPriceLog} from "../api/datatypes";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowCircleUp, faArrowCircleDown} from "@fortawesome/pro-light-svg-icons";
 
 export class ListItem extends React.Component<ApiItemWithPriceLog, {}> {
     public render(props?: {}, state?: {}, context?: any) {
@@ -11,7 +9,7 @@ export class ListItem extends React.Component<ApiItemWithPriceLog, {}> {
                 <img src={`/icons/${this.props.item_id}.gif`}/>
                 <div className="content">
                     <header>
-                        <Link to={`/items/${this.props.item_id}`}>{this.props.name}</Link>
+                        <Link to={`/items/${this.props.item_id}/`}>{this.props.name}</Link>
                         <div className="right">
                             {this.props.price_log ? (
                                 <div className={"tooltip " + (this.profit ? "profit" : "loss")}>

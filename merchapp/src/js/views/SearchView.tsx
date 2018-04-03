@@ -1,6 +1,6 @@
 import React from 'react';
 import {CachedSearch} from "../api/CachedSearch";
-import {ApiItem, ApiItemWithPriceLog} from "../api/datatypes";
+import {ApiItemWithPriceLog} from "../api/datatypes";
 import {ListItem} from "../components/ListItem";
 import {TaggedSearchBar} from "../components/TaggedSearchBar";
 import {Footer} from "../components/frame/Footer";
@@ -16,7 +16,7 @@ const placeHolders = [
 ];
 
 interface ISearchViewState {
-    items: ApiItemWithPriceLog[]
+    items: ApiItemWithPriceLog[] | null
 }
 
 export class SearchView extends React.Component<{}, ISearchViewState> {
@@ -34,15 +34,16 @@ export class SearchView extends React.Component<{}, ISearchViewState> {
 
     public render(props?: {}, state?: {}, context?: any): JSX.Element {
 
-        const items = this.state.items.map(
-            (item, index: number) => <ListItem key={index} {...item} />
-        );
+        const items = this.state.items === null ? null :
+            this.state.items.length ?
+                this.state.items.map((item, index: number) => <ListItem key={index} {...item} />)
+                : <h2 style={{textAlign: 'center', marginTop: '2em'}}>No Matches..</h2>;
 
         return (
             <div id="root">
                 <Header name="RuneMerchant" image="/logo_black.svg"/>
                 <main className="container">
-                    <div className="verticalContainer">
+                    <div className="vertical-container">
                         <TaggedSearchBar
                             searchChanged={this.searchChanged}
                             label="Find an item..."
@@ -57,7 +58,7 @@ export class SearchView extends React.Component<{}, ISearchViewState> {
 
     private searchChanged = async (text?: string, tags?: string[]) => {
         this.setState({
-            items: await this.search.getItemByName(text, tags) || []
+            items: await this.search.getItemByName(text, tags)
         })
     };
 }

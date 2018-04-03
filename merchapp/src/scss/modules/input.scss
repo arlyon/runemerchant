@@ -1,0 +1,64 @@
+@import "../variables";
+
+div.search {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  > .tags {
+    font-size: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+  > input {
+    width: 100%;
+    font-size: 2em;
+    padding: 0.2em;
+    border: 0.1em solid $primary;
+    box-sizing: border-box;
+    outline: none;
+  }
+}
+
+div.token {
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  input {
+    margin: 0;
+    padding: 0.2em;
+    border: none;
+    border-top: 0.1em solid $primary;
+    border-bottom: 0.1em solid $primary;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.1s ease-in-out;
+  }
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5em;
+    border: 0.1em solid $primary;
+    border-left: none;
+    transition: border-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  }
+  .tag {
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.1s ease-in-out;
+  }
+
+  &.valid {
+    .tag {
+      background-color: $green;
+    }
+    input {
+      border-color: $green;
+    }
+    .icon-container {
+      color: $green;
+      border-color: $green;
+    }
+  }
+}

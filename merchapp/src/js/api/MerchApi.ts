@@ -7,6 +7,8 @@ import {
     ApiUser
 } from "./datatypes";
 
+import {config} from "../config";
+
 /**
  * A set of functions for interacting with the MerchApi
  */
@@ -75,8 +77,13 @@ class MerchApi implements ItemApi, PriceApi, FavoriteApi, AuthApi {
         return request.status == 204
     }
 
-    public async getUser() {
-        return {} as ApiUser
+    public async getUser(token: string) {
+        const headers = new Headers({authorization: `Token ${token}`});
+        const request = await fetch(`${this.base_url}/api/v1/auth/user/`, {
+            headers,
+        });
+
+        return request.status == 200 ? await request.json() : null
     }
 
     public async login(username: string, password: string) {
@@ -112,7 +119,7 @@ interface FavoriteApi {
 
 interface AuthApi {
     login: (username: string, password: string) => Promise<string | null>
-    getUser: () => Promise<ApiUser>
+    getUser: (token: string) => Promise<ApiUser | null>
 }
 
-export default new MerchApi("http://localhost:8000");
+export default new MerchApi(config.apiUrl);
