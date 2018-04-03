@@ -1,10 +1,12 @@
 import React from 'react';
 import {CachedSearch} from "../api/CachedSearch";
 import {ApiItemWithPriceLog} from "../api/datatypes";
+import {FavoritesList} from "../components/FavoritesList";
 import {ListItem} from "../components/ListItem";
 import {TaggedSearchBar} from "../components/TaggedSearchBar";
 import {Footer} from "../components/frame/Footer";
 import {Header} from "../components/frame/Header";
+import {store} from "../store";
 
 const placeHolders = [
     "gf",
@@ -50,6 +52,7 @@ export class SearchView extends React.Component<{}, ISearchViewState> {
                             placeholder={this.placeholder}/>
                         {items}
                     </div>
+                    {store.token && <FavoritesList token={store.token}/>}
                 </main>
                 <Footer/>
             </div>

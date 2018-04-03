@@ -148,6 +148,7 @@ export class TaggedSearchBar extends React.Component<ISearchProps, ISearchState>
                     onChange={this.handleChange}
                     value={this.state.text}
                     ref={(el) => this.input = el}
+                    title="Item Search"
                 />
             </div>
         );
