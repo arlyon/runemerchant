@@ -10,19 +10,42 @@ export interface IHeaderProps {
     name: string;
 }
 
-export const Header = observer((props: IHeaderProps) =>
-    <header className="toolbar">
-        <div className="container title">
-            <img src={props.image}/>
-            <Link to="/" className="logo">
-                {props.name}
-            </Link>
-            <div className="right">
-                <Link to="/token/" className={"bold vertical-align token" + (store.token ? " valid" : "")}>
-                    api token
-                    <FontAwesomeIcon style={{margin: '0.1em 0 0 0.3em'}} icon={faKey}/>
+@observer
+export class Header extends React.Component<IHeaderProps, {width: number}> {
+
+    constructor(props: IHeaderProps) {
+        super(props);
+        this.state = {width: window.innerWidth}
+    }
+
+    public render() {
+        return <header className="toolbar">
+            <div className="container title">
+                <Link to="/" className="logo">
+                    <img src={this.props.image} alt="logo"/>
+                    {this.state.width > 600 ? this.props.name : "RM"}
                 </Link>
+                <div className="right">
+                    <Link to="/token/" className={"bold vertical-align token"}>
+                        api token
+                        <FontAwesomeIcon className={store.token ? "valid" : ""} style={{margin: '0.1em 0 0 0.3em'}}
+                                         icon={faKey}/>
+                    </Link>
+                </div>
             </div>
-        </div>
-    </header>
-);
+        </header>
+    }
+
+    public componentDidMount() {
+        this.updateWindowWidth();
+        window.addEventListener('resize', this.updateWindowWidth);
+    }
+
+    public componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowWidth);
+    }
+
+    private updateWindowWidth = () => {
+        this.setState({width: window.innerWidth})
+    }
+}

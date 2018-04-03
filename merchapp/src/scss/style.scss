@@ -24,7 +24,12 @@ a {
   display: flex;
   flex-direction: column;
 
+  $header-font: 1.5em;
+  $header-margin: 0.5em;
+
   > header.toolbar {
+    margin: $header-margin 0;
+
     > div.title {
       display: flex;
       flex-direction: row;
@@ -32,16 +37,18 @@ a {
       font-weight: bold;
 
       a.logo {
-        font-size: 1.5em;
+        flex-direction: row;
+        display: flex;
+        align-items: center;
+        font-size: $header-font;
         text-decoration: none;
         color: black;
-        margin: 0.5em;
-      }
 
-      img {
-        height: 2em;
-        margin: 0 0 0 0.5em;
-        -webkit-user-drag: none;
+        img {
+          height: 1.5em;
+          margin: 0 0.5em 0 0;
+          -webkit-user-drag: none;
+        }
       }
     }
 
@@ -51,6 +58,10 @@ a {
     flex: 1;
     display: flex;
     flex-direction: column;
+
+    &.full {
+      min-height: calc(100vh - #{$header-font + 2 * $header-margin});
+    }
 
     &#fourofour {
       background: $primary;
@@ -172,9 +183,17 @@ a.bold {
   }
 }
 
-a.token {
+a.token > svg {
   transition: color 0.1s ease-in-out;
   &.valid {
     color: $green;
   }
+}
+
+.centered {
+  text-align: center;
+}
+
+.light {
+  color: rgba(0, 0, 0, 0.4)
 }
