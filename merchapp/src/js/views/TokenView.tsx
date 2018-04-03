@@ -12,13 +12,23 @@ export class TokenView extends React.Component<{}, {}> {
 
     constructor(props: {}) {
         super(props);
+        this.getUser()
     }
+
+    private getUser = async () => {
+        if (store.token && !store.user) {
+            const user = await MerchApi.getUser(store.token);
+            if (user != null) {
+                store.setUser(user);
+            }
+        }
+    };
 
     public render(props?: {}, state?: {}, context?: any): JSX.Element {
 
         const userData = store.user ? (
-            <div>
-                {store.user.first_name} {store.user.last_name}
+            <div className="centered light">
+                token registered to {store.user.email} {store.user.first_name && `(${store.user.first_name} ${store.user.last_name})`}
             </div>
         ) : null;
 
@@ -46,7 +56,6 @@ export class TokenView extends React.Component<{}, {}> {
 
     private tokenChanged = async (newToken: string | null) => {
         // fetch user endpoint with token
-
         if (newToken) {
             const user = await MerchApi.getUser(newToken);
             if (user != null) {
@@ -57,9 +66,5 @@ export class TokenView extends React.Component<{}, {}> {
             store.setToken(newToken);
             store.setUser(null);
         }
-
-        console.log(newToken)
-
-
     }
 }

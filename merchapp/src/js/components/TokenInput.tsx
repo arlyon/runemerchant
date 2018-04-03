@@ -30,9 +30,17 @@ export class TokenInput extends React.Component<ITokenInputProps, ITokenInputSta
 
     public render(props?: {}, state?: {}, context?: any): JSX.Element {
         return (
-            <div className={"token " + (this.state.valid ? "valid" : "")}>
+            <div className={"token " + (this.state.valid && this.state.input ? "valid" : "")}>
                 <span className="tag"><span>0x</span></span>
-                <input onChange={this.handleChange} type="text" value={this.state.input} size={44} maxLength={40}/>
+                <input
+                    title="Token Input"
+                    onChange={this.handleChange}
+                    type="text"
+                    value={this.state.input}
+                    size={44}
+                    maxLength={40}
+                    pattern="[a-fA-F0-9]+"
+                />
                 <div className="icon-container" onClick={this.revertToLastValid}>
                     <FontAwesomeIcon icon={this.state.valid ? faCheckCircle : faTimesCircle}/>
                 </div>
@@ -46,8 +54,12 @@ export class TokenInput extends React.Component<ITokenInputProps, ITokenInputSta
      * @param {ITokenInputProps} newProps
      */
     public componentWillReceiveProps(newProps: ITokenInputProps) {
+        console.log(newProps)
         if (newProps.token != this.props.token) {
-            this.setState({valid: true})
+            this.setState({
+                valid: true,
+                input: newProps.token || ""
+            })
         }
     };
 
@@ -57,14 +69,13 @@ export class TokenInput extends React.Component<ITokenInputProps, ITokenInputSta
      */
     private handleChange = (event: React.FormEvent<HTMLInputElement>) => {
         const token = event.currentTarget.value || null; // if empty set to null
-        const valid = token != null ? isToken.test(event.currentTarget.value) : true;
 
         this.setState({
             input: event.currentTarget.value,
-            valid,
+            valid: token == this.props.token,
         });
 
-        if ((valid || (token == null)) && token != this.props.token) {
+        if ((isToken.test(token || "") || (token == null)) && token != this.props.token) {
             this.props.tokenChanged(token);
         }
     };
@@ -76,7 +87,7 @@ export class TokenInput extends React.Component<ITokenInputProps, ITokenInputSta
         if (this.state.input != this.props.token) {
             this.setState({
                 input: this.props.token || "",
-                valid: this.props.token != null
+                valid: true
             })
         }
     };
