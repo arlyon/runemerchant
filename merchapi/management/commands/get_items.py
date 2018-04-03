@@ -1,7 +1,7 @@
 from django.core.management import BaseCommand
 
 from merchapi.models import Item
-from lib.merch.scrape import get_new_items
+from util.merch.scrape import get_new_items
 
 
 class Command(BaseCommand):

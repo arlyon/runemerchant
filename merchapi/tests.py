@@ -2,7 +2,7 @@ from django.db.models import OuterRef, Subquery, Max
 from django.test import TestCase, tag
 
 # Create your tests here.
-from lib.merch.scrape import get_new_items, get_prices_for_ids
+from util.merch.scrape import get_new_items, get_prices_for_ids
 from merchapi.models import PriceLog, Item
 
 
