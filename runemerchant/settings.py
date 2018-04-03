@@ -25,10 +25,14 @@ SECRET_KEY = '9qtzl-_@#ahf4!b9(td2%u(_$yoomx$l6#fd#8#-r&oo9t#fu4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '192.168.1.169',
+]
 
 CORS_ORIGIN_WHITELIST = [
     'localhost:8080',
+    '192.168.1.169:8080',
 ]
 
 INSTALLED_APPS = [

@@ -26,7 +26,7 @@ export class FavoritesList extends React.Component<IFavoritesListProps, IFavorit
         return this.state.items.length ? (
             <section>
                 <header><h2>Favorites</h2></header>
-                {this.state.items.map((item: ApiItem) => <ListItem {...item} />)}
+                {this.state.items.map((item: ApiItem, index: number) => <ListItem key={index} {...item} />)}
             </section>
         ) : null;
     }

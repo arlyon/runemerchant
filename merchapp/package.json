@@ -44,7 +44,7 @@
   },
   "scripts": {
     "start": "webpack            --config webpack.dev.js --watch",
-    "serve": "webpack-dev-server --config webpack.dev.js --hot",
+    "serve": "webpack-dev-server --config webpack.dev.js --hot --host 0.0.0.0",
     "build": "webpack            --config webpack.prod.js"
   }
 }
