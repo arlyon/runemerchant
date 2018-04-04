@@ -1,0 +1,92 @@
+[
+  {
+    "model": "merchapi.spell",
+    "pk": 1,
+    "fields": {
+      "name": "Home Teleport",
+      "level": 0,
+      "xp": 0.0
+    }
+  },
+  {
+    "model": "merchapi.spell",
+    "pk": 2,
+    "fields": {
+      "name": "Wind Strike",
+      "level": 1,
+      "xp": 5.5
+    }
+  },
+  {
+    "model": "merchapi.spell",
+    "pk": 3,
+    "fields": {
+      "name": "Lvl-1 Enchant",
+      "level": 7,
+      "xp": 17.5
+    }
+  },
+  {
+    "model": "merchapi.spell",
+    "pk": 4,
+    "fields": {
+      "name": "Low Level Alchemy",
+      "level": 21,
+      "xp": 31.0
+    }
+  },
+  {
+    "model": "merchapi.spell",
+    "pk": 5,
+    "fields": {
+      "name": "High Level Alchemy",
+      "level": 55,
+      "xp": 65.0
+    }
+  },
+  {
+    "model": "merchapi.spell",
+    "pk": 6,
+    "fields": {
+      "name": "Lvl-2 Enchant",
+      "level": 27,
+      "xp": 37.0
+    }
+  },
+  {
+    "model": "merchapi.spell",
+    "pk": 7,
+    "fields": {
+      "name": "Lvl-3 Enchant",
+      "level": 49,
+      "xp": 59.0
+    }
+  },
+  {
+    "model": "merchapi.spell",
+    "pk": 8,
+    "fields": {
+      "name": "Lvl-4 Enchant",
+      "level": 57,
+      "xp": 67.0
+    }
+  },
+  {
+    "model": "merchapi.spell",
+    "pk": 9,
+    "fields": {
+      "name": "Lvl-5 Enchant",
+      "level": 68,
+      "xp": 78.0
+    }
+  },
+  {
+    "model": "merchapi.spell",
+    "pk": 10,
+    "fields": {
+      "name": "Lvl-6 Enchant",
+      "level": 87,
+      "xp": 97.0
+    }
+  }
+]

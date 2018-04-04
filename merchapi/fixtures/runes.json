@@ -1,0 +1,107 @@
+[
+  {
+    "model": "merchapi.rune",
+    "pk": 554,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 555,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 556,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 557,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 558,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 559,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 560,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 561,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 562,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 563,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 564,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 565,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 566,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 4694,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 4695,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 4696,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 4697,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 4698,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 4699,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 9075,
+    "fields": {}
+  },
+  {
+    "model": "merchapi.rune",
+    "pk": 21880,
+    "fields": {}
+  }
+]

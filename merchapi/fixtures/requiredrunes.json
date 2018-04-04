@@ -1,0 +1,182 @@
+[
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 1,
+    "fields": {
+      "spell": 2,
+      "rune": 556,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 2,
+    "fields": {
+      "spell": 2,
+      "rune": 558,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 3,
+    "fields": {
+      "spell": 4,
+      "rune": 554,
+      "quantity": 3
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 4,
+    "fields": {
+      "spell": 5,
+      "rune": 554,
+      "quantity": 5
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 5,
+    "fields": {
+      "spell": 5,
+      "rune": 561,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 6,
+    "fields": {
+      "spell": 4,
+      "rune": 561,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 7,
+    "fields": {
+      "spell": 3,
+      "rune": 564,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 8,
+    "fields": {
+      "spell": 3,
+      "rune": 555,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 9,
+    "fields": {
+      "spell": 6,
+      "rune": 564,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 10,
+    "fields": {
+      "spell": 6,
+      "rune": 556,
+      "quantity": 3
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 11,
+    "fields": {
+      "spell": 7,
+      "rune": 564,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 12,
+    "fields": {
+      "spell": 7,
+      "rune": 554,
+      "quantity": 5
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 13,
+    "fields": {
+      "spell": 8,
+      "rune": 564,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 14,
+    "fields": {
+      "spell": 8,
+      "rune": 557,
+      "quantity": 10
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 15,
+    "fields": {
+      "spell": 9,
+      "rune": 564,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 16,
+    "fields": {
+      "spell": 9,
+      "rune": 555,
+      "quantity": 15
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 17,
+    "fields": {
+      "spell": 9,
+      "rune": 557,
+      "quantity": 15
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 18,
+    "fields": {
+      "spell": 10,
+      "rune": 564,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 19,
+    "fields": {
+      "spell": 10,
+      "rune": 554,
+      "quantity": 20
+    }
+  },
+  {
+    "model": "merchapi.requiredrunes",
+    "pk": 20,
+    "fields": {
+      "spell": 10,
+      "rune": 557,
+      "quantity": 20
+    }
+  }
+]

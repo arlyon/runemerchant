@@ -82,7 +82,7 @@
     "pk": 30,
     "fields": {
       "name": "Bucket of wax",
-      "description": "It\\'s a bucket of wax.",
+      "description": "It's a bucket of wax.",
       "members": true,
       "store_price": 6,
       "buy_limit": null,
@@ -1395,7 +1395,7 @@
     "pk": 247,
     "fields": {
       "name": "Jangerberries",
-      "description": "They don\\'t look very ripe.",
+      "description": "They don't look very ripe.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -1993,7 +1993,7 @@
     "pk": 373,
     "fields": {
       "name": "Swordfish",
-      "description": "I\\'d better be careful eating this!",
+      "description": "I'd better be careful eating this!",
       "members": false,
       "store_price": 200,
       "buy_limit": null,
@@ -2045,7 +2045,7 @@
     "pk": 385,
     "fields": {
       "name": "Shark",
-      "description": "I\\'d better be careful eating this.",
+      "description": "I'd better be careful eating this.",
       "members": true,
       "store_price": 300,
       "buy_limit": null,
@@ -2136,7 +2136,7 @@
     "pk": 405,
     "fields": {
       "name": "Casket",
-      "description": "I hope there\\'s treasure in it.",
+      "description": "I hope there's treasure in it.",
       "members": true,
       "store_price": 50,
       "buy_limit": null,
@@ -2383,7 +2383,7 @@
     "pk": 530,
     "fields": {
       "name": "Bat bones",
-      "description": "Ew it\\'s a pile of bones.",
+      "description": "Ew it's a pile of bones.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -2396,7 +2396,7 @@
     "pk": 532,
     "fields": {
       "name": "Big bones",
-      "description": "Ew it\\'s a pile of bones.",
+      "description": "Ew it's a pile of bones.",
       "members": false,
       "store_price": 1,
       "buy_limit": 3000,
@@ -2409,7 +2409,7 @@
     "pk": 534,
     "fields": {
       "name": "Babydragon bones",
-      "description": "Ew it\\'s a pile of bones.",
+      "description": "Ew it's a pile of bones.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -2435,7 +2435,7 @@
     "pk": 538,
     "fields": {
       "name": "Druid's robe",
-      "description": "Keeps a druid\\'s knees nice and warm.",
+      "description": "Keeps a druid's knees nice and warm.",
       "members": true,
       "store_price": 30,
       "buy_limit": null,
@@ -2461,7 +2461,7 @@
     "pk": 542,
     "fields": {
       "name": "Monk's robe",
-      "description": "Keeps a monk\\'s knees nice and warm.",
+      "description": "Keeps a monk's knees nice and warm.",
       "members": false,
       "store_price": 30,
       "buy_limit": 125,
@@ -2682,7 +2682,7 @@
     "pk": 567,
     "fields": {
       "name": "Unpowered orb",
-      "description": "I\\'d prefer it if it was powered.",
+      "description": "I'd prefer it if it was powered.",
       "members": true,
       "store_price": 100,
       "buy_limit": 10000,
@@ -2825,7 +2825,7 @@
     "pk": 621,
     "fields": {
       "name": "Ship ticket",
-      "description": "Allows you passage on the \\'Lady of the waves\\' ship.",
+      "description": "Allows you passage on the 'Lady of the waves' ship.",
       "members": true,
       "store_price": 5,
       "buy_limit": null,
@@ -2838,7 +2838,7 @@
     "pk": 626,
     "fields": {
       "name": "Pink boots",
-      "description": "They\\'re soft, silky and pink.",
+      "description": "They're soft, silky and pink.",
       "members": true,
       "store_price": 200,
       "buy_limit": null,
@@ -2851,7 +2851,7 @@
     "pk": 628,
     "fields": {
       "name": "Green boots",
-      "description": "They\\'re soft, silky and green.",
+      "description": "They're soft, silky and green.",
       "members": true,
       "store_price": 200,
       "buy_limit": null,
@@ -2864,7 +2864,7 @@
     "pk": 630,
     "fields": {
       "name": "Blue boots",
-      "description": "They\\'re soft, silky and blue.",
+      "description": "They're soft, silky and blue.",
       "members": true,
       "store_price": 200,
       "buy_limit": null,
@@ -2877,7 +2877,7 @@
     "pk": 632,
     "fields": {
       "name": "Cream boots",
-      "description": "They\\'re soft, silky and cream.",
+      "description": "They're soft, silky and cream.",
       "members": true,
       "store_price": 200,
       "buy_limit": null,
@@ -2890,7 +2890,7 @@
     "pk": 634,
     "fields": {
       "name": "Turquoise boots",
-      "description": "They\\'re soft, silky and turquoise.",
+      "description": "They're soft, silky and turquoise.",
       "members": true,
       "store_price": 200,
       "buy_limit": null,
@@ -4177,7 +4177,7 @@
     "pk": 950,
     "fields": {
       "name": "Silk",
-      "description": "It\\'s a sheet of silk.",
+      "description": "It's a sheet of silk.",
       "members": false,
       "store_price": 30,
       "buy_limit": 17000,
@@ -4294,7 +4294,7 @@
     "pk": 981,
     "fields": {
       "name": "Disk of returning",
-      "description": "Used to get out of Thordur\\'s blackhole.",
+      "description": "Used to get out of Thordur's blackhole.",
       "members": false,
       "store_price": 12,
       "buy_limit": null,
@@ -4411,7 +4411,7 @@
     "pk": 1009,
     "fields": {
       "name": "Brass necklace",
-      "description": "I\\'d prefer a gold one.",
+      "description": "I'd prefer a gold one.",
       "members": false,
       "store_price": 30,
       "buy_limit": null,
@@ -4645,7 +4645,7 @@
     "pk": 1050,
     "fields": {
       "name": "Santa hat",
-      "description": "It\\'s a Santa hat.",
+      "description": "It's a Santa hat.",
       "members": false,
       "store_price": 160,
       "buy_limit": null,
@@ -4658,7 +4658,7 @@
     "pk": 1053,
     "fields": {
       "name": "Green halloween mask",
-      "description": "Aaaarrrghhh ... I\\'m a monster.",
+      "description": "Aaaarrrghhh ... I'm a monster.",
       "members": false,
       "store_price": 15,
       "buy_limit": null,
@@ -4671,7 +4671,7 @@
     "pk": 1055,
     "fields": {
       "name": "Blue halloween mask",
-      "description": "Aaaarrrghhh ... I\\'m a monster.",
+      "description": "Aaaarrrghhh ... I'm a monster.",
       "members": false,
       "store_price": 15,
       "buy_limit": null,
@@ -4684,7 +4684,7 @@
     "pk": 1057,
     "fields": {
       "name": "Red halloween mask",
-      "description": "Aaaarrrghhh ... I\\'m a monster.",
+      "description": "Aaaarrrghhh ... I'm a monster.",
       "members": false,
       "store_price": 15,
       "buy_limit": null,
@@ -6465,7 +6465,7 @@
     "pk": 1335,
     "fields": {
       "name": "Iron warhammer",
-      "description": "I don\\'t think it\\'s intended for joinery.",
+      "description": "I don't think it's intended for joinery.",
       "members": false,
       "store_price": 173,
       "buy_limit": null,
@@ -6478,7 +6478,7 @@
     "pk": 1337,
     "fields": {
       "name": "Bronze warhammer",
-      "description": "I don\\'t think it\\'s intended for joinery.",
+      "description": "I don't think it's intended for joinery.",
       "members": false,
       "store_price": 47,
       "buy_limit": null,
@@ -6491,7 +6491,7 @@
     "pk": 1339,
     "fields": {
       "name": "Steel warhammer",
-      "description": "I don\\'t think it\\'s intended for joinery.",
+      "description": "I don't think it's intended for joinery.",
       "members": false,
       "store_price": 640,
       "buy_limit": null,
@@ -6504,7 +6504,7 @@
     "pk": 1341,
     "fields": {
       "name": "Black warhammer",
-      "description": "I don\\'t think it\\'s intended for joinery.",
+      "description": "I don't think it's intended for joinery.",
       "members": false,
       "store_price": 980,
       "buy_limit": null,
@@ -6517,7 +6517,7 @@
     "pk": 1343,
     "fields": {
       "name": "Mithril warhammer",
-      "description": "I don\\'t think it\\'s intended for joinery.",
+      "description": "I don't think it's intended for joinery.",
       "members": false,
       "store_price": 1660,
       "buy_limit": null,
@@ -6530,7 +6530,7 @@
     "pk": 1345,
     "fields": {
       "name": "Adamant warhammer",
-      "description": "I don\\'t think it\\'s intended for joinery.",
+      "description": "I don't think it's intended for joinery.",
       "members": false,
       "store_price": 4120,
       "buy_limit": null,
@@ -6543,7 +6543,7 @@
     "pk": 1347,
     "fields": {
       "name": "Rune warhammer",
-      "description": "I don\\'t think it\\'s intended for joinery.",
+      "description": "I don't think it's intended for joinery.",
       "members": false,
       "store_price": 41500,
       "buy_limit": null,
@@ -6556,7 +6556,7 @@
     "pk": 1349,
     "fields": {
       "name": "Iron axe",
-      "description": "A woodcutter\\'s axe.",
+      "description": "A woodcutter's axe.",
       "members": false,
       "store_price": 56,
       "buy_limit": 40,
@@ -6569,7 +6569,7 @@
     "pk": 1351,
     "fields": {
       "name": "Bronze axe",
-      "description": "A woodcutter\\'s axe.",
+      "description": "A woodcutter's axe.",
       "members": false,
       "store_price": 16,
       "buy_limit": 40,
@@ -6582,7 +6582,7 @@
     "pk": 1353,
     "fields": {
       "name": "Steel axe",
-      "description": "A woodcutter\\'s axe.",
+      "description": "A woodcutter's axe.",
       "members": false,
       "store_price": 200,
       "buy_limit": null,
@@ -6751,7 +6751,7 @@
     "pk": 1379,
     "fields": {
       "name": "Staff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": false,
       "store_price": 15,
       "buy_limit": 125,
@@ -6829,7 +6829,7 @@
     "pk": 1391,
     "fields": {
       "name": "Battlestaff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 7000,
       "buy_limit": 11000,
@@ -6842,7 +6842,7 @@
     "pk": 1393,
     "fields": {
       "name": "Fire battlestaff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 15500,
       "buy_limit": 500,
@@ -6855,7 +6855,7 @@
     "pk": 1395,
     "fields": {
       "name": "Water battlestaff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 15500,
       "buy_limit": null,
@@ -6868,7 +6868,7 @@
     "pk": 1397,
     "fields": {
       "name": "Air battlestaff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 15500,
       "buy_limit": 14000,
@@ -6881,7 +6881,7 @@
     "pk": 1399,
     "fields": {
       "name": "Earth battlestaff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 15500,
       "buy_limit": 500,
@@ -6894,7 +6894,7 @@
     "pk": 1401,
     "fields": {
       "name": "Mystic fire staff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 42500,
       "buy_limit": null,
@@ -6907,7 +6907,7 @@
     "pk": 1403,
     "fields": {
       "name": "Mystic water staff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 42500,
       "buy_limit": null,
@@ -6920,7 +6920,7 @@
     "pk": 1405,
     "fields": {
       "name": "Mystic air staff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 42500,
       "buy_limit": null,
@@ -6933,7 +6933,7 @@
     "pk": 1407,
     "fields": {
       "name": "Mystic earth staff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 42500,
       "buy_limit": null,
@@ -8207,7 +8207,7 @@
     "pk": 1741,
     "fields": {
       "name": "Leather",
-      "description": "It\\'s a piece of leather.",
+      "description": "It's a piece of leather.",
       "members": false,
       "store_price": 1,
       "buy_limit": 13000,
@@ -8220,7 +8220,7 @@
     "pk": 1743,
     "fields": {
       "name": "Hard leather",
-      "description": "It\\'s a piece of hard leather.",
+      "description": "It's a piece of hard leather.",
       "members": false,
       "store_price": 1,
       "buy_limit": null,
@@ -8233,7 +8233,7 @@
     "pk": 1745,
     "fields": {
       "name": "Green dragon leather",
-      "description": "It\\'s a piece of prepared green dragonhide.",
+      "description": "It's a piece of prepared green dragonhide.",
       "members": true,
       "store_price": 50,
       "buy_limit": 13000,
@@ -8324,7 +8324,7 @@
     "pk": 1759,
     "fields": {
       "name": "Ball of wool",
-      "description": "Spun from sheeps\\' wool.",
+      "description": "Spun from sheeps' wool.",
       "members": false,
       "store_price": 2,
       "buy_limit": 13000,
@@ -8584,7 +8584,7 @@
     "pk": 1831,
     "fields": {
       "name": "Waterskin(0)",
-      "description": "A completely empty waterskin - you\\'ll need to fill it up.",
+      "description": "A completely empty waterskin - you'll need to fill it up.",
       "members": true,
       "store_price": 15,
       "buy_limit": null,
@@ -8844,7 +8844,7 @@
     "pk": 1907,
     "fields": {
       "name": "Wizard's mind bomb",
-      "description": "It\\'s got strange bubbles in it.",
+      "description": "It's got strange bubbles in it.",
       "members": false,
       "store_price": 2,
       "buy_limit": null,
@@ -8935,7 +8935,7 @@
     "pk": 1921,
     "fields": {
       "name": "Bowl of water",
-      "description": "It\\'s a bowl of water.",
+      "description": "It's a bowl of water.",
       "members": false,
       "store_price": 4,
       "buy_limit": null,
@@ -8961,7 +8961,7 @@
     "pk": 1925,
     "fields": {
       "name": "Bucket",
-      "description": "It\\'s a wooden bucket.",
+      "description": "It's a wooden bucket.",
       "members": false,
       "store_price": 2,
       "buy_limit": 13000,
@@ -8974,7 +8974,7 @@
     "pk": 1927,
     "fields": {
       "name": "Bucket of milk",
-      "description": "It\\'s a bucket of milk.",
+      "description": "It's a bucket of milk.",
       "members": false,
       "store_price": 6,
       "buy_limit": null,
@@ -8987,7 +8987,7 @@
     "pk": 1929,
     "fields": {
       "name": "Bucket of water",
-      "description": "It\\'s a bucket of water.",
+      "description": "It's a bucket of water.",
       "members": false,
       "store_price": 6,
       "buy_limit": null,
@@ -9039,7 +9039,7 @@
     "pk": 1937,
     "fields": {
       "name": "Jug of water",
-      "description": "It\\'s full of water.",
+      "description": "It's full of water.",
       "members": false,
       "store_price": 1,
       "buy_limit": 13000,
@@ -9221,7 +9221,7 @@
     "pk": 1965,
     "fields": {
       "name": "Cabbage",
-      "description": "Yuck I don\\'t like cabbage.",
+      "description": "Yuck I don't like cabbage.",
       "members": false,
       "store_price": 1,
       "buy_limit": null,
@@ -9273,7 +9273,7 @@
     "pk": 1975,
     "fields": {
       "name": "Chocolate dust",
-      "description": "It\\'s ground up chocolate.",
+      "description": "It's ground up chocolate.",
       "members": false,
       "store_price": 2,
       "buy_limit": null,
@@ -9325,7 +9325,7 @@
     "pk": 1985,
     "fields": {
       "name": "Cheese",
-      "description": "It\\'s got holes in it.",
+      "description": "It's got holes in it.",
       "members": false,
       "store_price": 4,
       "buy_limit": null,
@@ -9351,7 +9351,7 @@
     "pk": 1989,
     "fields": {
       "name": "Half full wine jug",
-      "description": "An optimist would say it\\'s half full.",
+      "description": "An optimist would say it's half full.",
       "members": false,
       "store_price": 1,
       "buy_limit": null,
@@ -9364,7 +9364,7 @@
     "pk": 1993,
     "fields": {
       "name": "Jug of wine",
-      "description": "It\\'s full of wine.",
+      "description": "It's full of wine.",
       "members": false,
       "store_price": 1,
       "buy_limit": 6000,
@@ -9377,7 +9377,7 @@
     "pk": 2003,
     "fields": {
       "name": "Stew",
-      "description": "It\\'s a meat and potato stew.",
+      "description": "It's a meat and potato stew.",
       "members": false,
       "store_price": 20,
       "buy_limit": 10000,
@@ -9403,7 +9403,7 @@
     "pk": 2011,
     "fields": {
       "name": "Curry",
-      "description": "It\\'s a spicy hot curry.",
+      "description": "It's a spicy hot curry.",
       "members": true,
       "store_price": 20,
       "buy_limit": null,
@@ -9975,7 +9975,7 @@
     "pk": 2152,
     "fields": {
       "name": "Toad's legs",
-      "description": "They\\'re a gnome delicacy apparently.",
+      "description": "They're a gnome delicacy apparently.",
       "members": true,
       "store_price": 2,
       "buy_limit": null,
@@ -9988,7 +9988,7 @@
     "pk": 2162,
     "fields": {
       "name": "King worm",
-      "description": "They\\'re a gnome delicacy apparently.",
+      "description": "They're a gnome delicacy apparently.",
       "members": true,
       "store_price": 2,
       "buy_limit": null,
@@ -10040,7 +10040,7 @@
     "pk": 2167,
     "fields": {
       "name": "Gianne's cook book",
-      "description": "Aluft Gianne\\'s favorite dishes.",
+      "description": "Aluft Gianne's favorite dishes.",
       "members": true,
       "store_price": 2,
       "buy_limit": null,
@@ -10053,7 +10053,7 @@
     "pk": 2169,
     "fields": {
       "name": "Gnome spice",
-      "description": "It\\'s Aluft Gianne\\'s secret mix of spices.",
+      "description": "It's Aluft Gianne's secret mix of spices.",
       "members": true,
       "store_price": 2,
       "buy_limit": null,
@@ -10066,7 +10066,7 @@
     "pk": 2171,
     "fields": {
       "name": "Gianne dough",
-      "description": "It\\'s made from a secret recipe.",
+      "description": "It's made from a secret recipe.",
       "members": true,
       "store_price": 2,
       "buy_limit": null,
@@ -10677,7 +10677,7 @@
     "pk": 2349,
     "fields": {
       "name": "Bronze bar",
-      "description": "It\\'s a bar of bronze.",
+      "description": "It's a bar of bronze.",
       "members": false,
       "store_price": 8,
       "buy_limit": null,
@@ -10690,7 +10690,7 @@
     "pk": 2351,
     "fields": {
       "name": "Iron bar",
-      "description": "It\\'s a bar of iron.",
+      "description": "It's a bar of iron.",
       "members": false,
       "store_price": 28,
       "buy_limit": 10000,
@@ -10703,7 +10703,7 @@
     "pk": 2353,
     "fields": {
       "name": "Steel bar",
-      "description": "It\\'s a bar of steel.",
+      "description": "It's a bar of steel.",
       "members": false,
       "store_price": 100,
       "buy_limit": null,
@@ -10716,7 +10716,7 @@
     "pk": 2355,
     "fields": {
       "name": "Silver bar",
-      "description": "It\\'s a bar of silver.",
+      "description": "It's a bar of silver.",
       "members": false,
       "store_price": 150,
       "buy_limit": null,
@@ -10729,7 +10729,7 @@
     "pk": 2357,
     "fields": {
       "name": "Gold bar",
-      "description": "It\\'s a bar of gold.",
+      "description": "It's a bar of gold.",
       "members": false,
       "store_price": 300,
       "buy_limit": 10000,
@@ -10742,7 +10742,7 @@
     "pk": 2359,
     "fields": {
       "name": "Mithril bar",
-      "description": "It\\'s a bar of mithril.",
+      "description": "It's a bar of mithril.",
       "members": false,
       "store_price": 300,
       "buy_limit": 10000,
@@ -10755,7 +10755,7 @@
     "pk": 2361,
     "fields": {
       "name": "Adamantite bar",
-      "description": "It\\'s a bar of adamantite.",
+      "description": "It's a bar of adamantite.",
       "members": false,
       "store_price": 640,
       "buy_limit": 10000,
@@ -10768,7 +10768,7 @@
     "pk": 2363,
     "fields": {
       "name": "Runite bar",
-      "description": "It\\'s a bar of runite.",
+      "description": "It's a bar of runite.",
       "members": false,
       "store_price": 5000,
       "buy_limit": null,
@@ -11301,7 +11301,7 @@
     "pk": 2505,
     "fields": {
       "name": "Blue dragon leather",
-      "description": "It\\'s a piece of prepared blue dragonhide.",
+      "description": "It's a piece of prepared blue dragonhide.",
       "members": true,
       "store_price": 70,
       "buy_limit": null,
@@ -11314,7 +11314,7 @@
     "pk": 2507,
     "fields": {
       "name": "Red dragon leather",
-      "description": "It\\'s a piece of prepared red dragonhide.",
+      "description": "It's a piece of prepared red dragonhide.",
       "members": true,
       "store_price": 90,
       "buy_limit": null,
@@ -11327,7 +11327,7 @@
     "pk": 2509,
     "fields": {
       "name": "Black dragon leather",
-      "description": "It\\'s a piece of prepared black dragonhide.",
+      "description": "It's a piece of prepared black dragonhide.",
       "members": true,
       "store_price": 110,
       "buy_limit": 11000,
@@ -11899,7 +11899,7 @@
     "pk": 2645,
     "fields": {
       "name": "Red headband",
-      "description": "A minimalist\\'s hat.",
+      "description": "A minimalist's hat.",
       "members": true,
       "store_price": 40,
       "buy_limit": null,
@@ -11912,7 +11912,7 @@
     "pk": 2647,
     "fields": {
       "name": "Black headband",
-      "description": "A minimalist\\'s hat.",
+      "description": "A minimalist's hat.",
       "members": true,
       "store_price": 40,
       "buy_limit": null,
@@ -11925,7 +11925,7 @@
     "pk": 2649,
     "fields": {
       "name": "Brown headband",
-      "description": "A minimalist\\'s hat.",
+      "description": "A minimalist's hat.",
       "members": true,
       "store_price": 40,
       "buy_limit": null,
@@ -12549,7 +12549,7 @@
     "pk": 2961,
     "fields": {
       "name": "Silver sickle",
-      "description": "It\\'s a silver sickle.",
+      "description": "It's a silver sickle.",
       "members": true,
       "store_price": 175,
       "buy_limit": null,
@@ -12965,7 +12965,7 @@
     "pk": 3053,
     "fields": {
       "name": "Lava battlestaff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 17000,
       "buy_limit": 8,
@@ -12978,7 +12978,7 @@
     "pk": 3054,
     "fields": {
       "name": "Mystic lava staff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 45000,
       "buy_limit": null,
@@ -13745,7 +13745,7 @@
     "pk": 3408,
     "fields": {
       "name": "Serum 207 (4)",
-      "description": "4 doses serum 207 as described in Herbi Flax\\'s diary.",
+      "description": "4 doses serum 207 as described in Herbi Flax's diary.",
       "members": true,
       "store_price": 14,
       "buy_limit": null,
@@ -13758,7 +13758,7 @@
     "pk": 3410,
     "fields": {
       "name": "Serum 207 (3)",
-      "description": "3 doses serum 207 as described in Herbi Flax\\'s diary.",
+      "description": "3 doses serum 207 as described in Herbi Flax's diary.",
       "members": true,
       "store_price": 13,
       "buy_limit": null,
@@ -13771,7 +13771,7 @@
     "pk": 3412,
     "fields": {
       "name": "Serum 207 (2)",
-      "description": "2 doses serum 207 as described in Herbi Flax\\'s diary.",
+      "description": "2 doses serum 207 as described in Herbi Flax's diary.",
       "members": true,
       "store_price": 13,
       "buy_limit": null,
@@ -13784,7 +13784,7 @@
     "pk": 3414,
     "fields": {
       "name": "Serum 207 (1)",
-      "description": "1 dose serum 207 as described in Herbi Flax\\'s diary.",
+      "description": "1 dose serum 207 as described in Herbi Flax's diary.",
       "members": true,
       "store_price": 11,
       "buy_limit": null,
@@ -14733,7 +14733,7 @@
     "pk": 4014,
     "fields": {
       "name": "Monkey bar",
-      "description": "It\\'s a monkey bar. It looks highly nutritious.",
+      "description": "It's a monkey bar. It looks highly nutritious.",
       "members": true,
       "store_price": 50,
       "buy_limit": null,
@@ -14746,7 +14746,7 @@
     "pk": 4016,
     "fields": {
       "name": "Banana stew",
-      "description": "It\\'s a bowl full of mushy banana.",
+      "description": "It's a bowl full of mushy banana.",
       "members": true,
       "store_price": 300,
       "buy_limit": null,
@@ -15071,7 +15071,7 @@
     "pk": 4156,
     "fields": {
       "name": "Mirror shield",
-      "description": "I can just about see things in this shield\\'s reflection.",
+      "description": "I can just about see things in this shield's reflection.",
       "members": true,
       "store_price": 5000,
       "buy_limit": null,
@@ -15201,7 +15201,7 @@
     "pk": 4298,
     "fields": {
       "name": "Ham shirt",
-      "description": "The label says \\'Vivid Crimson\\', but it looks pink to me!",
+      "description": "The label says 'Vivid Crimson', but it looks pink to me!",
       "members": true,
       "store_price": 75,
       "buy_limit": null,
@@ -15214,7 +15214,7 @@
     "pk": 4300,
     "fields": {
       "name": "Ham robe",
-      "description": "The label says \\'Vivid Crimson\\', but it looks pink to me!",
+      "description": "The label says 'Vivid Crimson', but it looks pink to me!",
       "members": true,
       "store_price": 75,
       "buy_limit": null,
@@ -16033,7 +16033,7 @@
     "pk": 4456,
     "fields": {
       "name": "Bowl of hot water",
-      "description": "It\\'s a bowl of hot water.",
+      "description": "It's a bowl of hot water.",
       "members": true,
       "store_price": 10,
       "buy_limit": null,
@@ -16059,7 +16059,7 @@
     "pk": 4460,
     "fields": {
       "name": "Cup of hot water",
-      "description": "It\\'s hot!",
+      "description": "It's hot!",
       "members": true,
       "store_price": 10,
       "buy_limit": null,
@@ -16241,7 +16241,7 @@
     "pk": 4551,
     "fields": {
       "name": "Spiny helmet",
-      "description": "You don\\'t want to wear it inside-out.",
+      "description": "You don't want to wear it inside-out.",
       "members": true,
       "store_price": 650,
       "buy_limit": null,
@@ -16423,7 +16423,7 @@
     "pk": 4687,
     "fields": {
       "name": "Bucket of sap",
-      "description": "It\\'s a bucket of sap.",
+      "description": "It's a bucket of sap.",
       "members": true,
       "store_price": 30,
       "buy_limit": null,
@@ -16527,7 +16527,7 @@
     "pk": 4708,
     "fields": {
       "name": "Ahrim's hood",
-      "description": "Ahrim the Blighted\\'s leather hood.",
+      "description": "Ahrim the Blighted's leather hood.",
       "members": true,
       "store_price": 13000,
       "buy_limit": null,
@@ -16540,7 +16540,7 @@
     "pk": 4710,
     "fields": {
       "name": "Ahrim's staff",
-      "description": "Ahrim the Blighted\\'s quarterstaff.",
+      "description": "Ahrim the Blighted's quarterstaff.",
       "members": true,
       "store_price": 85000,
       "buy_limit": null,
@@ -16553,7 +16553,7 @@
     "pk": 4712,
     "fields": {
       "name": "Ahrim's robetop",
-      "description": "Ahrim the Blighted\\'s armoured robe top.",
+      "description": "Ahrim the Blighted's armoured robe top.",
       "members": true,
       "store_price": 50000,
       "buy_limit": null,
@@ -16566,7 +16566,7 @@
     "pk": 4714,
     "fields": {
       "name": "Ahrim's robeskirt",
-      "description": "Ahrim the Blighted\\'s armoured robe skirt.",
+      "description": "Ahrim the Blighted's armoured robe skirt.",
       "members": true,
       "store_price": 47000,
       "buy_limit": null,
@@ -16579,7 +16579,7 @@
     "pk": 4716,
     "fields": {
       "name": "Dharok's helm",
-      "description": "Dharok the Wretched\\'s helm.",
+      "description": "Dharok the Wretched's helm.",
       "members": true,
       "store_price": 103000,
       "buy_limit": null,
@@ -16592,7 +16592,7 @@
     "pk": 4718,
     "fields": {
       "name": "Dharok's greataxe",
-      "description": "Dharok the Wretched\\'s greataxe.",
+      "description": "Dharok the Wretched's greataxe.",
       "members": true,
       "store_price": 208000,
       "buy_limit": null,
@@ -16605,7 +16605,7 @@
     "pk": 4720,
     "fields": {
       "name": "Dharok's platebody",
-      "description": "Dharok the Wretched\\'s plate body armour.",
+      "description": "Dharok the Wretched's plate body armour.",
       "members": true,
       "store_price": 280000,
       "buy_limit": null,
@@ -16618,7 +16618,7 @@
     "pk": 4722,
     "fields": {
       "name": "Dharok's platelegs",
-      "description": "Dharok the Wretched\\'s plate leg armour.",
+      "description": "Dharok the Wretched's plate leg armour.",
       "members": true,
       "store_price": 275000,
       "buy_limit": null,
@@ -16631,7 +16631,7 @@
     "pk": 4724,
     "fields": {
       "name": "Guthan's helm",
-      "description": "Guthan the Infested\\'s helm.",
+      "description": "Guthan the Infested's helm.",
       "members": true,
       "store_price": 103000,
       "buy_limit": null,
@@ -16644,7 +16644,7 @@
     "pk": 4726,
     "fields": {
       "name": "Guthan's warspear",
-      "description": "Guthan the Infested\\'s warspear.",
+      "description": "Guthan the Infested's warspear.",
       "members": true,
       "store_price": 100000,
       "buy_limit": null,
@@ -16657,7 +16657,7 @@
     "pk": 4728,
     "fields": {
       "name": "Guthan's platebody",
-      "description": "Guthan the Infested\\'s plate body armour.",
+      "description": "Guthan the Infested's plate body armour.",
       "members": true,
       "store_price": 280000,
       "buy_limit": null,
@@ -16670,7 +16670,7 @@
     "pk": 4730,
     "fields": {
       "name": "Guthan's chainskirt",
-      "description": "Guthan the Infested\\'s chainskirt.",
+      "description": "Guthan the Infested's chainskirt.",
       "members": true,
       "store_price": 275000,
       "buy_limit": null,
@@ -16683,7 +16683,7 @@
     "pk": 4732,
     "fields": {
       "name": "Karil's coif",
-      "description": "Karil the Tainted\\'s coif.",
+      "description": "Karil the Tainted's coif.",
       "members": true,
       "store_price": 13000,
       "buy_limit": null,
@@ -16696,7 +16696,7 @@
     "pk": 4734,
     "fields": {
       "name": "Karil's crossbow",
-      "description": "Karil the Tainted\\'s repeating crossbow.",
+      "description": "Karil the Tainted's repeating crossbow.",
       "members": true,
       "store_price": 160000,
       "buy_limit": null,
@@ -16709,7 +16709,7 @@
     "pk": 4736,
     "fields": {
       "name": "Karil's leathertop",
-      "description": "Karil the Tainted\\'s leather body armour.",
+      "description": "Karil the Tainted's leather body armour.",
       "members": true,
       "store_price": 50000,
       "buy_limit": null,
@@ -16722,7 +16722,7 @@
     "pk": 4738,
     "fields": {
       "name": "Karil's leatherskirt",
-      "description": "Karil the Tainted\\'s leather skirt.",
+      "description": "Karil the Tainted's leather skirt.",
       "members": true,
       "store_price": 47000,
       "buy_limit": null,
@@ -16748,7 +16748,7 @@
     "pk": 4745,
     "fields": {
       "name": "Torag's helm",
-      "description": "Torag the Corrupted\\'s helm.",
+      "description": "Torag the Corrupted's helm.",
       "members": true,
       "store_price": 103000,
       "buy_limit": null,
@@ -16761,7 +16761,7 @@
     "pk": 4747,
     "fields": {
       "name": "Torag's hammers",
-      "description": "Torag the Corrupted\\'s twin hammers.",
+      "description": "Torag the Corrupted's twin hammers.",
       "members": true,
       "store_price": 160000,
       "buy_limit": null,
@@ -16774,7 +16774,7 @@
     "pk": 4749,
     "fields": {
       "name": "Torag's platebody",
-      "description": "Torag the Corrupted\\'s plate body armour.",
+      "description": "Torag the Corrupted's plate body armour.",
       "members": true,
       "store_price": 280000,
       "buy_limit": null,
@@ -16787,7 +16787,7 @@
     "pk": 4751,
     "fields": {
       "name": "Torag's platelegs",
-      "description": "Torag the Corrupted\\'s plate leg armour.",
+      "description": "Torag the Corrupted's plate leg armour.",
       "members": true,
       "store_price": 275000,
       "buy_limit": null,
@@ -16800,7 +16800,7 @@
     "pk": 4753,
     "fields": {
       "name": "Verac's helm",
-      "description": "Verac the Defiled\\'s helm.",
+      "description": "Verac the Defiled's helm.",
       "members": true,
       "store_price": 103000,
       "buy_limit": null,
@@ -16813,7 +16813,7 @@
     "pk": 4755,
     "fields": {
       "name": "Verac's flail",
-      "description": "Verac the Defiled\\'s flail.",
+      "description": "Verac the Defiled's flail.",
       "members": true,
       "store_price": 160000,
       "buy_limit": null,
@@ -16826,7 +16826,7 @@
     "pk": 4757,
     "fields": {
       "name": "Verac's brassard",
-      "description": "Verac the Defiled\\'s brassard.",
+      "description": "Verac the Defiled's brassard.",
       "members": true,
       "store_price": 280000,
       "buy_limit": null,
@@ -16839,7 +16839,7 @@
     "pk": 4759,
     "fields": {
       "name": "Verac's plateskirt",
-      "description": "Verac the Defiled\\'s plate skirt.",
+      "description": "Verac the Defiled's plate skirt.",
       "members": true,
       "store_price": 275000,
       "buy_limit": null,
@@ -17099,7 +17099,7 @@
     "pk": 4842,
     "fields": {
       "name": "Relicym's balm(4)",
-      "description": "4 doses of Relicym\\'s balm, which helps cure disease.",
+      "description": "4 doses of Relicym's balm, which helps cure disease.",
       "members": true,
       "store_price": 225,
       "buy_limit": null,
@@ -17112,7 +17112,7 @@
     "pk": 4844,
     "fields": {
       "name": "Relicym's balm(3)",
-      "description": "3 doses of Relicym\\'s balm, which helps cure disease.",
+      "description": "3 doses of Relicym's balm, which helps cure disease.",
       "members": true,
       "store_price": 200,
       "buy_limit": null,
@@ -17125,7 +17125,7 @@
     "pk": 4846,
     "fields": {
       "name": "Relicym's balm(2)",
-      "description": "2 doses of Relicym\\'s balm, which helps cure disease.",
+      "description": "2 doses of Relicym's balm, which helps cure disease.",
       "members": true,
       "store_price": 150,
       "buy_limit": null,
@@ -17138,7 +17138,7 @@
     "pk": 4848,
     "fields": {
       "name": "Relicym's balm(1)",
-      "description": "1 dose of Relicym\\'s balm, which helps cure disease.",
+      "description": "1 dose of Relicym's balm, which helps cure disease.",
       "members": true,
       "store_price": 75,
       "buy_limit": null,
@@ -17164,7 +17164,7 @@
     "pk": 4860,
     "fields": {
       "name": "Ahrim's hood 0",
-      "description": "Ahrim the Blighted\\'s leather hood.",
+      "description": "Ahrim the Blighted's leather hood.",
       "members": true,
       "store_price": 13000,
       "buy_limit": null,
@@ -17177,7 +17177,7 @@
     "pk": 4866,
     "fields": {
       "name": "Ahrim's staff 0",
-      "description": "Ahrim the Blighted\\'s quarterstaff.",
+      "description": "Ahrim the Blighted's quarterstaff.",
       "members": true,
       "store_price": 85000,
       "buy_limit": null,
@@ -17190,7 +17190,7 @@
     "pk": 4872,
     "fields": {
       "name": "Ahrim's robetop 0",
-      "description": "Ahrim the Blighted\\'s armoured robe top.",
+      "description": "Ahrim the Blighted's armoured robe top.",
       "members": true,
       "store_price": 50000,
       "buy_limit": null,
@@ -17203,7 +17203,7 @@
     "pk": 4878,
     "fields": {
       "name": "Ahrim's robeskirt 0",
-      "description": "Ahrim the Blighted\\'s armoured robe skirt.",
+      "description": "Ahrim the Blighted's armoured robe skirt.",
       "members": true,
       "store_price": 47000,
       "buy_limit": null,
@@ -17216,7 +17216,7 @@
     "pk": 4884,
     "fields": {
       "name": "Dharok's helm 0",
-      "description": "Dharok the Wretched\\'s helm.",
+      "description": "Dharok the Wretched's helm.",
       "members": true,
       "store_price": 103000,
       "buy_limit": null,
@@ -17229,7 +17229,7 @@
     "pk": 4890,
     "fields": {
       "name": "Dharok's greataxe 0",
-      "description": "Dharok the Wretched\\'s greataxe.",
+      "description": "Dharok the Wretched's greataxe.",
       "members": true,
       "store_price": 208000,
       "buy_limit": null,
@@ -17242,7 +17242,7 @@
     "pk": 4896,
     "fields": {
       "name": "Dharok's platebody 0",
-      "description": "Dharok the Wretched\\'s plate body armour.",
+      "description": "Dharok the Wretched's plate body armour.",
       "members": true,
       "store_price": 280000,
       "buy_limit": null,
@@ -17255,7 +17255,7 @@
     "pk": 4902,
     "fields": {
       "name": "Dharok's platelegs 0",
-      "description": "Dharok the Wretched\\'s plate leg armour.",
+      "description": "Dharok the Wretched's plate leg armour.",
       "members": true,
       "store_price": 275000,
       "buy_limit": null,
@@ -17268,7 +17268,7 @@
     "pk": 4908,
     "fields": {
       "name": "Guthan's helm 0",
-      "description": "Guthan the Infested\\'s helm.",
+      "description": "Guthan the Infested's helm.",
       "members": true,
       "store_price": 103000,
       "buy_limit": null,
@@ -17281,7 +17281,7 @@
     "pk": 4914,
     "fields": {
       "name": "Guthan's warspear 0",
-      "description": "Guthan the Infested\\'s warspear.",
+      "description": "Guthan the Infested's warspear.",
       "members": true,
       "store_price": 100000,
       "buy_limit": null,
@@ -17294,7 +17294,7 @@
     "pk": 4920,
     "fields": {
       "name": "Guthan's platebody 0",
-      "description": "Guthan the Infested\\'s plate body armour.",
+      "description": "Guthan the Infested's plate body armour.",
       "members": true,
       "store_price": 280000,
       "buy_limit": null,
@@ -17307,7 +17307,7 @@
     "pk": 4926,
     "fields": {
       "name": "Guthan's chainskirt 0",
-      "description": "Guthan the Infested\\'s chainskirt.",
+      "description": "Guthan the Infested's chainskirt.",
       "members": true,
       "store_price": 275000,
       "buy_limit": null,
@@ -17320,7 +17320,7 @@
     "pk": 4932,
     "fields": {
       "name": "Karil's coif 0",
-      "description": "Karil the Tainted\\'s coif.",
+      "description": "Karil the Tainted's coif.",
       "members": true,
       "store_price": 13000,
       "buy_limit": null,
@@ -17333,7 +17333,7 @@
     "pk": 4938,
     "fields": {
       "name": "Karil's crossbow 0",
-      "description": "Karil the Tainted\\'s repeating crossbow.",
+      "description": "Karil the Tainted's repeating crossbow.",
       "members": true,
       "store_price": 160000,
       "buy_limit": null,
@@ -17346,7 +17346,7 @@
     "pk": 4944,
     "fields": {
       "name": "Karil's leathertop 0",
-      "description": "Karil the Tainted\\'s leather body armour.",
+      "description": "Karil the Tainted's leather body armour.",
       "members": true,
       "store_price": 50000,
       "buy_limit": null,
@@ -17359,7 +17359,7 @@
     "pk": 4950,
     "fields": {
       "name": "Karil's leatherskirt 0",
-      "description": "Karil the Tainted\\'s leather skirt.",
+      "description": "Karil the Tainted's leather skirt.",
       "members": true,
       "store_price": 47000,
       "buy_limit": null,
@@ -17372,7 +17372,7 @@
     "pk": 4956,
     "fields": {
       "name": "Torag's helm 0",
-      "description": "Torag the Corrupted\\'s helm.",
+      "description": "Torag the Corrupted's helm.",
       "members": true,
       "store_price": 103000,
       "buy_limit": null,
@@ -17385,7 +17385,7 @@
     "pk": 4962,
     "fields": {
       "name": "Torag's hammers 0",
-      "description": "Torag the Corrupted\\'s twin hammers.",
+      "description": "Torag the Corrupted's twin hammers.",
       "members": true,
       "store_price": 160000,
       "buy_limit": null,
@@ -17398,7 +17398,7 @@
     "pk": 4968,
     "fields": {
       "name": "Torag's platebody 0",
-      "description": "Torag the Corrupted\\'s plate body armour.",
+      "description": "Torag the Corrupted's plate body armour.",
       "members": true,
       "store_price": 280000,
       "buy_limit": null,
@@ -17411,7 +17411,7 @@
     "pk": 4974,
     "fields": {
       "name": "Torag's platelegs 0",
-      "description": "Torag the Corrupted\\'s plate leg armour.",
+      "description": "Torag the Corrupted's plate leg armour.",
       "members": true,
       "store_price": 275000,
       "buy_limit": null,
@@ -17424,7 +17424,7 @@
     "pk": 4980,
     "fields": {
       "name": "Verac's helm 0",
-      "description": "Verac the Defiled\\'s helm.",
+      "description": "Verac the Defiled's helm.",
       "members": true,
       "store_price": 103000,
       "buy_limit": null,
@@ -17437,7 +17437,7 @@
     "pk": 4986,
     "fields": {
       "name": "Verac's flail 0",
-      "description": "Verac the Defiled\\'s flail.",
+      "description": "Verac the Defiled's flail.",
       "members": true,
       "store_price": 160000,
       "buy_limit": null,
@@ -17450,7 +17450,7 @@
     "pk": 4992,
     "fields": {
       "name": "Verac's brassard 0",
-      "description": "Verac the Defiled\\'s brassard.",
+      "description": "Verac the Defiled's brassard.",
       "members": true,
       "store_price": 280000,
       "buy_limit": null,
@@ -17463,7 +17463,7 @@
     "pk": 4998,
     "fields": {
       "name": "Verac's plateskirt 0",
-      "description": "Verac the Defiled\\'s plate skirt.",
+      "description": "Verac the Defiled's plate skirt.",
       "members": true,
       "store_price": 275000,
       "buy_limit": null,
@@ -17476,7 +17476,7 @@
     "pk": 5001,
     "fields": {
       "name": "Raw cave eel",
-      "description": "It\\'s incredibly slimy.",
+      "description": "It's incredibly slimy.",
       "members": true,
       "store_price": 15,
       "buy_limit": null,
@@ -17489,7 +17489,7 @@
     "pk": 5003,
     "fields": {
       "name": "Cave eel",
-      "description": "It\\'s a bit slimy.",
+      "description": "It's a bit slimy.",
       "members": true,
       "store_price": 15,
       "buy_limit": null,
@@ -17541,7 +17541,7 @@
     "pk": 5075,
     "fields": {
       "name": "Bird nest",
-      "description": "It\\'s an empty bird\\'s nest.",
+      "description": "It's an empty bird's nest.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -18854,7 +18854,7 @@
     "pk": 5574,
     "fields": {
       "name": "Initiate sallet",
-      "description": "An initiate Temple Knight\\'s helm.",
+      "description": "An initiate Temple Knight's helm.",
       "members": true,
       "store_price": 6000,
       "buy_limit": null,
@@ -18867,7 +18867,7 @@
     "pk": 5575,
     "fields": {
       "name": "Initiate hauberk",
-      "description": "An initiate Temple Knight\\'s Armour.",
+      "description": "An initiate Temple Knight's Armour.",
       "members": true,
       "store_price": 10000,
       "buy_limit": null,
@@ -18880,7 +18880,7 @@
     "pk": 5576,
     "fields": {
       "name": "Initiate cuisse",
-      "description": "An initiate Temple Knight\\'s leg armour.",
+      "description": "An initiate Temple Knight's leg armour.",
       "members": true,
       "store_price": 8000,
       "buy_limit": null,
@@ -19985,7 +19985,7 @@
     "pk": 5743,
     "fields": {
       "name": "Greenman's ale(m)",
-      "description": "This looks a good deal stronger than normal Greenman\\'s Ale.",
+      "description": "This looks a good deal stronger than normal Greenman's Ale.",
       "members": true,
       "store_price": 2,
       "buy_limit": null,
@@ -20050,7 +20050,7 @@
     "pk": 5753,
     "fields": {
       "name": "Axeman's folly(m)",
-      "description": "This looks a good deal stronger than normal Axeman\\'s Folly.",
+      "description": "This looks a good deal stronger than normal Axeman's Folly.",
       "members": true,
       "store_price": 2,
       "buy_limit": null,
@@ -20076,7 +20076,7 @@
     "pk": 5757,
     "fields": {
       "name": "Chef's delight(m)",
-      "description": "This looks a good deal stronger than normal Chef\\'s Delight.",
+      "description": "This looks a good deal stronger than normal Chef's Delight.",
       "members": true,
       "store_price": 2,
       "buy_limit": null,
@@ -20102,7 +20102,7 @@
     "pk": 5761,
     "fields": {
       "name": "Slayer's respite(m)",
-      "description": "This looks a good deal stronger than normal Slayer\\'s Respite.",
+      "description": "This looks a good deal stronger than normal Slayer's Respite.",
       "members": true,
       "store_price": 2,
       "buy_limit": null,
@@ -20245,7 +20245,7 @@
     "pk": 5825,
     "fields": {
       "name": "Axeman's folly(4)",
-      "description": "This keg contains 4 pints of Axeman\\'s Folly.",
+      "description": "This keg contains 4 pints of Axeman's Folly.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -20258,7 +20258,7 @@
     "pk": 5833,
     "fields": {
       "name": "Chef's delight(4)",
-      "description": "This keg contains 4 pints of Chef\\'s Delight.",
+      "description": "This keg contains 4 pints of Chef's Delight.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -20271,7 +20271,7 @@
     "pk": 5841,
     "fields": {
       "name": "Slayer's respite(4)",
-      "description": "This keg contains 4 pints of Slayer\\'s Respite.",
+      "description": "This keg contains 4 pints of Slayer's Respite.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -20375,7 +20375,7 @@
     "pk": 5905,
     "fields": {
       "name": "Axeman's folly(m4)",
-      "description": "This keg contains 4 pints of mature Axeman\\'s Folly.",
+      "description": "This keg contains 4 pints of mature Axeman's Folly.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -20388,7 +20388,7 @@
     "pk": 5913,
     "fields": {
       "name": "Chef's delight(m4)",
-      "description": "This keg contains 4 pints of mature Chef\\'s Delight.",
+      "description": "This keg contains 4 pints of mature Chef's Delight.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -20622,7 +20622,7 @@
     "pk": 5974,
     "fields": {
       "name": "Coconut",
-      "description": "It\\'s a coconut.",
+      "description": "It's a coconut.",
       "members": true,
       "store_price": 87,
       "buy_limit": null,
@@ -20635,7 +20635,7 @@
     "pk": 5980,
     "fields": {
       "name": "Calquat fruit",
-      "description": "This is the largest fruit I\\'ve ever seen.",
+      "description": "This is the largest fruit I've ever seen.",
       "members": true,
       "store_price": 54,
       "buy_limit": null,
@@ -20856,7 +20856,7 @@
     "pk": 6016,
     "fields": {
       "name": "Cactus spine",
-      "description": "Don\\'t prick yourself with this.",
+      "description": "Don't prick yourself with this.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -21064,7 +21064,7 @@
     "pk": 6133,
     "fields": {
       "name": "Spined body",
-      "description": "A constant reminder that I\\'m above a Dagannoth in the food chain.",
+      "description": "A constant reminder that I'm above a Dagannoth in the food chain.",
       "members": true,
       "store_price": 7800,
       "buy_limit": null,
@@ -21142,7 +21142,7 @@
     "pk": 6145,
     "fields": {
       "name": "Rock-shell boots",
-      "description": "Some Fremennik boots, made from the shards of a rock crab\\'s shell.",
+      "description": "Some Fremennik boots, made from the shards of a rock crab's shell.",
       "members": true,
       "store_price": 650,
       "buy_limit": null,
@@ -21545,7 +21545,7 @@
     "pk": 6319,
     "fields": {
       "name": "Proboscis",
-      "description": "A giant mosquito\\'s proboscis, aerodynamic and sharp!",
+      "description": "A giant mosquito's proboscis, aerodynamic and sharp!",
       "members": true,
       "store_price": 5,
       "buy_limit": 100,
@@ -22026,7 +22026,7 @@
     "pk": 6562,
     "fields": {
       "name": "Mud battlestaff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 17000,
       "buy_limit": null,
@@ -22039,7 +22039,7 @@
     "pk": 6563,
     "fields": {
       "name": "Mystic mud staff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 45000,
       "buy_limit": null,
@@ -22338,7 +22338,7 @@
     "pk": 6613,
     "fields": {
       "name": "White warhammer",
-      "description": "I don\\'t think it\\'s intended for joinery.",
+      "description": "I don't think it's intended for joinery.",
       "members": true,
       "store_price": 980,
       "buy_limit": null,
@@ -22559,7 +22559,7 @@
     "pk": 6693,
     "fields": {
       "name": "Crushed nest",
-      "description": "A crushed bird\\'s nest.",
+      "description": "A crushed bird's nest.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -22585,7 +22585,7 @@
     "pk": 6701,
     "fields": {
       "name": "Baked potato",
-      "description": "It\\'d taste even better with some toppings.",
+      "description": "It'd taste even better with some toppings.",
       "members": true,
       "store_price": 4,
       "buy_limit": null,
@@ -22663,7 +22663,7 @@
     "pk": 6733,
     "fields": {
       "name": "Archers ring",
-      "description": "A fabled ring that improves the wearer\\'s skill with a bow...",
+      "description": "A fabled ring that improves the wearer's skill with a bow...",
       "members": true,
       "store_price": 10000,
       "buy_limit": 6,
@@ -22975,7 +22975,7 @@
     "pk": 6959,
     "fields": {
       "name": "Pink cape",
-      "description": "It\\'s a bit pink.",
+      "description": "It's a bit pink.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -23365,7 +23365,7 @@
     "pk": 7159,
     "fields": {
       "name": "Insulated boots",
-      "description": "They\\'re heavily insulated wellies.",
+      "description": "They're heavily insulated wellies.",
       "members": true,
       "store_price": 200,
       "buy_limit": null,
@@ -23430,7 +23430,7 @@
     "pk": 7178,
     "fields": {
       "name": "Garden pie",
-      "description": "What I wouldn\\'t give for a good steak about now...",
+      "description": "What I wouldn't give for a good steak about now...",
       "members": true,
       "store_price": 24,
       "buy_limit": null,
@@ -23495,7 +23495,7 @@
     "pk": 7206,
     "fields": {
       "name": "Raw wild pie",
-      "description": "Good as it looks, I\\'d better cook it.",
+      "description": "Good as it looks, I'd better cook it.",
       "members": true,
       "store_price": 91,
       "buy_limit": null,
@@ -24223,7 +24223,7 @@
     "pk": 7441,
     "fields": {
       "name": "Frying pan",
-      "description": "Looks like it\\'s non-stick too!",
+      "description": "Looks like it's non-stick too!",
       "members": true,
       "store_price": 1660,
       "buy_limit": null,
@@ -24249,7 +24249,7 @@
     "pk": 7445,
     "fields": {
       "name": "Rolling pin",
-      "description": "That\\'s how I roll!",
+      "description": "That's how I roll!",
       "members": true,
       "store_price": 14400,
       "buy_limit": null,
@@ -24301,7 +24301,7 @@
     "pk": 7466,
     "fields": {
       "name": "Cornflour",
-      "description": "It\\'s cornflour.",
+      "description": "It's cornflour.",
       "members": false,
       "store_price": 1,
       "buy_limit": null,
@@ -24314,7 +24314,7 @@
     "pk": 7468,
     "fields": {
       "name": "Pot of cornflour",
-      "description": "It\\'s cornflour in a pot.",
+      "description": "It's cornflour in a pot.",
       "members": true,
       "store_price": 10,
       "buy_limit": null,
@@ -24366,7 +24366,7 @@
     "pk": 7650,
     "fields": {
       "name": "Silver dust",
-      "description": "It\\'s ground up silver.",
+      "description": "It's ground up silver.",
       "members": true,
       "store_price": 200,
       "buy_limit": null,
@@ -24691,7 +24691,7 @@
     "pk": 8013,
     "fields": {
       "name": "Teleport to house",
-      "description": "A teleport to one\\'s own house.",
+      "description": "A teleport to one's own house.",
       "members": true,
       "store_price": 1,
       "buy_limit": 10000,
@@ -26472,7 +26472,7 @@
     "pk": 9040,
     "fields": {
       "name": "Gold seal",
-      "description": "A seal. It\\'s gold.",
+      "description": "A seal. It's gold.",
       "members": true,
       "store_price": 30,
       "buy_limit": null,
@@ -27551,7 +27551,7 @@
     "pk": 9629,
     "fields": {
       "name": "Tyras helm",
-      "description": "As used by King Tyras\\' personal guard.",
+      "description": "As used by King Tyras' personal guard.",
       "members": true,
       "store_price": 550,
       "buy_limit": null,
@@ -27681,7 +27681,7 @@
     "pk": 9672,
     "fields": {
       "name": "Proselyte sallet",
-      "description": "A Proselyte Temple Knight\\'s helm.",
+      "description": "A Proselyte Temple Knight's helm.",
       "members": true,
       "store_price": 8000,
       "buy_limit": null,
@@ -27694,7 +27694,7 @@
     "pk": 9674,
     "fields": {
       "name": "Proselyte hauberk",
-      "description": "A Proselyte Temple Knight\\'s armour.",
+      "description": "A Proselyte Temple Knight's armour.",
       "members": true,
       "store_price": 12000,
       "buy_limit": null,
@@ -27707,7 +27707,7 @@
     "pk": 9676,
     "fields": {
       "name": "Proselyte cuisse",
-      "description": "A Proselyte Temple Knight\\'s leg armour.",
+      "description": "A Proselyte Temple Knight's leg armour.",
       "members": true,
       "store_price": 10000,
       "buy_limit": null,
@@ -27720,7 +27720,7 @@
     "pk": 9678,
     "fields": {
       "name": "Proselyte tasset",
-      "description": "A Proselyte Temple Knight\\'s leg armour.",
+      "description": "A Proselyte Temple Knight's leg armour.",
       "members": true,
       "store_price": 10000,
       "buy_limit": null,
@@ -28344,7 +28344,7 @@
     "pk": 10012,
     "fields": {
       "name": "Butterfly jar",
-      "description": "It\\'s got little holes in the top.",
+      "description": "It's got little holes in the top.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -28357,7 +28357,7 @@
     "pk": 10014,
     "fields": {
       "name": "Black warlock",
-      "description": "There\\'s a black warlock butterfly in here.",
+      "description": "There's a black warlock butterfly in here.",
       "members": true,
       "store_price": 70,
       "buy_limit": null,
@@ -28370,7 +28370,7 @@
     "pk": 10016,
     "fields": {
       "name": "Snowy knight",
-      "description": "There\\'s a snowy knight butterfly in here.",
+      "description": "There's a snowy knight butterfly in here.",
       "members": true,
       "store_price": 50,
       "buy_limit": null,
@@ -28383,7 +28383,7 @@
     "pk": 10018,
     "fields": {
       "name": "Sapphire glacialis",
-      "description": "There\\'s a sapphire glacialis butterfly in here.",
+      "description": "There's a sapphire glacialis butterfly in here.",
       "members": true,
       "store_price": 30,
       "buy_limit": null,
@@ -28396,7 +28396,7 @@
     "pk": 10020,
     "fields": {
       "name": "Ruby harvest",
-      "description": "There\\'s a ruby harvest butterfly in here.",
+      "description": "There's a ruby harvest butterfly in here.",
       "members": true,
       "store_price": 18,
       "buy_limit": null,
@@ -28851,7 +28851,7 @@
     "pk": 10093,
     "fields": {
       "name": "Tatty larupia fur",
-      "description": "It\\'s a shabby-looking Larupia fur.",
+      "description": "It's a shabby-looking Larupia fur.",
       "members": true,
       "store_price": 60,
       "buy_limit": null,
@@ -28864,7 +28864,7 @@
     "pk": 10095,
     "fields": {
       "name": "Larupia fur",
-      "description": "It\\'s a perfect-looking larupia fur.",
+      "description": "It's a perfect-looking larupia fur.",
       "members": true,
       "store_price": 80,
       "buy_limit": null,
@@ -28877,7 +28877,7 @@
     "pk": 10097,
     "fields": {
       "name": "Tatty graahk fur",
-      "description": "It\\'s a shabby-looking graahk fur.",
+      "description": "It's a shabby-looking graahk fur.",
       "members": true,
       "store_price": 90,
       "buy_limit": null,
@@ -28890,7 +28890,7 @@
     "pk": 10099,
     "fields": {
       "name": "Graahk fur",
-      "description": "It\\'s a perfect-looking graahk fur.",
+      "description": "It's a perfect-looking graahk fur.",
       "members": true,
       "store_price": 120,
       "buy_limit": null,
@@ -28903,7 +28903,7 @@
     "pk": 10101,
     "fields": {
       "name": "Tatty kyatt fur",
-      "description": "It\\'s a shabby-looking kyatt fur.",
+      "description": "It's a shabby-looking kyatt fur.",
       "members": true,
       "store_price": 120,
       "buy_limit": null,
@@ -28916,7 +28916,7 @@
     "pk": 10103,
     "fields": {
       "name": "Kyatt fur",
-      "description": "It\\'s a perfect-looking kyatt fur.",
+      "description": "It's a perfect-looking kyatt fur.",
       "members": true,
       "store_price": 160,
       "buy_limit": null,
@@ -29072,7 +29072,7 @@
     "pk": 10127,
     "fields": {
       "name": "Dashing kebbit fur",
-      "description": "Nature\\'s equivalent of go-faster stripes.",
+      "description": "Nature's equivalent of go-faster stripes.",
       "members": true,
       "store_price": 270,
       "buy_limit": null,
@@ -29540,7 +29540,7 @@
     "pk": 10316,
     "fields": {
       "name": "Bob's red shirt",
-      "description": "\\'Bob says: Never give your password out to anyone.\\'",
+      "description": "'Bob says: Never give your password out to anyone.'",
       "members": true,
       "store_price": 3,
       "buy_limit": null,
@@ -29553,7 +29553,7 @@
     "pk": 10318,
     "fields": {
       "name": "Bob's blue shirt",
-      "description": "\\'Bob says: Always check the second trade screen.\\'",
+      "description": "'Bob says: Always check the second trade screen.'",
       "members": true,
       "store_price": 3,
       "buy_limit": null,
@@ -29566,7 +29566,7 @@
     "pk": 10320,
     "fields": {
       "name": "Bob's green shirt",
-      "description": "\\'Bob says: Never trade in the wilderness!\\'",
+      "description": "'Bob says: Never trade in the wilderness!'",
       "members": true,
       "store_price": 3,
       "buy_limit": null,
@@ -29579,7 +29579,7 @@
     "pk": 10322,
     "fields": {
       "name": "Bob's black shirt",
-      "description": "\\'Bob says: A bank pin will keep your items secure.\\'",
+      "description": "'Bob says: A bank pin will keep your items secure.'",
       "members": true,
       "store_price": 3,
       "buy_limit": null,
@@ -29592,7 +29592,7 @@
     "pk": 10324,
     "fields": {
       "name": "Bob's purple shirt",
-      "description": "\\'Bob says: Keep your computer keylogger free and virus scanned.\\'",
+      "description": "'Bob says: Keep your computer keylogger free and virus scanned.'",
       "members": true,
       "store_price": 3,
       "buy_limit": null,
@@ -30008,7 +30008,7 @@
     "pk": 10394,
     "fields": {
       "name": "Flared trousers",
-      "description": "These\\'ll help me stay alive.",
+      "description": "These'll help me stay alive.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30047,7 +30047,7 @@
     "pk": 10400,
     "fields": {
       "name": "Black elegant shirt",
-      "description": "A well made elegant men\\'s black shirt.",
+      "description": "A well made elegant men's black shirt.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30060,7 +30060,7 @@
     "pk": 10402,
     "fields": {
       "name": "Black elegant legs",
-      "description": "A rather elegant pair of men\\'s black pantaloons.",
+      "description": "A rather elegant pair of men's black pantaloons.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30073,7 +30073,7 @@
     "pk": 10404,
     "fields": {
       "name": "Red elegant shirt",
-      "description": "A well made elegant men\\'s red shirt.",
+      "description": "A well made elegant men's red shirt.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30086,7 +30086,7 @@
     "pk": 10406,
     "fields": {
       "name": "Red elegant legs",
-      "description": "A rather elegant pair of men\\'s red pantaloons.",
+      "description": "A rather elegant pair of men's red pantaloons.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30099,7 +30099,7 @@
     "pk": 10408,
     "fields": {
       "name": "Blue elegant shirt",
-      "description": "A well made elegant men\\'s blue shirt.",
+      "description": "A well made elegant men's blue shirt.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30112,7 +30112,7 @@
     "pk": 10410,
     "fields": {
       "name": "Blue elegant legs",
-      "description": "A rather elegant pair of men\\'s blue pantaloons.",
+      "description": "A rather elegant pair of men's blue pantaloons.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30125,7 +30125,7 @@
     "pk": 10412,
     "fields": {
       "name": "Green elegant shirt",
-      "description": "A well made elegant men\\'s green shirt.",
+      "description": "A well made elegant men's green shirt.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30138,7 +30138,7 @@
     "pk": 10414,
     "fields": {
       "name": "Green elegant legs",
-      "description": "A rather elegant pair of men\\'s green pantaloons.",
+      "description": "A rather elegant pair of men's green pantaloons.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30151,7 +30151,7 @@
     "pk": 10416,
     "fields": {
       "name": "Purple elegant shirt",
-      "description": "A well made elegant men\\'s purple shirt.",
+      "description": "A well made elegant men's purple shirt.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30164,7 +30164,7 @@
     "pk": 10418,
     "fields": {
       "name": "Purple elegant legs",
-      "description": "A rather elegant pair of men\\'s purple pantaloons.",
+      "description": "A rather elegant pair of men's purple pantaloons.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30177,7 +30177,7 @@
     "pk": 10420,
     "fields": {
       "name": "White elegant blouse",
-      "description": "A well made elegant ladies\\' white blouse.",
+      "description": "A well made elegant ladies' white blouse.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30203,7 +30203,7 @@
     "pk": 10424,
     "fields": {
       "name": "Red elegant blouse",
-      "description": "A well made elegant ladies\\' red blouse.",
+      "description": "A well made elegant ladies' red blouse.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30229,7 +30229,7 @@
     "pk": 10428,
     "fields": {
       "name": "Blue elegant blouse",
-      "description": "A well made elegant ladies\\' blue blouse.",
+      "description": "A well made elegant ladies' blue blouse.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30255,7 +30255,7 @@
     "pk": 10432,
     "fields": {
       "name": "Green elegant blouse",
-      "description": "A well made elegant ladies\\' green blouse.",
+      "description": "A well made elegant ladies' green blouse.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30281,7 +30281,7 @@
     "pk": 10436,
     "fields": {
       "name": "Purple elegant blouse",
-      "description": "A well made elegant ladies\\' purple blouse.",
+      "description": "A well made elegant ladies' purple blouse.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -30723,7 +30723,7 @@
     "pk": 10828,
     "fields": {
       "name": "Helm of neitiznot",
-      "description": "A gift from Neitiznot\\'s Burgher.",
+      "description": "A gift from Neitiznot's Burgher.",
       "members": true,
       "store_price": 50000,
       "buy_limit": 70,
@@ -30814,7 +30814,7 @@
     "pk": 10952,
     "fields": {
       "name": "Slayer bell",
-      "description": "Don\\'t make anyone jump when you ring this!",
+      "description": "Don't make anyone jump when you ring this!",
       "members": true,
       "store_price": 150,
       "buy_limit": null,
@@ -31217,7 +31217,7 @@
     "pk": 11212,
     "fields": {
       "name": "Dragon arrow",
-      "description": "An arrow made using a dragon\\'s talon.",
+      "description": "An arrow made using a dragon's talon.",
       "members": true,
       "store_price": 800,
       "buy_limit": 7000,
@@ -31360,7 +31360,7 @@
     "pk": 11238,
     "fields": {
       "name": "Baby impling jar",
-      "description": "Baby impling in a jar. That\\'s a bit cruel.",
+      "description": "Baby impling in a jar. That's a bit cruel.",
       "members": true,
       "store_price": 50,
       "buy_limit": null,
@@ -31373,7 +31373,7 @@
     "pk": 11240,
     "fields": {
       "name": "Young impling jar",
-      "description": "A young impling in a jar. Don\\'t trap me, man.",
+      "description": "A young impling in a jar. Don't trap me, man.",
       "members": true,
       "store_price": 50,
       "buy_limit": null,
@@ -31490,7 +31490,7 @@
     "pk": 11260,
     "fields": {
       "name": "Impling jar",
-      "description": "It\\'s got little holes in the top.",
+      "description": "It's got little holes in the top.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -31503,7 +31503,7 @@
     "pk": 11280,
     "fields": {
       "name": "Cavalier mask",
-      "description": "I hope I don\\'t meet any roundheads...",
+      "description": "I hope I don't meet any roundheads...",
       "members": true,
       "store_price": 200,
       "buy_limit": null,
@@ -31997,7 +31997,7 @@
     "pk": 11437,
     "fields": {
       "name": "Relicym's mix(2)",
-      "description": "Two doses of fishy Relicym\\'s balm.",
+      "description": "Two doses of fishy Relicym's balm.",
       "members": true,
       "store_price": 150,
       "buy_limit": null,
@@ -32010,7 +32010,7 @@
     "pk": 11439,
     "fields": {
       "name": "Relicym's mix(1)",
-      "description": "One dose of fishy Relicym\\'s balm.",
+      "description": "One dose of fishy Relicym's balm.",
       "members": true,
       "store_price": 75,
       "buy_limit": null,
@@ -32556,7 +32556,7 @@
     "pk": 11785,
     "fields": {
       "name": "Armadyl crossbow",
-      "description": "A weapon originally developed for Armadyl\\'s forces.",
+      "description": "A weapon originally developed for Armadyl's forces.",
       "members": true,
       "store_price": 990000,
       "buy_limit": null,
@@ -32569,7 +32569,7 @@
     "pk": 11787,
     "fields": {
       "name": "Steam battlestaff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 17000,
       "buy_limit": null,
@@ -32582,7 +32582,7 @@
     "pk": 11789,
     "fields": {
       "name": "Mystic steam staff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 45000,
       "buy_limit": null,
@@ -32972,7 +32972,7 @@
     "pk": 11920,
     "fields": {
       "name": "Dragon pickaxe",
-      "description": "If rocks could feel fear, they\\'d fear this.",
+      "description": "If rocks could feel fear, they'd fear this.",
       "members": true,
       "store_price": 97950,
       "buy_limit": 40,
@@ -33375,7 +33375,7 @@
     "pk": 12004,
     "fields": {
       "name": "Kraken tentacle",
-      "description": "Ewwww... it\\'s still sucky.",
+      "description": "Ewwww... it's still sucky.",
       "members": true,
       "store_price": 83340,
       "buy_limit": 70,
@@ -33388,7 +33388,7 @@
     "pk": 12007,
     "fields": {
       "name": "Jar of dirt",
-      "description": "It\\'s just a jar of dirt.",
+      "description": "It's just a jar of dirt.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -33778,7 +33778,7 @@
     "pk": 12251,
     "fields": {
       "name": "Goblin mask",
-      "description": "Let\\'s start a flash mob!",
+      "description": "Let's start a flash mob!",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -34090,7 +34090,7 @@
     "pk": 12299,
     "fields": {
       "name": "White headband",
-      "description": "A minimalist\\'s hat.",
+      "description": "A minimalist's hat.",
       "members": true,
       "store_price": 40,
       "buy_limit": null,
@@ -34103,7 +34103,7 @@
     "pk": 12301,
     "fields": {
       "name": "Blue headband",
-      "description": "A minimalist\\'s hat.",
+      "description": "A minimalist's hat.",
       "members": true,
       "store_price": 40,
       "buy_limit": null,
@@ -34116,7 +34116,7 @@
     "pk": 12303,
     "fields": {
       "name": "Gold headband",
-      "description": "A minimalist\\'s hat.",
+      "description": "A minimalist's hat.",
       "members": true,
       "store_price": 40,
       "buy_limit": null,
@@ -34129,7 +34129,7 @@
     "pk": 12305,
     "fields": {
       "name": "Pink headband",
-      "description": "A minimalist\\'s hat.",
+      "description": "A minimalist's hat.",
       "members": true,
       "store_price": 40,
       "buy_limit": null,
@@ -34142,7 +34142,7 @@
     "pk": 12307,
     "fields": {
       "name": "Green headband",
-      "description": "A minimalist\\'s hat.",
+      "description": "A minimalist's hat.",
       "members": true,
       "store_price": 40,
       "buy_limit": null,
@@ -34181,7 +34181,7 @@
     "pk": 12315,
     "fields": {
       "name": "Pink elegant shirt",
-      "description": "A well made elegant men\\'s pink shirt.",
+      "description": "A well made elegant men's pink shirt.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -34194,7 +34194,7 @@
     "pk": 12317,
     "fields": {
       "name": "Pink elegant legs",
-      "description": "A rather elegant pair of men\\'s pink pantaloons.",
+      "description": "A rather elegant pair of men's pink pantaloons.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -34337,7 +34337,7 @@
     "pk": 12339,
     "fields": {
       "name": "Pink elegant blouse",
-      "description": "A well made elegant ladies\\' pink blouse.",
+      "description": "A well made elegant ladies' pink blouse.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -34363,7 +34363,7 @@
     "pk": 12343,
     "fields": {
       "name": "Gold elegant blouse",
-      "description": "A well made elegant ladies\\' gold blouse.",
+      "description": "A well made elegant ladies' gold blouse.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -34389,7 +34389,7 @@
     "pk": 12347,
     "fields": {
       "name": "Gold elegant shirt",
-      "description": "A well made elegant men\\'s gold shirt.",
+      "description": "A well made elegant men's gold shirt.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -34402,7 +34402,7 @@
     "pk": 12349,
     "fields": {
       "name": "Gold elegant legs",
-      "description": "A rather elegant pair of men\\'s gold pantaloons.",
+      "description": "A rather elegant pair of men's gold pantaloons.",
       "members": true,
       "store_price": 2000,
       "buy_limit": null,
@@ -34467,7 +34467,7 @@
     "pk": 12359,
     "fields": {
       "name": "Leprechaun hat",
-      "description": "Top o\\' the morning!",
+      "description": "Top o' the morning!",
       "members": true,
       "store_price": 1000,
       "buy_limit": null,
@@ -34701,7 +34701,7 @@
     "pk": 12397,
     "fields": {
       "name": "Royal crown",
-      "description": "Who said I\\'d never be royal?",
+      "description": "Who said I'd never be royal?",
       "members": true,
       "store_price": 6000,
       "buy_limit": null,
@@ -34779,7 +34779,7 @@
     "pk": 12406,
     "fields": {
       "name": "Mort'ton teleport",
-      "description": "Teleports you to Mort\\'ton.",
+      "description": "Teleports you to Mort'ton.",
       "members": true,
       "store_price": 10,
       "buy_limit": null,
@@ -34844,7 +34844,7 @@
     "pk": 12411,
     "fields": {
       "name": "Mos le'harmless teleport",
-      "description": "Teleports you to Mos Le\\'Harmless.",
+      "description": "Teleports you to Mos Le'Harmless.",
       "members": true,
       "store_price": 10,
       "buy_limit": null,
@@ -34909,7 +34909,7 @@
     "pk": 12428,
     "fields": {
       "name": "Penguin mask",
-      "description": "Thankfully this doesn\\'t reset every week.",
+      "description": "Thankfully this doesn't reset every week.",
       "members": true,
       "store_price": 1200,
       "buy_limit": null,
@@ -35442,7 +35442,7 @@
     "pk": 12514,
     "fields": {
       "name": "Explorer backpack",
-      "description": "I\\'m the Backpack loaded up with things and knick knacks too.",
+      "description": "I'm the Backpack loaded up with things and knick knacks too.",
       "members": true,
       "store_price": 1550,
       "buy_limit": null,
@@ -36508,7 +36508,7 @@
     "pk": 12873,
     "fields": {
       "name": "Guthan's armour set",
-      "description": "A set containing a Guthan\\'s helm, chainskirt, platebody and warspear.",
+      "description": "A set containing a Guthan's helm, chainskirt, platebody and warspear.",
       "members": true,
       "store_price": 400000,
       "buy_limit": null,
@@ -36521,7 +36521,7 @@
     "pk": 12875,
     "fields": {
       "name": "Verac's armour set",
-      "description": "A set containing a Verac\\'s helm, plateskirt, brassard and flail.",
+      "description": "A set containing a Verac's helm, plateskirt, brassard and flail.",
       "members": true,
       "store_price": 400000,
       "buy_limit": null,
@@ -36534,7 +36534,7 @@
     "pk": 12877,
     "fields": {
       "name": "Dharok's armour set",
-      "description": "A set containing a Dharok\\'s helm, platelegs, platebody and greataxe.",
+      "description": "A set containing a Dharok's helm, platelegs, platebody and greataxe.",
       "members": true,
       "store_price": 400000,
       "buy_limit": null,
@@ -36547,7 +36547,7 @@
     "pk": 12879,
     "fields": {
       "name": "Torag's armour set",
-      "description": "A set containing a Torag\\'s helm, platelegs, platebody and hammers.",
+      "description": "A set containing a Torag's helm, platelegs, platebody and hammers.",
       "members": true,
       "store_price": 400000,
       "buy_limit": null,
@@ -36560,7 +36560,7 @@
     "pk": 12881,
     "fields": {
       "name": "Ahrim's armour set",
-      "description": "A set containing an Ahrim\\'s hood, robetop, robeskirt and staff.",
+      "description": "A set containing an Ahrim's hood, robetop, robeskirt and staff.",
       "members": true,
       "store_price": 200000,
       "buy_limit": null,
@@ -36573,7 +36573,7 @@
     "pk": 12883,
     "fields": {
       "name": "Karil's armour set",
-      "description": "A set containing a Karil\\'s coif, leatherskirt, leathertop and crossbow.",
+      "description": "A set containing a Karil's coif, leatherskirt, leathertop and crossbow.",
       "members": true,
       "store_price": 200000,
       "buy_limit": null,
@@ -36586,7 +36586,7 @@
     "pk": 12885,
     "fields": {
       "name": "Jar of sand",
-      "description": "It\\'s just a jar of sand.",
+      "description": "It's just a jar of sand.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -36599,7 +36599,7 @@
     "pk": 12900,
     "fields": {
       "name": "Uncharged toxic trident",
-      "description": "It needs to be charged with death runes, chaos runes, fire runes and Zulrah\\'s scales.",
+      "description": "It needs to be charged with death runes, chaos runes, fire runes and Zulrah's scales.",
       "members": true,
       "store_price": 78000,
       "buy_limit": null,
@@ -36612,7 +36612,7 @@
     "pk": 12902,
     "fields": {
       "name": "Toxic staff (uncharged)",
-      "description": "It needs to be charged with Zulrah\\'s scales.",
+      "description": "It needs to be charged with Zulrah's scales.",
       "members": true,
       "store_price": 1000006,
       "buy_limit": null,
@@ -36768,7 +36768,7 @@
     "pk": 12929,
     "fields": {
       "name": "Serpentine helm (uncharged)",
-      "description": "Needs to be charged with Zulrah\\'s scales.",
+      "description": "Needs to be charged with Zulrah's scales.",
       "members": true,
       "store_price": 110000,
       "buy_limit": null,
@@ -37535,7 +37535,7 @@
     "pk": 13149,
     "fields": {
       "name": "Holy book page set",
-      "description": "A set containing the four pages of Saradomin\\'s Holy Book.",
+      "description": "A set containing the four pages of Saradomin's Holy Book.",
       "members": true,
       "store_price": 7000,
       "buy_limit": null,
@@ -37548,7 +37548,7 @@
     "pk": 13151,
     "fields": {
       "name": "Unholy book page set",
-      "description": "A set containing the four pages of Zamorak\\'s Unholy Book.",
+      "description": "A set containing the four pages of Zamorak's Unholy Book.",
       "members": true,
       "store_price": 7000,
       "buy_limit": null,
@@ -37561,7 +37561,7 @@
     "pk": 13153,
     "fields": {
       "name": "Book of balance page set",
-      "description": "A set containing the four pages of Guthix\\'s Book of Balance.",
+      "description": "A set containing the four pages of Guthix's Book of Balance.",
       "members": true,
       "store_price": 7000,
       "buy_limit": null,
@@ -37574,7 +37574,7 @@
     "pk": 13155,
     "fields": {
       "name": "Book of war page set",
-      "description": "A set containing the four pages of Bandos\\' Book of War.",
+      "description": "A set containing the four pages of Bandos' Book of War.",
       "members": true,
       "store_price": 7500,
       "buy_limit": null,
@@ -37587,7 +37587,7 @@
     "pk": 13157,
     "fields": {
       "name": "Book of law page set",
-      "description": "A set containing the four pages of Armadyl\\'s Book of Law.",
+      "description": "A set containing the four pages of Armadyl's Book of Law.",
       "members": true,
       "store_price": 7500,
       "buy_limit": null,
@@ -37925,7 +37925,7 @@
     "pk": 13383,
     "fields": {
       "name": "Xerician fabric",
-      "description": "An old scrap of cloth, containing remnants of Xeric\\'s forgotten magicks.",
+      "description": "An old scrap of cloth, containing remnants of Xeric's forgotten magicks.",
       "members": true,
       "store_price": 3,
       "buy_limit": null,
@@ -38042,7 +38042,7 @@
     "pk": 13448,
     "fields": {
       "name": "Ensouled goblin head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 52,
       "buy_limit": null,
@@ -38055,7 +38055,7 @@
     "pk": 13451,
     "fields": {
       "name": "Ensouled monkey head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 104,
       "buy_limit": null,
@@ -38068,7 +38068,7 @@
     "pk": 13454,
     "fields": {
       "name": "Ensouled imp head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 156,
       "buy_limit": null,
@@ -38081,7 +38081,7 @@
     "pk": 13457,
     "fields": {
       "name": "Ensouled minotaur head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 228,
       "buy_limit": null,
@@ -38094,7 +38094,7 @@
     "pk": 13460,
     "fields": {
       "name": "Ensouled scorpion head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 247,
       "buy_limit": null,
@@ -38107,7 +38107,7 @@
     "pk": 13463,
     "fields": {
       "name": "Ensouled bear head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 260,
       "buy_limit": null,
@@ -38120,7 +38120,7 @@
     "pk": 13466,
     "fields": {
       "name": "Ensouled unicorn head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 267,
       "buy_limit": null,
@@ -38133,7 +38133,7 @@
     "pk": 13469,
     "fields": {
       "name": "Ensouled dog head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 286,
       "buy_limit": null,
@@ -38146,7 +38146,7 @@
     "pk": 13472,
     "fields": {
       "name": "Ensouled chaos druid head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 299,
       "buy_limit": null,
@@ -38159,7 +38159,7 @@
     "pk": 13475,
     "fields": {
       "name": "Ensouled giant head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 319,
       "buy_limit": 3000,
@@ -38172,7 +38172,7 @@
     "pk": 13478,
     "fields": {
       "name": "Ensouled ogre head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 338,
       "buy_limit": null,
@@ -38185,7 +38185,7 @@
     "pk": 13481,
     "fields": {
       "name": "Ensouled elf head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 358,
       "buy_limit": null,
@@ -38198,7 +38198,7 @@
     "pk": 13484,
     "fields": {
       "name": "Ensouled troll head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 384,
       "buy_limit": null,
@@ -38211,7 +38211,7 @@
     "pk": 13487,
     "fields": {
       "name": "Ensouled horror head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 403,
       "buy_limit": null,
@@ -38224,7 +38224,7 @@
     "pk": 13490,
     "fields": {
       "name": "Ensouled kalphite head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 433,
       "buy_limit": null,
@@ -38237,7 +38237,7 @@
     "pk": 13493,
     "fields": {
       "name": "Ensouled dagannoth head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 455,
       "buy_limit": null,
@@ -38250,7 +38250,7 @@
     "pk": 13496,
     "fields": {
       "name": "Ensouled bloodveld head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 494,
       "buy_limit": null,
@@ -38263,7 +38263,7 @@
     "pk": 13499,
     "fields": {
       "name": "Ensouled tzhaar head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 507,
       "buy_limit": null,
@@ -38276,7 +38276,7 @@
     "pk": 13502,
     "fields": {
       "name": "Ensouled demon head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 527,
       "buy_limit": null,
@@ -38289,7 +38289,7 @@
     "pk": 13505,
     "fields": {
       "name": "Ensouled aviansie head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 553,
       "buy_limit": null,
@@ -38302,7 +38302,7 @@
     "pk": 13508,
     "fields": {
       "name": "Ensouled abyssal head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 585,
       "buy_limit": null,
@@ -38315,7 +38315,7 @@
     "pk": 13511,
     "fields": {
       "name": "Ensouled dragon head",
-      "description": "The creature\\'s soul is still in here.",
+      "description": "The creature's soul is still in here.",
       "members": true,
       "store_price": 650,
       "buy_limit": null,
@@ -38705,7 +38705,7 @@
     "pk": 19584,
     "fields": {
       "name": "Javelin shaft",
-      "description": "It\\'s not very strong, but it could be pointy if you put a pointy tip on it.",
+      "description": "It's not very strong, but it could be pointy if you put a pointy tip on it.",
       "members": true,
       "store_price": 1,
       "buy_limit": 7000,
@@ -38887,7 +38887,7 @@
     "pk": 19621,
     "fields": {
       "name": "Fenkenstrain's castle teleport",
-      "description": "A teleport to Fenkenstrain\\'s Castle.",
+      "description": "A teleport to Fenkenstrain's Castle.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -39043,7 +39043,7 @@
     "pk": 19701,
     "fields": {
       "name": "Jar of darkness",
-      "description": "It smells like it\\'s been where the sun doesn\\'t shine.",
+      "description": "It smells like it's been where the sun doesn't shine.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -39108,7 +39108,7 @@
     "pk": 19915,
     "fields": {
       "name": "Cyclops head",
-      "description": "You\\'d expect this to interfere with your 3D vision.",
+      "description": "You'd expect this to interfere with your 3D vision.",
       "members": true,
       "store_price": 5000,
       "buy_limit": null,
@@ -39797,7 +39797,7 @@
     "pk": 20080,
     "fields": {
       "name": "Mummy's head",
-      "description": "A mummy\\'s head.",
+      "description": "A mummy's head.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -39810,7 +39810,7 @@
     "pk": 20083,
     "fields": {
       "name": "Mummy's body",
-      "description": "A mummy\\'s body.",
+      "description": "A mummy's body.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -39823,7 +39823,7 @@
     "pk": 20086,
     "fields": {
       "name": "Mummy's hands",
-      "description": "A mummy\\'s hands.",
+      "description": "A mummy's hands.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -39836,7 +39836,7 @@
     "pk": 20089,
     "fields": {
       "name": "Mummy's legs",
-      "description": "A mummy\\'s legs.",
+      "description": "A mummy's legs.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -39849,7 +39849,7 @@
     "pk": 20092,
     "fields": {
       "name": "Mummy's feet",
-      "description": "A mummy\\'s feet.",
+      "description": "A mummy's feet.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -40304,7 +40304,7 @@
     "pk": 20199,
     "fields": {
       "name": "Monk's robe top (g)",
-      "description": "I feel the gods don\\'t enjoy my materialistic obsessions.",
+      "description": "I feel the gods don't enjoy my materialistic obsessions.",
       "members": false,
       "store_price": 50,
       "buy_limit": null,
@@ -40317,7 +40317,7 @@
     "pk": 20202,
     "fields": {
       "name": "Monk's robe (g)",
-      "description": "Keeps a monk\\'s knees nice, warm and stylish.",
+      "description": "Keeps a monk's knees nice, warm and stylish.",
       "members": false,
       "store_price": 30,
       "buy_limit": null,
@@ -40408,7 +40408,7 @@
     "pk": 20223,
     "fields": {
       "name": "Unholy blessing",
-      "description": "The Dark Lord will rise again with his servant\\'s aid, greater and more terrible than ever he was.",
+      "description": "The Dark Lord will rise again with his servant's aid, greater and more terrible than ever he was.",
       "members": true,
       "store_price": 80,
       "buy_limit": null,
@@ -40486,7 +40486,7 @@
     "pk": 20240,
     "fields": {
       "name": "Crier coat",
-      "description": "Don\\'t shoot the messenger!",
+      "description": "Don't shoot the messenger!",
       "members": true,
       "store_price": 5000,
       "buy_limit": null,
@@ -40512,7 +40512,7 @@
     "pk": 20246,
     "fields": {
       "name": "Black leprechaun hat",
-      "description": "Try as they will, and try as they might, who steals me gold won\\'t live through the night.",
+      "description": "Try as they will, and try as they might, who steals me gold won't live through the night.",
       "members": true,
       "store_price": 5000,
       "buy_limit": null,
@@ -40811,7 +40811,7 @@
     "pk": 20718,
     "fields": {
       "name": "Burnt page",
-      "description": "It\\'s still warm to the touch.",
+      "description": "It's still warm to the touch.",
       "members": true,
       "store_price": 200,
       "buy_limit": null,
@@ -40850,7 +40850,7 @@
     "pk": 20730,
     "fields": {
       "name": "Mist battlestaff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 15500,
       "buy_limit": null,
@@ -40863,7 +40863,7 @@
     "pk": 20733,
     "fields": {
       "name": "Mystic mist staff",
-      "description": "It\\'s a slightly more magical stick.",
+      "description": "It's a slightly more magical stick.",
       "members": true,
       "store_price": 42500,
       "buy_limit": null,
@@ -40876,7 +40876,7 @@
     "pk": 20736,
     "fields": {
       "name": "Dust battlestaff",
-      "description": "It\\'s a slightly magical stick.",
+      "description": "It's a slightly magical stick.",
       "members": true,
       "store_price": 15500,
       "buy_limit": null,
@@ -40889,7 +40889,7 @@
     "pk": 20739,
     "fields": {
       "name": "Mystic dust staff",
-      "description": "It\\'s a slightly more magical stick.",
+      "description": "It's a slightly more magical stick.",
       "members": true,
       "store_price": 42500,
       "buy_limit": null,
@@ -41097,7 +41097,7 @@
     "pk": 21043,
     "fields": {
       "name": "Kodai insignia",
-      "description": "An insignia representing Kodai, Xeric\\'s fearsome wizards.",
+      "description": "An insignia representing Kodai, Xeric's fearsome wizards.",
       "members": true,
       "store_price": 150000,
       "buy_limit": null,
@@ -41344,7 +41344,7 @@
     "pk": 21126,
     "fields": {
       "name": "Ring of pursuit",
-      "description": "This ring can reveal a hunter creature\\'s track.",
+      "description": "This ring can reveal a hunter creature's track.",
       "members": true,
       "store_price": 1050,
       "buy_limit": null,
@@ -41474,7 +41474,7 @@
     "pk": 21180,
     "fields": {
       "name": "Flamtaer bracelet",
-      "description": "Helps when building the Shades of Mort\\'ton temple.",
+      "description": "Helps when building the Shades of Mort'ton temple.",
       "members": true,
       "store_price": 1300,
       "buy_limit": null,
@@ -42150,7 +42150,7 @@
     "pk": 21745,
     "fields": {
       "name": "Jar of stone",
-      "description": "Stones aren\\'t very useful in this capacity.",
+      "description": "Stones aren't very useful in this capacity.",
       "members": true,
       "store_price": 1,
       "buy_limit": null,
@@ -42904,7 +42904,7 @@
     "pk": 22124,
     "fields": {
       "name": "Superior dragon bones",
-      "description": "There\\'s something unnatural about these bones.",
+      "description": "There's something unnatural about these bones.",
       "members": true,
       "store_price": 160,
       "buy_limit": null,
@@ -43281,7 +43281,7 @@
     "pk": 22294,
     "fields": {
       "name": "Uncharged toxic trident (e)",
-      "description": "It needs to be charged with death runes, chaos runes, fire runes and Zulrah\\'s scales.",
+      "description": "It needs to be charged with death runes, chaos runes, fire runes and Zulrah's scales.",
       "members": true,
       "store_price": 108000,
       "buy_limit": null,
