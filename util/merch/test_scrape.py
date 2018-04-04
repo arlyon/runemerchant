@@ -5,7 +5,7 @@ from typing import List
 from django.test import TestCase
 
 from util.merch.scrape import get_new_items, parse_wiki_data, get_summary, download_icons, get_prices_for_ids
-from merchapi.models import Item, PriceLog
+from merchapi.models import Item, Price
 
 
 class ScrapeTest(TestCase):
@@ -51,7 +51,7 @@ class ScrapeTest(TestCase):
         Checks the osbuddy summary to make sure it works.
         :return:
         """
-        self.assertNotEqual(len(get_summary().keys()), 0)
+        self.assertNotEqual(len(get_summary()), 0)
 
     def test_download_image(self):
         test_path = "./test"
@@ -71,6 +71,6 @@ class ScrapeTest(TestCase):
         test_items, _ = get_new_items(2)
         Item.objects.bulk_create(test_items)
 
-        test_prices: List[PriceLog] = get_prices_for_ids(test_ids)
+        test_prices: List[Price] = get_prices_for_ids(test_ids)
 
         self.assertEqual([price.item for price in test_prices], test_items)

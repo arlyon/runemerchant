@@ -6,7 +6,7 @@ from typing import List, Tuple, Dict
 
 import requests
 
-from merchapi.models import MissingItem, Item, PriceLog
+from merchapi.models import MissingItem, Item, Price
 
 ITEM_SUMMARY_URL = "https://rsbuddy.com/exchange/summary.json"
 RUNESCAPE_WIKI_URL = "http://2007.runescape.wikia.com/wiki/Module:Exchange/%s?action=raw"
@@ -129,13 +129,13 @@ def get_new_items(quantity: int or None = None) -> Tuple[List[Item], List[Missin
     return new_items, ignored_items
 
 
-def get_prices_for_ids(item_ids: List[int]) -> List[PriceLog]:
+def get_prices_for_ids(item_ids: List[int]) -> List[Price]:
     """
     Queries the OSBuddy api for the guide prices of a given list of item ids.
     :param item_ids: The list of items.
     :return: A list of PriceLogs with the date,
     """
-    price_data: List[PriceLog] = []
+    price_data: List[Price] = []
 
     if len(item_ids) > 100:
         chunks = (item_ids[i:i + 100] for i in range(0, len(item_ids), 100))
@@ -152,7 +152,7 @@ def get_prices_for_ids(item_ids: List[int]) -> List[PriceLog]:
             raise Exception(f"Error with API: {request.status_code}")
 
         for item_id, data in raw_data.items():
-            price_data.append(PriceLog(
+            price_data.append(Price(
                 date=datetime.now(),
                 buy_price=data["buying"],
                 sell_price=data["selling"],
