@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
 
-from merchapi.models import PriceLog
+from merchapi.models import Price
 from merchapi.serializers.base import PriceLogSerializer, composed_serializer, ItemSerializer
 
 
@@ -52,8 +52,8 @@ class SingleItemPriceLogSerializer(ItemSerializer):
         :return: The latest price log for that item.
         """
         try:
-            return PriceLogSerializer(item.pricelog_set.latest('-date')).data
-        except PriceLog.DoesNotExist:
+            return PriceLogSerializer(item.price_set.latest('-date')).data
+        except Price.DoesNotExist:
             return None
 
     class Meta:

@@ -1,6 +1,6 @@
 from django.core.management import BaseCommand
 
-from merchapi.models import Item, PriceLog
+from merchapi.models import Item, Price
 from util.merch.scrape import get_prices_for_ids
 
 
@@ -9,5 +9,5 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         prices = get_prices_for_ids(Item.objects.all())
-        PriceLog.objects.bulk_create(prices)
+        Price.objects.bulk_create(prices)
 

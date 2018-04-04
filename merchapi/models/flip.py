@@ -1,20 +1,10 @@
-"""
-.. module:: models
-   :platform: Unix, Windows
-   :synopsis: Contains the models and associated logic for the project.
-
-.. moduleauthor:: Alexander Lyon <arlyon@me.com>
-"""
-
 from enum import Enum
 
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User
 from datetime import timedelta
 
-from django.db.models import F, FloatField, Subquery, OuterRef, Max
-from django.db.models.functions import Cast
+from merchapi.models.user import Merchant
 
 BASE_DIR = settings.BASE_DIR
 OS_BUDDY = 'https://api.rsbuddy.com/grandExchange?a=guidePrice&i='
@@ -35,100 +25,12 @@ class FlipState(Enum):
     SOLD = 40
 
 
-class PriceManager(models.QuerySet):
-    """
-    A price manager.
-    """
-
-    def calculate_data(self):
-        return self.annotate(
-            profit=F('sell_price') - F('buy_price'),
-            roi=Cast(F('sell_price'), FloatField()) / Cast(F('buy_price'), FloatField()),
-            demand=Cast(F('buy_volume'), FloatField()) / Cast(F('sell_volume'), FloatField())
-        )
-
-    def most_recent_for_each_item(self):
-        return self.filter(
-            date=Subquery(
-                PriceLog.objects
-                    .filter(item=OuterRef('item'))
-                    .values('item')
-                    .annotate(last_price=Max('date'))
-                    .values('last_price')[:1]
-            )
-        )
-
-
-class PriceLog(models.Model):
-    """
-    A single piece of price data for an item.
-    """
-    date = models.DateTimeField()
-    item = models.ForeignKey('Item', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
-
-    buy_price = models.IntegerField(blank=True, null=True)
-    sell_price = models.IntegerField(blank=True, null=True)
-    average_price = models.IntegerField(blank=True, null=True)
-
-    buy_volume = models.IntegerField(blank=True, null=True)
-    sell_volume = models.IntegerField(blank=True, null=True)
-
-    objects = PriceManager.as_manager()
-
-    def get_profit(self) -> int or None:
-        """
-        Calculates the profit for the item.
-        :return: The profit, or None if buy or sell price is unknown.
-
-        .. note::
-            Buying for 4gp and selling for 5gp is a profit of 1gp
-        """
-        if self.sell_price is not None and self.buy_price is not None:
-            return self.sell_price - self.buy_price
-        else:
-            return None
-
-    def get_roi(self) -> float or None:
-        """
-        Calculates the roi for the item.
-        :return: The return on investment, or None if buy or sell price is unknown.
-
-        .. note::
-            Buying for 4gp and selling for 5gp is an roi of 1.25 or 25%
-        """
-        if self.sell_price is not None and self.buy_price is not None:
-            return self.sell_price / self.buy_price
-        else:
-            return None
-
-    def get_demand(self) -> float or None:
-        """
-        Calculates the demand for item.
-        :return: The demand, or None if buy or sell volume is unknown.
-
-        .. note::
-            A buy volume of 2000 and a sell volume of 10 would put the
-            demand at 200:1 returning 200.
-        """
-        if self.buy_volume is not None and self.sell_volume is not None:
-            return self.buy_volume / self.sell_volume
-        else:
-            return None
-
-    def __str__(self):
-        return self.item.name
-
-    class Meta:
-        verbose_name_plural = "Price Logs"
-
-
 class Flip(models.Model):
     """
     The base class for a transaction consisting of a buy order and a sell order.
     """
     item = models.ForeignKey('Item', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
 
     buy_price = models.PositiveIntegerField(default=1)

@@ -1,20 +1,21 @@
 from typing import List, Iterable, Dict
 
 from django.db import IntegrityError
+from django.db.models import Subquery, OuterRef, Max
 from rest_framework import generics, mixins
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.serializers import Serializer
 
-from merchapi.models import Item, PriceLog, Favorite, OuterRef, Max, Subquery
+from merchapi.models import Item, Price, Favorite, Tag
 from merchapi.serializers.item import ItemPriceLogSerializer, ItemPriceLogFavoriteSerializer, ItemFavoriteSerializer, \
     SingleItemPriceLogSerializer, SingleItemPriceLogFavoriteSerializer
-from merchapi.serializers.base import ItemSerializer, PriceLogSerializer
-from merchapi.serializers.pricelog import PriceLogItemSerializer
+from merchapi.serializers.base import ItemSerializer, PriceLogSerializer, TagSerializer
+from merchapi.serializers.price import PriceItemSerializer
 
 
-def item_generator(items: Iterable[Item], price_logs: Dict[int, PriceLog]):
+def item_generator(items: Iterable[Item], price_logs: Dict[int, Price]):
     for item in items:
         item.price_log = price_logs[item.item_id] if item.item_id in price_logs else None
         yield item
@@ -26,9 +27,9 @@ def include_pricelogs(queryset) -> Iterable[Item]:
     :param queryset:
     :return:
     """
-    latest_prices = PriceLog.objects.filter(
+    latest_prices = Price.objects.filter(
         date=Subquery(
-            PriceLog.objects
+            Price.objects
                 .filter(item=OuterRef('item'))
                 .values('item')
                 .annotate(last_price=Max('date'))
@@ -119,27 +120,48 @@ class ItemSingle(generics.RetrieveAPIView):
         return SingleItemPriceLogFavoriteSerializer if self.request.user.is_authenticated else SingleItemPriceLogSerializer
 
 
-class PriceLogPerItemList(generics.ListAPIView):
-    """
-    Gets the most recent price logs for each item.
-    """
-    queryset = PriceLog.objects.most_recent_for_each_item()
-    serializer_class = PriceLogItemSerializer
-
-
-class PriceLogsForItem(generics.ListAPIView):
+class ItemPrices(generics.ListAPIView):
     """
     Gets the prices for an item.
     todo add querystring for granularity and range
     """
 
     def get_queryset(self):
-        return PriceLog.objects.filter(item__item_id=self.kwargs['item_id'])
+        return Price.objects.filter(item__item_id=self.kwargs['item_id'])
 
     serializer_class = PriceLogSerializer
 
 
-class UserFavoriteList(generics.ListAPIView):
+class ItemTags(generics.ListAPIView):
+    """
+
+    """
+    serializer_class = TagSerializer
+    authentication_classes = (SessionAuthentication, TokenAuthentication,)
+    lookup_field = 'item_id'
+
+    def get_queryset(self):
+        tags = Item.objects.get(item_id=self.kwargs[self.lookup_field]).tags
+        unowned_tags = tags.filter(taggeditem__user=None)
+
+        if self.request.user.is_authenticated:
+            owned_tags = tags.filter(taggeditem__user=self.request.user.merchant)
+            tags = (unowned_tags | owned_tags).distinct()
+        else:
+            tags = unowned_tags
+
+        return tags
+
+
+class PriceForItemList(generics.ListAPIView):
+    """
+    Gets the most recent price logs for each item.
+    """
+    queryset = Price.objects.most_recent_for_each_item()
+    serializer_class = PriceItemSerializer
+
+
+class FavoriteList(generics.ListAPIView):
     """
     Gets the favorited items for a user.
     """
@@ -153,7 +175,7 @@ class UserFavoriteList(generics.ListAPIView):
     serializer_class = ItemSerializer
 
 
-class FavoriteCreateDestroy(generics.GenericAPIView, mixins.DestroyModelMixin):
+class FavoriteSingle(generics.GenericAPIView, mixins.DestroyModelMixin):
     """
     Manages the creation and deletion of favorites.
     """
@@ -205,3 +227,32 @@ class FavoriteCreateDestroy(generics.GenericAPIView, mixins.DestroyModelMixin):
                 item_id=item_id).favorited else Response(False)
         except Item.DoesNotExist:
             return Response({"detail": "Not found."}, 404)
+
+
+class TagList(generics.ListAPIView):
+    """
+
+    """
+    authentication_classes = (SessionAuthentication, TokenAuthentication,)
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
+
+
+class TagItems(generics.ListAPIView):
+    authentication_classes = (SessionAuthentication, TokenAuthentication,)
+    serializer_class = ItemSerializer
+
+    lookup_field = 'tag_name'
+
+    def get_queryset(self):
+
+        items = Item.objects.all()
+        unowned_tagged = items.filter(taggeditem__user=None)
+
+        if self.request.user.is_authenticated:
+            owned_tagged = items.filter(tags__taggeditem__user=self.request.user.merchant)
+            items = (unowned_tagged | owned_tagged).distinct()
+        else:
+            items = unowned_tagged
+
+        return items.filter(tags__name=self.kwargs[self.lookup_field])
