@@ -26,12 +26,13 @@ SECRET_KEY = '9qtzl-_@#ahf4!b9(td2%u(_$yoomx$l6#fd#8#-r&oo9t#fu4'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost',
-    '192.168.1.169',
+    'runemerchant.herokuapp.com',
     '0.0.0.0',
 ]
 
-CORS_ORIGIN_WHITELIST = [x+':8080' for x in ALLOWED_HOSTS]
+CORS_ORIGIN_WHITELIST = [
+    '0.0.0.0:8080'
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -78,10 +79,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'runemerchant.wsgi.application'
 
-
 # Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
+# https://docs.djangoproject.com/en/2.0/ref/settings/#database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -92,7 +91,6 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -114,7 +112,6 @@ REST_FRAMEWORK = {
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -128,5 +125,4 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
 STATIC_URL = '/static/'

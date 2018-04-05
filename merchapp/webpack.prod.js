@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const API_URL = "http://192.168.1.169:8000";
+const API_URL = "http://runemerchant.herokuapp.com";
 
 /**
  * The prod build config that extracts css to an
