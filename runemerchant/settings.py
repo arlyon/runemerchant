@@ -28,12 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '192.168.1.169',
+    '0.0.0.0',
 ]
 
-CORS_ORIGIN_WHITELIST = [
-    'localhost:8080',
-    '192.168.1.169:8080',
-]
+CORS_ORIGIN_WHITELIST = [x+':8080' for x in ALLOWED_HOSTS]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
