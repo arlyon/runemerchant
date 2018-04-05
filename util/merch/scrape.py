@@ -5,6 +5,7 @@ from datetime import datetime
 from typing import List, Tuple, Dict
 
 import requests
+from rest_framework import status
 
 from merchapi.models import MissingItem, Item, Price
 
@@ -29,7 +30,7 @@ def get_wiki_item(name: str) -> Dict or None:
     :return: A dictionary with the data.
     """
     wiki_info = requests.get(url=RUNESCAPE_WIKI_URL % name)
-    return parse_wiki_data(wiki_info.text) if wiki_info.status_code != 404 else None
+    return parse_wiki_data(wiki_info.text) if wiki_info.status_code != status.HTTP_404_NOT_FOUND else None
 
 
 def parse_wiki_data(wiki_response: str) -> Dict[str, str or int or float or bool or None]:
@@ -146,7 +147,7 @@ def get_prices_for_ids(item_ids: List[int]) -> List[Price]:
         url = OSBUDDY_API + "".join(f"&i={item_id}" for item_id in item_ids)
 
         request = requests.get(url)
-        if request.status_code == 200:
+        if request.status_code == status.HTTP_200_OK:
             raw_data = request.json()
         else:
             raise Exception(f"Error with API: {request.status_code}")

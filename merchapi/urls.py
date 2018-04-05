@@ -26,7 +26,7 @@ urlpatterns = [
     path('<api:version>/prices/', views.PriceForItemList.as_view(), name='prices'),
     path('<api:version>/favorites/', views.FavoriteList.as_view(), name='favorites'),
     path('<api:version>/tags/', views.TagList.as_view(), name='tags'),
-    path('<api:version>/tags/<str:tag_name>/', views.TagItems.as_view(), name='tag_items'),
+    path('<api:version>/tags/<str:tag_name>/', views.TagItems.as_view(), name='tag items'),
 
     path('<api:version>/auth/', include('rest_auth.urls'))
 ]

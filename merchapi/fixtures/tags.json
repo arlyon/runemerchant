@@ -1,0 +1,282 @@
+[
+  {
+    "model": "merchapi.tag",
+    "pk": 1,
+    "fields": {
+      "name": "weapon"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 2,
+    "fields": {
+      "name": "shield"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 3,
+    "fields": {
+      "name": "armor"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 4,
+    "fields": {
+      "name": "melee"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 5,
+    "fields": {
+      "name": "ranged"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 6,
+    "fields": {
+      "name": "magic"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 7,
+    "fields": {
+      "name": "prayer"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 8,
+    "fields": {
+      "name": "runecrafting"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 9,
+    "fields": {
+      "name": "crafting"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 10,
+    "fields": {
+      "name": "mining"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 11,
+    "fields": {
+      "name": "smithing"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 12,
+    "fields": {
+      "name": "fishing"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 13,
+    "fields": {
+      "name": "cooking"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 14,
+    "fields": {
+      "name": "firemaking"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 15,
+    "fields": {
+      "name": "woodcutting"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 16,
+    "fields": {
+      "name": "herblore"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 17,
+    "fields": {
+      "name": "fletching"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 18,
+    "fields": {
+      "name": "farming"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 19,
+    "fields": {
+      "name": "construction"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 20,
+    "fields": {
+      "name": "f2p"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 21,
+    "fields": {
+      "name": "p2p"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 22,
+    "fields": {
+      "name": "potion"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 23,
+    "fields": {
+      "name": "herb"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 24,
+    "fields": {
+      "name": "food"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 25,
+    "fields": {
+      "name": "zulrah"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 26,
+    "fields": {
+      "name": "teleport"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 27,
+    "fields": {
+      "name": "seed"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 28,
+    "fields": {
+      "name": "raids"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 29,
+    "fields": {
+      "name": "iron"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 30,
+    "fields": {
+      "name": "page"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 31,
+    "fields": {
+      "name": "bronze"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 32,
+    "fields": {
+      "name": "steel"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 33,
+    "fields": {
+      "name": "mithril"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 34,
+    "fields": {
+      "name": "adamant"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 35,
+    "fields": {
+      "name": "rune"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 36,
+    "fields": {
+      "name": "dragon"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 37,
+    "fields": {
+      "name": "ore"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 38,
+    "fields": {
+      "name": "tanning"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 39,
+    "fields": {
+      "name": "bar"
+    }
+  },
+  {
+    "model": "merchapi.tag",
+    "pk": 41,
+    "fields": {
+      "name": "dagger"
+    }
+  }
+]

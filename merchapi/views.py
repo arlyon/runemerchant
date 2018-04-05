@@ -2,7 +2,8 @@ from typing import List, Iterable, Dict
 
 from django.db import IntegrityError
 from django.db.models import Subquery, OuterRef, Max
-from rest_framework import generics, mixins
+from django.http import Http404
+from rest_framework import generics, mixins, status
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -127,7 +128,10 @@ class ItemPrices(generics.ListAPIView):
     """
 
     def get_queryset(self):
-        return Price.objects.filter(item__item_id=self.kwargs['item_id'])
+        try:
+            return Item.objects.get(item_id=self.kwargs['item_id']).price_set
+        except Item.DoesNotExist:
+            raise Http404("Item does not exist.")
 
     serializer_class = PriceLogSerializer
 
@@ -141,16 +145,20 @@ class ItemTags(generics.ListAPIView):
     lookup_field = 'item_id'
 
     def get_queryset(self):
-        tags = Item.objects.get(item_id=self.kwargs[self.lookup_field]).tags
-        unowned_tags = tags.filter(taggeditem__user=None)
-
-        if self.request.user.is_authenticated:
-            owned_tags = tags.filter(taggeditem__user=self.request.user.merchant)
-            tags = (unowned_tags | owned_tags).distinct()
+        try:
+            tags = Item.objects.get(item_id=self.kwargs[self.lookup_field]).tags
+        except Item.DoesNotExist as err:
+            raise Http404("Item does not exist.")
         else:
-            tags = unowned_tags
+            unowned_tags = tags.filter(taggeditem__user=None)
 
-        return tags
+            if self.request.user.is_authenticated:
+                owned_tags = tags.filter(taggeditem__user=self.request.user.merchant)
+                tags = (unowned_tags | owned_tags).distinct()
+            else:
+                tags = unowned_tags
+
+            return tags
 
 
 class PriceForItemList(generics.ListAPIView):
@@ -202,16 +210,19 @@ class FavoriteSingle(generics.GenericAPIView, mixins.DestroyModelMixin):
         :return: 409 if the relation exists already
                  404 if the item does not exist
                  201 if the create was successful
+         # todo find out why foreign key is ignored
         """
         try:
-            Favorite.objects.create(user=request.user.merchant, item_id=item_id)
+            Favorite.objects.create(user=request.user.merchant, item=Item.objects.get(item_id=item_id))
         except IntegrityError as err:
             if 'unique' in err.args[0].lower():
-                return Response({"detail": "Already exists."}, 409)
+                return Response({"detail": "Already exists."}, status.HTTP_409_CONFLICT)
             elif 'foreign key' in err.args[0].lower():
-                return Response({"detail": "Not found."}, 404)
+                return Response({"detail": "Item does not exist."}, status.HTTP_404_NOT_FOUND)
+        except Item.DoesNotExist:
+            raise Http404("Item does not exist.")
         else:
-            return Response(None, 201)
+            return Response(None, status.HTTP_201_CREATED)
 
     def get(self, request, version, item_id):
         """
@@ -226,7 +237,7 @@ class FavoriteSingle(generics.GenericAPIView, mixins.DestroyModelMixin):
             return Response(True) if Item.objects.with_favorited(request.user).get(
                 item_id=item_id).favorited else Response(False)
         except Item.DoesNotExist:
-            return Response({"detail": "Not found."}, 404)
+            raise Http404("Item does not exist.")
 
 
 class TagList(generics.ListAPIView):

@@ -21,7 +21,7 @@ class Spell(models.Model):
         required_runes = self.requiredrunes_set.select_related('rune').all()
         prices = {price.item_id: price for price in
                   Price.objects.most_recent_for_each_item(req.rune for req in required_runes)}
-        price = sum(req.quantity * prices[req.rune.item_id].buy_price for req in required_runes)
+        return sum(req.quantity * prices[req.rune.item_id].buy_price for req in required_runes)
 
     def __str__(self):
         return f"[{self.level}] {self.name}"

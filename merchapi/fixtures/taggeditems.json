@@ -1,0 +1,20 @@
+[
+  {
+    "model": "merchapi.taggeditem",
+    "pk": 1,
+    "fields": {
+      "tag": 1,
+      "item": 1319,
+      "user": null
+    }
+  },
+  {
+    "model": "merchapi.taggeditem",
+    "pk": 2,
+    "fields": {
+      "tag": 1,
+      "item": 1213,
+      "user": null
+    }
+  }
+]
