@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timezone, timedelta
 
 from django.test import TestCase
 
@@ -24,7 +24,7 @@ class ItemTest(TestCase):
         ).merchant
 
         self.first_price = Price.objects.create(
-            date=datetime.datetime.now() - datetime.timedelta(seconds=10),
+            date=datetime.now(timezone.utc) - timedelta(seconds=10),
             item=self.item,
             user=None,
             buy_price=5,
@@ -35,7 +35,7 @@ class ItemTest(TestCase):
         )
 
         self.second_price = Price.objects.create(
-            date=datetime.datetime.now(),
+            date=datetime.now(timezone.utc),
             item=self.item,
             user=None,
             buy_price=5,
@@ -53,10 +53,10 @@ class ItemTest(TestCase):
             buy_price=2,
             sell_price=3,
 
-            order_date=datetime.datetime.now() - datetime.timedelta(minutes=10),
-            buy_date=datetime.datetime.now() - datetime.timedelta(minutes=8),
-            listed_date=datetime.datetime.now() - datetime.timedelta(minutes=6),
-            sell_date=datetime.datetime.now() - datetime.timedelta(minutes=4),
+            order_date=datetime.now(timezone.utc) - timedelta(minutes=10),
+            buy_date=datetime.now(timezone.utc) - timedelta(minutes=8),
+            listed_date=datetime.now(timezone.utc) - timedelta(minutes=6),
+            sell_date=datetime.now(timezone.utc) - timedelta(minutes=4),
         )
 
     def test_most_recent_price(self):
@@ -74,7 +74,7 @@ class PriceTest(TestCase):
         self.item = Item.objects.get(item_id=2)
 
         self.price = Price.objects.create(
-            date=datetime.datetime.now(),
+            date=datetime.now(timezone.utc),
             item=self.item,
             user=None,
             buy_price=3,
@@ -122,7 +122,7 @@ class SpellTest(TestCase):
     def setUp(self):
 
         Price.objects.create(
-            date=datetime.datetime.now(),
+            date=datetime.now(timezone.utc),
             item=Item.objects.get(name="Air rune"),
             user=None,
             buy_price=3,
@@ -133,7 +133,7 @@ class SpellTest(TestCase):
         )
 
         Price.objects.create(
-            date=datetime.datetime.now(),
+            date=datetime.now(timezone.utc),
             item=Item.objects.get(name="Mind rune"),
             user=None,
             buy_price=3,

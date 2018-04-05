@@ -1,7 +1,7 @@
 import errno
 import os
 import shutil
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Tuple, Dict
 
 import requests
@@ -76,14 +76,12 @@ def download_icons(item_ids: List[int], folder: str) -> None:
             raise
 
     images = os.listdir(folder)
-    total = len(item_ids)
     count = 1
 
     for item_id in (x for x in item_ids if f"{x}.gif" not in images):
         response = requests.get(RUNESCAPE_IMAGE_URL + str(item_id), stream=True)
         with open(os.path.join(folder, f"{item_id}.gif"), 'wb') as out_file:
             shutil.copyfileobj(response.raw, out_file)
-        print(f"Downloaded {count} out of {total} ({item_id}.gif)")
         count += 1
 
 
@@ -154,7 +152,7 @@ def get_prices_for_ids(item_ids: List[int]) -> List[Price]:
 
         for item_id, data in raw_data.items():
             price_data.append(Price(
-                date=datetime.now(),
+                date=datetime.now(timezone.utc),
                 buy_price=data["buying"],
                 sell_price=data["selling"],
                 average_price=data["overall"],
