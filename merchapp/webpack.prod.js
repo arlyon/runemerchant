@@ -1,6 +1,10 @@
 const path = require('path');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const API_URL = "http://192.168.1.169:8000";
 
 /**
  * The prod build config that extracts css to an
@@ -9,6 +13,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
 
     entry: [
+        '@babel/polyfill',
         './src/js/prod.tsx',
         './src/scss/style.scss'
     ],
@@ -23,7 +28,7 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
-                loader: 'ts-loader',
+                loaders: ['babel-loader', 'ts-loader'],
             },
             {
                 test: /\.scss$/,
@@ -58,13 +63,26 @@ module.exports = {
     },
 
     mode: "production",
+    devtool: "source-map",
 
     plugins: [
+        new webpack.DefinePlugin({
+            API_URL: JSON.stringify(API_URL),
+            'process.env.NODE_ENV': JSON.stringify('production')
+        }),
         new CopyWebpackPlugin([
                 {from: 'src/static'}
             ],
-        )
+        ),
+        new UglifyJSPlugin({
+            sourceMap: true
+        }),
+        new BundleAnalyzerPlugin()
     ],
 
-
+    // allows us to not have react bundled
+    externals: {
+        "react": "React",
+        "react-dom": "ReactDOM"
+    },
 };

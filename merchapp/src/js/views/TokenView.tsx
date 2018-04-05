@@ -2,7 +2,6 @@ import React from 'react';
 import {Footer} from "../components/frame/Footer";
 import {Header} from "../components/frame/Header";
 import {TokenInput} from "../components/TokenInput";
-import {config} from "../config";
 import MerchApi from "../api/MerchApi"
 import {store} from "../store"
 import {observer} from "mobx-react"
@@ -41,7 +40,7 @@ export class TokenView extends React.Component<{}, {}> {
                         Adding an api token unlocks a couple of cool features in the app, including
                         favoriting items, adding personal tags, and tracking buy and sell orders.
                         To get the api token associated with the account, you can fill in
-                        this <a target="_blank" rel="noopener" href={`${config.apiUrl}/api/v1/auth/login/`}>simple
+                        this <a target="_blank" rel="noopener" href={`${API_URL}/api/v1/auth/login/`}>simple
                         form</a>.
                     </p>
                     <div className="token-container">

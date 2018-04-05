@@ -7,8 +7,6 @@ import {
     ApiUser
 } from "./datatypes";
 
-import {config} from "../config";
-
 /**
  * A set of functions for interacting with the MerchApi
  */
@@ -122,4 +120,4 @@ interface AuthApi {
     getUser: (token: string) => Promise<ApiUser | null>
 }
 
-export default new MerchApi(config.apiUrl);
+export default new MerchApi(API_URL);

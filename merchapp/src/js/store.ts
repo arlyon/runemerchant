@@ -19,7 +19,7 @@ class Merch implements IMerch {
 
     constructor() {
         this.token = localStorage.getItem(TOKEN_KEY) || null;
-        this.user = JSON.parse(atob(localStorage.getItem(USER_KEY) || "")) || null;
+        this.user = localStorage.getItem(USER_KEY) ? JSON.parse(atob(localStorage.getItem(USER_KEY)!)) : null;
     }
 
     @action setToken = (token: string | null) => {

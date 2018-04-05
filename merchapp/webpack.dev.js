@@ -1,5 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const API_URL = "http://192.168.1.169:8000";
 
 /**
  * The dev build config with react hot loader so that
@@ -9,6 +12,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
 
     entry: [
+        '@babel/polyfill',
         'react-hot-loader/patch',
         './src/js/dev.tsx',
         './src/scss/style.scss'
@@ -24,7 +28,7 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
-                loader: 'ts-loader',
+                loaders: ['babel-loader', 'ts-loader'],
             },
             {
                 test: /\.scss$/,
@@ -50,8 +54,7 @@ module.exports = {
     },
 
     mode: "development",
-
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
 
     devServer: {
         historyApiFallback: true,
@@ -60,6 +63,9 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.DefinePlugin({
+            API_URL: JSON.stringify(API_URL),
+        }),
         new CopyWebpackPlugin([
                 {from: 'src/static'}
             ],
