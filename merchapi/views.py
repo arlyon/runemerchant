@@ -1,7 +1,6 @@
-from typing import List, Iterable, Dict
+from typing import List
 
 from django.db import IntegrityError
-from django.db.models import Subquery, OuterRef, Max
 from django.http import Http404
 from rest_framework import generics, mixins, status
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
@@ -10,38 +9,10 @@ from rest_framework.response import Response
 from rest_framework.serializers import Serializer
 
 from merchapi.models import Item, Price, Favorite, Tag
-from merchapi.serializers.item import ItemPriceLogSerializer, ItemPriceLogFavoriteSerializer, ItemFavoriteSerializer, \
-    SingleItemPriceLogSerializer, SingleItemPriceLogFavoriteSerializer
+from merchapi.serializers.item import ItemPriceSerializer, ItemPriceFavoriteSerializer, ItemFavoriteSerializer, \
+    SingleItemPriceSerializer, SingleItemPriceFavoriteSerializer
 from merchapi.serializers.base import ItemSerializer, PriceLogSerializer, TagSerializer
 from merchapi.serializers.price import PriceItemSerializer
-
-
-def item_generator(items: Iterable[Item], price_logs: Dict[int, Price]):
-    for item in items:
-        item.price_log = price_logs[item.item_id] if item.item_id in price_logs else None
-        yield item
-
-
-def include_pricelogs(queryset) -> Iterable[Item]:
-    """
-    Takes a queryset of Items and merges in price data.
-    :param queryset:
-    :return:
-    """
-    latest_prices = Price.objects.filter(
-        date=Subquery(
-            Price.objects
-                .filter(item=OuterRef('item'))
-                .values('item')
-                .annotate(last_price=Max('date'))
-                .values('last_price')[:1]
-        )
-    )
-
-    return item_generator(
-        queryset.order_by('item_id'),
-        {price_log.item_id: price_log for price_log in latest_prices}
-    )
 
 
 class ItemList(generics.ListAPIView):
@@ -81,23 +52,23 @@ class ItemList(generics.ListAPIView):
             queryset = queryset.filter(tag__name=tag.lower())
 
         if self.request.user.is_authenticated:
-            queryset = queryset.with_favorited(self.request.user)
+            queryset = queryset.with_favorited(self.request.user.merchant)
 
         # adds the price to the item
         if self.request.query_params.get('prices'):
-            return include_pricelogs(queryset)
+            return queryset.with_prices()
 
         return queryset
 
     def get_serializer_class(self):
         if self.request.user.is_authenticated:
             if self.request.query_params.get('prices'):
-                return ItemPriceLogFavoriteSerializer
+                return ItemPriceFavoriteSerializer
             else:
                 return ItemFavoriteSerializer
         else:
             if self.request.query_params.get('prices'):
-                return ItemPriceLogSerializer
+                return ItemPriceSerializer
             else:
                 return ItemSerializer
 
@@ -112,13 +83,13 @@ class ItemSingle(generics.RetrieveAPIView):
 
     def get_queryset(self):
         return (
-            Item.objects.with_favorited(self.request.user)
+            Item.objects.with_favorited(self.request.user.merchant)
             if self.request.user.is_authenticated
             else Item.objects.all()
         )
 
     def get_serializer_class(self):
-        return SingleItemPriceLogFavoriteSerializer if self.request.user.is_authenticated else SingleItemPriceLogSerializer
+        return SingleItemPriceFavoriteSerializer if self.request.user.is_authenticated else SingleItemPriceSerializer
 
 
 class ItemPrices(generics.ListAPIView):
@@ -213,7 +184,7 @@ class FavoriteSingle(generics.GenericAPIView, mixins.DestroyModelMixin):
          # todo find out why foreign key is ignored
         """
         try:
-            Favorite.objects.create(user=request.user.merchant, item=Item.objects.get(item_id=item_id))
+            Favorite.objects.create(merchant=request.user.merchant, item=Item.objects.get(item_id=item_id))
         except IntegrityError as err:
             if 'unique' in err.args[0].lower():
                 return Response({"detail": "Already exists."}, status.HTTP_409_CONFLICT)
@@ -234,7 +205,7 @@ class FavoriteSingle(generics.GenericAPIView, mixins.DestroyModelMixin):
                  404 if the item does not exist.
         """
         try:
-            return Response(True) if Item.objects.with_favorited(request.user).get(
+            return Response(True) if Item.objects.with_favorited(request.user.merchant).get(
                 item_id=item_id).favorited else Response(False)
         except Item.DoesNotExist:
             raise Http404("Item does not exist.")

@@ -17,10 +17,10 @@ class Favorite(models.Model):
     A favorite for a user.
     """
     item = models.ForeignKey('Item', on_delete=models.CASCADE)
-    user = models.ForeignKey(Merchant, on_delete=models.CASCADE)
+    merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = ('item', 'user')
+        unique_together = ('item', 'merchant')
 
 
 @receiver(post_save, sender=User)

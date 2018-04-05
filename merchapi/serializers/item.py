@@ -8,7 +8,8 @@ from merchapi.serializers.base import PriceLogSerializer, composed_serializer, I
 @composed_serializer
 class ItemFavoriteSerializer(ItemSerializer):
     """
-
+    Serializes an item embedding whether it has been
+    favorited. Requires Item.with_favorite()
     """
     favorited = serializers.BooleanField()
 
@@ -17,19 +18,20 @@ class ItemFavoriteSerializer(ItemSerializer):
 
 
 @composed_serializer
-class ItemPriceLogSerializer(ItemSerializer):
+class ItemPriceSerializer(ItemSerializer):
     """
     Serializes an Item and embeds the most recent
     price log. Better performance for many items.
+    Requires Items.with_prices()
     """
-    price_log = PriceLogSerializer()
+    price = PriceLogSerializer()
 
     class Meta:
-        fields = ('price_log',)
+        fields = ('price',)
 
 
 @composed_serializer
-class ItemPriceLogFavoriteSerializer(ItemFavoriteSerializer, ItemPriceLogSerializer):
+class ItemPriceFavoriteSerializer(ItemFavoriteSerializer, ItemPriceSerializer):
     """
     A composed serializer consisting of favorites.
     """
@@ -37,7 +39,7 @@ class ItemPriceLogFavoriteSerializer(ItemFavoriteSerializer, ItemPriceLogSeriali
 
 
 @composed_serializer
-class SingleItemPriceLogSerializer(ItemSerializer):
+class SingleItemPriceSerializer(ItemSerializer):
     """
     Serializes an Item and embeds the most recent
     price log. Better performance for a single item.
@@ -61,7 +63,7 @@ class SingleItemPriceLogSerializer(ItemSerializer):
 
 
 @composed_serializer
-class SingleItemPriceLogFavoriteSerializer(ItemFavoriteSerializer, SingleItemPriceLogSerializer):
+class SingleItemPriceFavoriteSerializer(ItemFavoriteSerializer, SingleItemPriceSerializer):
     """
     A composed serializer consisting of favorites.
     """

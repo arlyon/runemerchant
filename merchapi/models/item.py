@@ -1,5 +1,8 @@
+from typing import Iterable, Dict
+
 from django.db import models
-from django.db.models import Count, Q, F, Sum
+from django.db.models import Count, Q, F, Sum, QuerySet, Subquery, OuterRef, Max
+from django.db.models.functions import Cast
 
 from merchapi.models.flip import Flip
 from merchapi.models.price import Price
@@ -16,13 +19,39 @@ class MissingItem(models.Model):
 
 class ItemManager(models.QuerySet):
 
-    def with_favorited(self, user):
+    def with_favorited(self, merchant: Merchant) -> QuerySet:
         """
         Annotates the items with the favorited status for a user.
-        :param user: The user to get the favorites for.
-        :return:
+        :param merchant: The merchant to get the favorites for.
+        :return: A queryset with favorites annotated.
         """
-        return self.annotate(favorited=Count('favorite', filter=Q(favorite__user_id=user.id)))
+        return self.annotate(favorited=Cast(Count('favorite', filter=Q(favorite__merchant=merchant)), models.BooleanField()))
+
+    def with_prices(self) -> Iterable['Item']:
+        """
+        Takes a queryset of Items and merges in price data.
+        :return: An iterable.
+        """
+
+        def item_generator(items: Iterable[Item], price_logs: Dict[int, Price]):
+            for item in items:
+                item.price = price_logs[item.item_id] if item.item_id in price_logs else None
+                yield item
+
+        latest_prices = Price.objects.filter(
+            date=Subquery(
+                Price.objects
+                    .filter(item=OuterRef('item'))
+                    .values('item')
+                    .annotate(last_price=Max('date'))
+                    .values('last_price')[:1]
+            )
+        )
+
+        return item_generator(
+            self.order_by('item_id'),
+            {price_log.item_id: price_log for price_log in latest_prices}
+        )
 
 
 class Item(models.Model):
@@ -90,6 +119,4 @@ class Rune(Item):
     """
     A rune in runescape.
     """
-
-    def get_usages(self):
-        pass
+    pass
