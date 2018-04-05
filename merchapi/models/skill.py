@@ -1,5 +1,6 @@
 from django.db import models
-from merchapi.models import Rune
+
+from merchapi.models import Rune, Price
 
 
 class Spell(models.Model):
@@ -10,6 +11,17 @@ class Spell(models.Model):
     level = models.PositiveIntegerField()
     xp = models.FloatField()
     runes = models.ManyToManyField(Rune, through='RequiredRunes')
+
+    def get_price(self) -> int:
+        """
+        Gets the price of casting the given spell.
+        :return:
+        """
+
+        required_runes = self.requiredrunes_set.select_related('rune').all()
+        prices = {price.item_id: price for price in
+                  Price.objects.most_recent_for_each_item(req.rune for req in required_runes)}
+        price = sum(req.quantity * prices[req.rune.item_id].buy_price for req in required_runes)
 
     def __str__(self):
         return f"[{self.level}] {self.name}"
