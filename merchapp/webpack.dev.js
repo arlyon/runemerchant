@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const API_URL = "http://192.168.1.169:8000";
+const API_URL = "http://0.0.0.0:8000";
 
 /**
  * The dev build config with react hot loader so that
@@ -12,15 +12,16 @@ const API_URL = "http://192.168.1.169:8000";
 module.exports = {
 
     entry: [
+        'react-hot-loader/patch', // RHL patch
         '@babel/polyfill',
-        'react-hot-loader/patch',
         './src/js/dev.tsx',
         './src/scss/style.scss'
     ],
 
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: "/"
     },
 
     module: {
@@ -59,10 +60,13 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         contentBase: path.resolve(__dirname, 'dist'),
-        overlay: true
+        overlay: true,
+        hot: true
     },
 
     plugins: [
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
             API_URL: JSON.stringify(API_URL),
         }),
