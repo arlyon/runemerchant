@@ -2,7 +2,7 @@ from django.db.models import OuterRef, Subquery, Max
 from django.test import TestCase, tag
 
 # Create your tests here.
-from util.merch.scrape import get_new_items, get_prices_for_ids
+from util.merch.scrape import get_new_items, get_prices_for_items
 from merchapi.models import Price, Item
 
 
@@ -16,7 +16,7 @@ class MostRecentPrice(TestCase):
         items, _ = get_new_items(10)
         Item.objects.bulk_create(items)
 
-        prices = get_prices_for_ids([item.item_id for item in items])
+        prices = get_prices_for_items([item.item_id for item in items])
         Price.objects.bulk_create(prices)
 
     @tag('comparison')

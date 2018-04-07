@@ -20,8 +20,40 @@ pip3 install -r requirements.txt
 ./manage.py runserver
 ```
 
-There are a set of management commands for downloading items, icons,
-and price data as well as item fixtures.
+Downloading items, icons, and price data is fairly easy. There are
+django commands available for each of the three tasks. Getting set up
+from a fresh database is as simple as running them.
+
+However, due to how long it takes for the items to download, there is a
+fixture included that has all the item information included. So then,
+instead of downloading all of them you will only need the most recently
+added ones.
+
+```bash
+./manage.py loaddata items.json
+./manage.py get_items
+./manage.py get_icons
+./manage.py get_prices
+```
+
+There are additional fixtures for commonly used tags, runes, and spells.
+
+```bash
+./manage.py loaddata tags.json
+./manage.py loaddata taggeditems.json
+./manage.py loaddata runes.json
+./manage.py loaddata spells.json
+./manage.py loaddata requiredrunes.json
+```
+
+Keeping the item and prices list up to date is easy too, thanks to
+[huey](https://huey.readthedocs.io/en/latest/index.html), a simple
+task queue using redis. If you have redis installed, simply modify
+`settings.py` to point towards it and run the worker.
+
+```bash
+./manage.py run_huey
+```
 
 ### Web App
 

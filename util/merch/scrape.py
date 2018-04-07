@@ -2,7 +2,8 @@ import errno
 import os
 import shutil
 from datetime import datetime, timezone
-from typing import List, Tuple, Dict
+from itertools import islice, chain
+from typing import List, Tuple, Dict, Iterable
 
 import requests
 from rest_framework import status
@@ -62,7 +63,7 @@ def parse_wiki_data(wiki_response: str) -> Dict[str, str or int or float or bool
     return data
 
 
-def download_icons(item_ids: List[int], folder: str) -> None:
+def download_icons(item_ids: Iterable[int], folder: str) -> None:
     """
     Downloads the icons for the given list of item ids.
     :param item_ids: The list of item ids to download.
@@ -128,21 +129,24 @@ def get_new_items(quantity: int or None = None) -> Tuple[List[Item], List[Missin
     return new_items, ignored_items
 
 
-def get_prices_for_ids(item_ids: List[int]) -> List[Price]:
+def get_prices_for_items(items: Iterable[int]) -> List[Price]:
     """
     Queries the OSBuddy api for the guide prices of a given list of item ids.
-    :param item_ids: The list of items.
+    :param items: The list of items.
     :return: A list of PriceLogs with the date,
     """
+
+    def group(iterable, size=10):
+        iterator = iter(iterable)
+        for first in iterator:
+            yield chain([first], islice(iterator, size - 1))
+
     price_data: List[Price] = []
 
-    if len(item_ids) > 100:
-        chunks = (item_ids[i:i + 100] for i in range(0, len(item_ids), 100))
+    id_groups = group(items, 100)
 
-        for chunk in chunks:
-            price_data += get_prices_for_ids(chunk)
-    else:
-        url = OSBUDDY_API + "".join(f"&i={item_id}" for item_id in item_ids)
+    for group in id_groups:
+        url = OSBUDDY_API + "".join(f"&i={item_id}" for item_id in group)
 
         request = requests.get(url)
         if request.status_code == status.HTTP_200_OK:
@@ -158,7 +162,7 @@ def get_prices_for_ids(item_ids: List[int]) -> List[Price]:
                 average_price=data["overall"],
                 buy_volume=data["buyingQuantity"],
                 sell_volume=data["sellingQuantity"],
-                item=Item.objects.filter(item_id=item_id).first()
+                item=Item.objects.get(item_id=item_id)
             ))
 
     return price_data

@@ -18,4 +18,4 @@ class Command(BaseCommand):
         files = os.listdir(ICONS_DIR)
         item_ids = Item.objects.all().values_list('item_id', flat=True)
 
-        download_icons([x for x in item_ids if f"{x}.gif" not in files], ICONS_DIR)
+        download_icons((x for x in item_ids if f"{x}.gif" not in files), ICONS_DIR)

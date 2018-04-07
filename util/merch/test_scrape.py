@@ -4,7 +4,7 @@ from typing import List
 
 from django.test import TestCase
 
-from util.merch.scrape import get_new_items, parse_wiki_data, get_summary, download_icons, get_prices_for_ids
+from util.merch.scrape import get_new_items, parse_wiki_data, get_summary, download_icons, get_prices_for_items
 from merchapi.models import Item, Price
 
 
@@ -71,6 +71,6 @@ class ScrapeTest(TestCase):
         test_items, _ = get_new_items(2)
         Item.objects.bulk_create(test_items)
 
-        test_prices: List[Price] = get_prices_for_ids(test_ids)
+        test_prices: List[Price] = get_prices_for_items(test_ids)
 
         self.assertEqual([price.item for price in test_prices], test_items)
