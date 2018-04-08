@@ -1,0 +1,9 @@
+[
+  {
+    "model": "merchapi.merchant",
+    "pk": -1,
+    "fields": {
+      "user": null
+    }
+  }
+]

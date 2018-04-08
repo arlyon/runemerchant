@@ -8,7 +8,7 @@ class Merchant(models.Model):
     """
     A merchant.
     """
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     favorites = models.ManyToManyField('Item', through='Favorite')
 
 

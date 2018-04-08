@@ -1,8 +1,9 @@
 from datetime import datetime, timezone, timedelta
 
-from django.test import TestCase
+from django.db import IntegrityError
+from django.test import TestCase, TransactionTestCase
 
-from merchapi.models import Item, Price, User, Flip, Spell
+from merchapi.models import Item, Price, User, Flip, Spell, Tag, Merchant
 
 
 class ItemTest(TestCase):
@@ -120,7 +121,6 @@ class SpellTest(TestCase):
     fixtures = ['items.json', 'spells.json', 'runes.json', 'requiredrunes.json']
 
     def setUp(self):
-
         Price.objects.create(
             date=datetime.now(timezone.utc),
             item=Item.objects.get(name="Air rune"),
@@ -152,3 +152,20 @@ class SpellTest(TestCase):
 
         with self.assertNumQueries(2):
             self.assertEqual(spell.get_price(), price)
+
+
+class TaggedItemTest(TransactionTestCase):
+    fixtures = ['items.json']
+
+    def test_unique(self):
+        tag = Tag.objects.create(
+            name="test"
+        )
+
+        Merchant.objects.create(id=-1, user=None)
+
+        tag.tag_item(Item.objects.get(item_id=2))
+        self.assertEqual(len(tag.taggeditem_set.all()), 1)
+        with self.assertRaises(IntegrityError):
+            tag.tag_item(Item.objects.get(item_id=2))
+        self.assertEqual(len(tag.taggeditem_set.all()), 1)

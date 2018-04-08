@@ -16,7 +16,7 @@ class MostRecentPrice(TestCase):
         items, _ = get_new_items(10)
         Item.objects.bulk_create(items)
 
-        prices = get_prices_for_items([item.item_id for item in items])
+        prices = get_prices_for_items(item.item_id for item in items)
         Price.objects.bulk_create(prices)
 
     @tag('comparison')
