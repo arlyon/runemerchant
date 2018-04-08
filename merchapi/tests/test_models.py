@@ -155,14 +155,12 @@ class SpellTest(TestCase):
 
 
 class TaggedItemTest(TransactionTestCase):
-    fixtures = ['items.json']
+    fixtures = ['items.json', 'merchants.json']
 
     def test_unique(self):
         tag = Tag.objects.create(
             name="test"
         )
-
-        Merchant.objects.create(id=-1, user=None)
 
         tag.tag_item(Item.objects.get(item_id=2))
         self.assertEqual(len(tag.taggeditem_set.all()), 1)
