@@ -11,8 +11,7 @@ from rest_framework.serializers import Serializer
 from merchapi.models import Item, Price, Favorite, Tag
 from merchapi.serializers.item import ItemPriceSerializer, ItemPriceFavoriteSerializer, ItemFavoriteSerializer, \
     SingleItemPriceSerializer, SingleItemPriceFavoriteSerializer
-from merchapi.serializers.base import ItemSerializer, PriceLogSerializer, TagSerializer
-from merchapi.serializers.price import PriceItemSerializer
+from merchapi.serializers.base import ItemSerializer, PriceSerializer, TagSerializer
 
 
 class ItemList(generics.ListAPIView):
@@ -104,7 +103,7 @@ class ItemPrices(generics.ListAPIView):
         except Item.DoesNotExist:
             raise Http404("Item does not exist.")
 
-    serializer_class = PriceLogSerializer
+    serializer_class = PriceSerializer
 
 
 class ItemTags(generics.ListAPIView):
@@ -137,7 +136,7 @@ class PriceForItemList(generics.ListAPIView):
     Gets the most recent price logs for each item.
     """
     queryset = Price.objects.most_recent_for_each_item()
-    serializer_class = PriceItemSerializer
+    serializer_class = PriceSerializer
 
 
 class FavoriteList(generics.ListAPIView):

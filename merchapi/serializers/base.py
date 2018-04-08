@@ -39,7 +39,7 @@ class ItemSerializer(serializers.ModelSerializer):
         fields = ('item_id', 'name', 'description', 'store_price', 'members', 'buy_limit', 'high_alch')
 
 
-class PriceLogSerializer(serializers.ModelSerializer):
+class PriceSerializer(serializers.ModelSerializer):
     """
     Serializes a price log with basic information.
     """

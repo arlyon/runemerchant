@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
 
 from merchapi.models import Price
-from merchapi.serializers.base import PriceLogSerializer, composed_serializer, ItemSerializer
+from merchapi.serializers.base import PriceSerializer, composed_serializer, ItemSerializer
 
 
 @composed_serializer
@@ -24,7 +24,7 @@ class ItemPriceSerializer(ItemSerializer):
     price log. Better performance for many items.
     Requires Items.with_prices()
     """
-    price = PriceLogSerializer()
+    price = PriceSerializer()
 
     class Meta:
         fields = ('price',)
@@ -44,22 +44,22 @@ class SingleItemPriceSerializer(ItemSerializer):
     Serializes an Item and embeds the most recent
     price log. Better performance for a single item.
     """
-    price_log = SerializerMethodField()
+    price = SerializerMethodField()
 
     @staticmethod
-    def get_price_log(item):
+    def get_price(item):
         """
         Gets the latest price, or none if it does not exist.
         :param item: The item to look up.
         :return: The latest price log for that item.
         """
         try:
-            return PriceLogSerializer(item.price_set.latest('-date')).data
+            return PriceSerializer(item.price_set.latest('-date')).data
         except Price.DoesNotExist:
             return None
 
     class Meta:
-        fields = ('price_log',)
+        fields = ('price',)
 
 
 @composed_serializer
