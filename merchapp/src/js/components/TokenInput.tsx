@@ -1,6 +1,6 @@
 import * as React from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCheckCircle, faTimesCircle} from '@fortawesome/pro-light-svg-icons';
+import {faCheckCircle, faTimesCircle, faSpinnerThird} from '@fortawesome/pro-light-svg-icons';
 
 export interface ITokenInputProps {
     tokenChanged: (token: string | null) => void
@@ -42,11 +42,16 @@ export class TokenInput extends React.Component<ITokenInputProps, ITokenInputSta
                     pattern="[a-fA-F0-9]+"
                 />
                 <div className="icon-container" onClick={this.revertToLastValid}>
-                    <FontAwesomeIcon icon={this.state.valid ? faCheckCircle : faTimesCircle}/>
+                    <FontAwesomeIcon
+                        icon={this.isLoading() ? faSpinnerThird : (this.state.valid ? faCheckCircle : faTimesCircle)}
+                        spin={this.isLoading()}
+                    />
                 </div>
             </div>
         )
     }
+
+    private isLoading = () => isToken.test(this.state.input) && (this.state.input != (this.props.token || ""));
 
     /**
      * Validity is controlled by the parent. A new token from the parent
@@ -54,7 +59,6 @@ export class TokenInput extends React.Component<ITokenInputProps, ITokenInputSta
      * @param {ITokenInputProps} newProps
      */
     public componentWillReceiveProps(newProps: ITokenInputProps) {
-        console.log(newProps)
         if (newProps.token != this.props.token) {
             this.setState({
                 valid: true,
