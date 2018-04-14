@@ -37,8 +37,8 @@ export class CachedSearch {
         if (this.name.length > this.minCharacters || (tags && tags.length)) {
 
             // if the list of tags has changed, get from the server
-            if (tags!.length !== this.tags.length) {
-                this.tags = tags || [];
+            if (tags && tags.length !== this.tags.length) {
+                this.tags = tags;
                 this.items = await ApiManager.getItemsWithPriceByName(this.name, tags);
             }
 
@@ -52,6 +52,7 @@ export class CachedSearch {
         // search if 3 characters and no tags
         else if (this.name.length == this.minCharacters) {
             this.items = await ApiManager.getItemsWithPriceByName(this.name, tags)
+            this.tags = []
         }
         // invalid search, return null
         else {

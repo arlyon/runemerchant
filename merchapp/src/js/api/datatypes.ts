@@ -32,14 +32,13 @@ export interface ApiItem {
     store_price: number;
     buy_limit: number;
     high_alch: number;
-    low_alch: number;
 }
 
 /**
  * An item with an included price log.
  */
 export interface ApiItemWithPriceLog extends ApiItem {
-    price_log: ApiPriceLogWithItemID
+    price: ApiPriceLogWithItemID
 }
 
 /**
@@ -58,3 +57,7 @@ export interface ApiUser {
     first_name?: string,
     last_name?: string
 }
+
+export const hasPriceLog = (item: ApiItem | ApiItemWithPriceLog): item is ApiItemWithPriceLog => {
+    return !!(item as ApiItemWithPriceLog).price;
+};

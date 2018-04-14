@@ -11,7 +11,7 @@ export interface IHeaderProps {
 }
 
 @observer
-export class Header extends React.Component<IHeaderProps, {width: number}> {
+export class Header extends React.Component<IHeaderProps, { width: number }> {
 
     constructor(props: IHeaderProps) {
         super(props);
@@ -19,21 +19,24 @@ export class Header extends React.Component<IHeaderProps, {width: number}> {
     }
 
     public render() {
-        return <header className="toolbar">
-            <div className="container title">
-                <Link to="/" className="logo">
-                    <img src={this.props.image} alt="logo"/>
-                    {this.state.width > 600 ? this.props.name : "RM"}
-                </Link>
-                <div className="right">
-                    <Link to="/token/" className={"bold vertical-align token"}>
-                        api token
-                        <FontAwesomeIcon className={store.token ? "valid" : ""} style={{margin: '0.1em 0 0 0.3em'}}
-                                         icon={faKey}/>
+        return (
+            <nav className="toolbar">
+                <div className="container title">
+                    <Link to="/" className="logo">
+                        <img src={this.props.image} alt="logo"/>
+                        {this.state.width > 600 ? this.props.name : "RM"}
                     </Link>
+                    <div className="right">
+                        {store.token && <Link to="/dash/" className="bold vertical-align">dashboard</Link>}
+                        <Link to="/token/" className={"bold vertical-align token"}>
+                            api token
+                            <FontAwesomeIcon className={store.token ? "valid" : ""} style={{margin: '0.1em 0 0 0.3em'}}
+                                             icon={faKey}/>
+                        </Link>
+                    </div>
                 </div>
-            </div>
-        </header>
+            </nav>
+        )
     }
 
     public componentDidMount() {

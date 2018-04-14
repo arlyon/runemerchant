@@ -34,7 +34,7 @@ export class TokenView extends React.Component<{}, {}> {
         return (
             <div id="root">
                 <Header name="RuneMerchant" image="/logo_black.svg"/>
-                <main className="container vertical-container">
+                <main className="container">
                     <h1>Api Token</h1>
                     <p>
                         Adding an api token unlocks a couple of cool features in the app, including

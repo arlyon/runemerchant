@@ -7,11 +7,9 @@
 
 body {
   overflow-y: scroll;
-  margin: 0;
   font-family: $font-family;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  background-color: $background;
   font-size: 18px;
 }
 
@@ -25,15 +23,12 @@ a {
   flex-direction: column;
 
   $header-font: 1.5em;
-  $header-margin: 0.5em;
+  $header-margin: 2em;
 
-  > header.toolbar {
+  > nav.toolbar {
     margin: $header-margin 0;
 
     > div.title {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
       font-weight: bold;
 
       a.logo {
@@ -137,20 +132,23 @@ a {
   }
 }
 
-div.title {
+.title {
   font-size: 1.5em;
   display: flex;
   flex-direction: row;
   align-items: center;
-  h1 {
-    font-size: 1.33em;
-    margin: 0;
-  }
+
   .right {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-left: auto;
+  }
+}
+
+header.title {
+  h1 {
+    font-size: 1.33em;
   }
 }
 

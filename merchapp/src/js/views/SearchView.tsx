@@ -38,20 +38,18 @@ export class SearchView extends React.Component<{}, ISearchViewState> {
 
         const items = this.state.items === null ? null :
             this.state.items.length ?
-                this.state.items.map((item, index: number) => <ListItem key={index} {...item} />)
+                this.state.items.map((item: ApiItemWithPriceLog, index: number) => <ListItem key={index} {...item} />)
                 : <h2 style={{textAlign: 'center', marginTop: '2em'}}>No Matches..</h2>;
 
         return (
             <div id="root">
                 <Header name="RuneMerchant" image="/logo_black.svg"/>
                 <main className="container">
-                    <div className="vertical-container">
-                        <TaggedSearchBar
-                            searchChanged={this.searchChanged}
-                            label="Find an item..."
-                            placeholder={this.placeholder}/>
-                        {items}
-                    </div>
+                    <TaggedSearchBar
+                        searchChanged={this.searchChanged}
+                        label="Find an item..."
+                        placeholder={this.placeholder}/>
+                    {items}
                     {store.token && <FavoritesList token={store.token}/>}
                 </main>
                 <Footer/>
