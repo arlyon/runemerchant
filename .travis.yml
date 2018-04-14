@@ -1,12 +1,13 @@
-language: python
-
-python:
-  - 3.6
-
-install:
-  - pip install -r requirements.txt
-
-env:
-  - DJANGO=2.0
-
-script: ./manage.py test
+matrix:
+  include:
+  - language: python
+    python: 3.6
+    install: pip install -r requirements.txt
+    env: DJANGO=2.0
+    script: ./manage.py test
+  - language: node_js
+    node_js: 8
+    before_install: cd merchapp
+    install: yarn install
+    script: yarn test
+    cache: yarn
