@@ -11,23 +11,37 @@ interface ISearchState {
     tags: string[];
 }
 
+export interface RemovedWord {
+    word: string,
+    newString: string
+}
+
 /**
  * Removes the occupying the given index from a string.
  * @param {string} str The string to extract the word from.
  * @param {number} pos The character index of the word.
- * @returns {{word: string; newString: string}} An object with the new string and extracted word.
+ * @returns {RemovedWord} An object with the new string and extracted word.
  */
-export const removeWordAt = (str: string, pos: number): { word: string, newString: string } => {
-    // Search for the word's beginning and end.
-    const leftBound = str.slice(0, pos + 1).search(/\S+$/);
-    const rightBound = str.slice(pos).search(/\s/);
-    const newString = str.substring(0, leftBound) + str.substring(rightBound, -1);
+export const removeWordAt = (str: string, pos: number): RemovedWord => {
 
-    // The last word in the string is a special case.
-    const word = rightBound == -1 ? str.slice(leftBound) : str.slice(leftBound, rightBound + pos);
+    // set the left bound to either the first index of the word
+    // or the current index if a word cannot be found (-1)
+    let leftBound = str.slice(0, pos).search(/\S+$/);
+    if (leftBound == -1) leftBound = pos;
 
-    // Return the word, using the located bounds to extract it from the string.
-    return {word, newString,};
+    // set the right bound to the last index of the word or to
+    // the length of the string if a word cannot be found (-1)
+    let rightBound = str.slice(pos).search(/\s/);
+    rightBound = rightBound == -1 ? str.length : rightBound + pos;
+
+    // handle trimming the right part to remove redundant spaces
+    const leftNewString = str.slice(0, leftBound);
+    const rightNewString = leftNewString == "" ? str.slice(rightBound).trimLeft() : str.slice(rightBound);
+
+    return {
+        word: str.slice(leftBound, rightBound),
+        newString: leftNewString + rightNewString,
+    };
 };
 
 /**
@@ -104,11 +118,17 @@ export class TaggedSearchBar extends React.Component<ISearchProps, ISearchState>
         if (
             event.code === 'Backspace' &&
             this.input === document.activeElement &&
-            this.input.selectionStart === 0 &&
+            this.input.selectionEnd === 0 &&
             this.state.tags.length
         ) {
-            const text = event.shiftKey ? "" : this.state.tags[this.state.tags.length - 1] + this.state.text;
+
+            let text = this.state.text;
             const tags = this.state.tags.slice(0, -1);
+
+            if (!event.shiftKey) {
+                text = this.state.tags[this.state.tags.length - 1] + // last tag
+                    (text.length && text[0] != " " ? " " : "") + text; // text with space
+            }
 
             localStorage.setItem("tags", tags.join(","));
             localStorage.setItem("search", text);

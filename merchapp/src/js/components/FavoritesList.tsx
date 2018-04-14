@@ -18,7 +18,7 @@ export class FavoritesList extends React.Component<IFavoritesListProps, IFavorit
         this.state = {
             items: []
         };
-        this.getItems()
+        this.getItems(props.token)
     }
 
     public render(props?: {}, state?: {}, context?: any) {
@@ -31,9 +31,14 @@ export class FavoritesList extends React.Component<IFavoritesListProps, IFavorit
         ) : null;
     }
 
-    private getItems = async () => {
+
+    componentWillReceiveProps(nextProps: Readonly<IFavoritesListProps>, nextContext: any): void {
+        this.getItems(nextProps.token)
+    }
+
+    private getItems = async (token: string) => {
         this.setState({
-            items: await MerchApi.getFavorites(this.props.token)
+            items: await MerchApi.getFavorites(token)
         })
     }
 }

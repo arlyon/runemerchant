@@ -7,6 +7,7 @@ import {TaggedSearchBar} from "../components/TaggedSearchBar";
 import {Footer} from "../components/frame/Footer";
 import {Header} from "../components/frame/Header";
 import {store} from "../store";
+import {observer} from "mobx-react"
 
 const placeHolders = [
     "gf",
@@ -21,6 +22,7 @@ interface ISearchViewState {
     items: ApiItemWithPriceLog[] | null
 }
 
+@observer
 export class SearchView extends React.Component<{}, ISearchViewState> {
 
     private search: CachedSearch;
