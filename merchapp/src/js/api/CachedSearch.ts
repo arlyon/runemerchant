@@ -39,7 +39,7 @@ export class CachedSearch {
             // if the list of tags has changed, get from the server
             if (tags && tags.length !== this.tags.length) {
                 this.tags = tags;
-                this.items = await ApiManager.getItemsWithPriceByName(this.name, tags);
+                this.items = await ApiManager.getItemsWithPriceByName("", tags);
             }
 
             // if the items list is not null, filter it instead of fetching
