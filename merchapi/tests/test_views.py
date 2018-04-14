@@ -206,7 +206,7 @@ class TagsTest(APITestCase):
     """
     Regression tests to make sure the tags API conforms to expectations.
     """
-    fixtures = ['items.json', 'tags.json', 'taggeditems.json']
+    fixtures = ['items.json', 'tags.json', 'taggeditems.json', 'merchants.json']
 
     def test_tags_list(self):
         url = reverse('tags', kwargs={"version": 1})

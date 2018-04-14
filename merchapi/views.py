@@ -47,8 +47,9 @@ class ItemList(generics.ListAPIView):
             queryset = queryset.filter(members=False)
 
         tags: List[str] = self.request.query_params.getlist('tag', [])
+
         for tag in tags:
-            queryset = queryset.filter(tag__name=tag.lower())
+            queryset = queryset.filter(tags__name=tag.lower())
 
         if self.request.user.is_authenticated:
             queryset = queryset.with_favorited(self.request.user.merchant)
