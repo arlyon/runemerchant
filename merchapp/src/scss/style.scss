@@ -23,10 +23,11 @@ a {
   flex-direction: column;
 
   $header-font: 1.5em;
-  $header-margin: 2em;
+  $header-padding: 2em;
 
   > nav.toolbar {
-    margin: $header-margin 0;
+    padding: $header-padding 0;
+    border-top: 0.4em solid $primary;
 
     > div.title {
       font-weight: bold;
@@ -55,7 +56,7 @@ a {
     flex-direction: column;
 
     &.full {
-      min-height: calc(100vh - #{$header-font + 2 * $header-margin});
+      min-height: calc(100vh - #{$header-font + 2 * $header-padding});
     }
 
     &#fourofour {
@@ -149,6 +150,10 @@ a {
 header.title {
   h1 {
     font-size: 1.33em;
+  }
+  img {
+    height: 2.25em;
+    margin-right: 0.5em;
   }
 }
 

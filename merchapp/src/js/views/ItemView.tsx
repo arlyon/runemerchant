@@ -45,6 +45,7 @@ export class ItemView extends React.Component<IItemViewProps, IItemViewState> {
                 {this.state.item ? (
                     <main className="container">
                         <header className="title">
+                            <img src={`/icons/${this.state.item.item_id}.gif`}/>
                             <h1>{this.state.item.name}</h1>
                             <div className="right">
                                 <a className="bold" target="_blank" rel="noopener"
