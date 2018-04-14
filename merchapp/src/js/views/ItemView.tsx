@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import {ApiItemWithPriceLogAndFavorite, ApiPriceLogWithItemID} from "../api/datatypes";
 import MerchApi from "../api/MerchApi";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'

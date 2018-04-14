@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import {ApiItem} from "../api/datatypes";
 import MerchApi from "../api/MerchApi";
 import {ListItem} from "./ListItem";

@@ -27,6 +27,7 @@
     "file-loader": "^1.1.11",
     "mobx": "^4.1.1",
     "mobx-react": "^5.0.0",
+    "mocha-typescript": "^1.1.12",
     "node-sass": "^4.8.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -36,6 +37,7 @@
     "style-loader": "^0.20.3",
     "timeago.js": "^3.0.2",
     "ts-loader": "^4.0.1",
+    "ts-mocha": "^1.2.0",
     "typescript": "^2.7.2",
     "uglifyjs-webpack-plugin": "^1.2.2",
     "webpack": "^4.1.1",
@@ -45,6 +47,10 @@
     "webpack-merge": "^4.1.2"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^5.0.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.1.0",
     "stylelint": "^9.1.1",
     "stylelint-config-standard": "^18.2.0",
     "tslint": "^5.9.1"
@@ -52,6 +58,7 @@
   "scripts": {
     "start": "webpack            --config webpack.dev.js --watch",
     "serve": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0",
-    "build": "webpack            --config webpack.prod.js"
+    "build": "webpack            --config webpack.prod.js",
+    "test": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\", \"target\": \"es5\", \"jsx\": \"react\" }' mocha -r ts-node/register 'tests/**/*.spec.{ts,tsx}'"
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 export interface ISearchProps {
     label?: string;
@@ -12,24 +12,22 @@ interface ISearchState {
 }
 
 /**
- *
- * @param {string} str
- * @param {number} pos
- * @returns {{word: string; newString: string}}
+ * Removes the occupying the given index from a string.
+ * @param {string} str The string to extract the word from.
+ * @param {number} pos The character index of the word.
+ * @returns {{word: string; newString: string}} An object with the new string and extracted word.
  */
-const removeWordAt = (str: string, pos: number): { word: string, newString: string } => {
+export const removeWordAt = (str: string, pos: number): { word: string, newString: string } => {
     // Search for the word's beginning and end.
-    const left = str.slice(0, pos + 1).search(/\S+$/);
-    const right = str.slice(pos).search(/\s/);
-    const newString = str.substring(0, left) + str.substring(right, -1);
+    const leftBound = str.slice(0, pos + 1).search(/\S+$/);
+    const rightBound = str.slice(pos).search(/\s/);
+    const newString = str.substring(0, leftBound) + str.substring(rightBound, -1);
 
     // The last word in the string is a special case.
-    if (right < 0) {
-        return {word: str.slice(left), newString,};
-    }
+    const word = rightBound == -1 ? str.slice(leftBound) : str.slice(leftBound, rightBound + pos);
 
     // Return the word, using the located bounds to extract it from the string.
-    return {word: str.slice(left, right + pos), newString,};
+    return {word, newString,};
 };
 
 /**

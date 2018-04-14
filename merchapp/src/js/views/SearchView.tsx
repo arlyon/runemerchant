@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import {CachedSearch} from "../api/CachedSearch";
 import {ApiItemWithPriceLog} from "../api/datatypes";
 import {FavoritesList} from "../components/FavoritesList";

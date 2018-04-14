@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCheckCircle, faTimesCircle} from '@fortawesome/pro-light-svg-icons';
 

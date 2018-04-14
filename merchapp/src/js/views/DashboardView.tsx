@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import {Footer} from "../components/frame/Footer";
 import {Header} from "../components/frame/Header";
 import {observer} from "mobx-react"
