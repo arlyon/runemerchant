@@ -328,8 +328,14 @@ class TagList(generics.ListAPIView):
     Gets a list of all the tags.
     """
     authentication_classes = (SessionAuthentication, TokenAuthentication,)
-    queryset = Tag.objects.all()
     serializer_class = TagSerializer
+
+    def get_queryset(self):
+        tagged_items = TaggedItem.objects.all().filter(user=None)
+        if self.request.user.is_authenticated:
+            tagged_items |= TaggedItem.objects.all().filter(user=self.request.user.merchant)
+
+        return Tag.objects.filter(id__in=tagged_items.values('tag_id'))
 
 
 class TagItems(generics.ListAPIView):
