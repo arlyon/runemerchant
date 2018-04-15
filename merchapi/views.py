@@ -1,10 +1,12 @@
+import re
 from typing import List
 
-from django.contrib.auth.models import AnonymousUser
+from dateutil.parser import isoparse
 from django.db import IntegrityError
 from django.http import Http404
 from rest_framework import generics, mixins, status
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
+from rest_framework.exceptions import ParseError
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -33,7 +35,7 @@ class ItemList(generics.ListAPIView):
 
     def get_queryset(self):
         """
-        Overrides the get queryset function to inject the querystring.
+        Overrides the get queryset function to handle querying.
         """
 
         queryset = Item.objects.all()
@@ -97,13 +99,56 @@ class ItemSingle(generics.RetrieveAPIView):
 class ItemPrices(generics.ListAPIView):
     """
     Gets the prices for a given item.
+
+    ### **Query Strings**
+    This endpoint supports a set of querystring parameters:
+
+    - **before:** *?before=[ISO8601]*        - Only shows prices before a given date.
+    - **after:** *?after=[ISO8601]*          - Only shows prices after a given date.
+    - **interval:** *?interval=2[h|d|w|m|y]* - Limits the interval to every hour, day, week, month or year, getting
+                                               the first one of each 'window'.. If none exist, it is ignored.
     """
 
     def get_queryset(self):
+        """
+        Overrides the get queryset function to handle querying.
+        """
+
         try:
-            return Item.objects.get(item_id=self.kwargs['item_id']).price_set
+            queryset = Item.objects.get(item_id=self.kwargs['item_id']).price_set
         except Item.DoesNotExist:
             raise Http404("Item does not exist.")
+
+        before = self.request.query_params.get('before')
+        if before is not None:
+            try:
+                date = isoparse(before)
+            except ValueError:
+                raise ParseError("Invalid Before Date")
+            else:
+                queryset = queryset.filter(date__lt=date)
+
+        after = self.request.query_params.get('after')
+        if after is not None:
+            try:
+                date = isoparse(after)
+            except ValueError:
+                raise ParseError("Invalid After Date")
+            else:
+                queryset = queryset.filter(date__gt=date)
+
+        interval = self.request.query_params.get('interval')
+        if interval is not None:
+            match = re.search('^([0-9]+)([hdwmy])$', interval)
+            if match is None:
+                raise ParseError("Invalid Interval")
+
+            count = match.group(1)
+            unit = match.group(2)
+
+            # todo find a reasonable way to do this..
+
+        return queryset
 
     serializer_class = PriceSerializer
 
@@ -194,7 +239,7 @@ class ItemFlips(generics.ListAPIView):
     lookup_field = 'item_id'
 
     def get_queryset(self):
-        return self.request.user.merchant.flip_set.\
+        return self.request.user.merchant.flip_set. \
             filter(merchant=self.request.user.merchant, item=Item.objects.get(item_id=self.kwargs[self.lookup_field]))
 
     serializer_class = FlipSerializer
@@ -249,7 +294,6 @@ class ItemFavorite(generics.GenericAPIView, mixins.DestroyModelMixin):
         :return: 409 if the relation exists already
                  404 if the item does not exist
                  201 if the create was successful
-         # todo find out why foreign key is ignored
         """
         try:
             Favorite.objects.create(merchant=request.user.merchant, item=Item.objects.get(item_id=item_id))
