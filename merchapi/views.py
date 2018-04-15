@@ -1,14 +1,16 @@
 from typing import List
 
+from django.contrib.auth.models import AnonymousUser
 from django.db import IntegrityError
 from django.http import Http404
 from rest_framework import generics, mixins, status
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.serializers import Serializer
 
-from merchapi.models import Item, Price, Favorite, Tag
+from merchapi.models import Item, Price, Favorite, Tag, TaggedItem
 from merchapi.serializers.item import ItemPriceSerializer, ItemPriceFavoriteSerializer, ItemFavoriteSerializer, \
     SingleItemPriceSerializer, SingleItemPriceFavoriteSerializer
 from merchapi.serializers.base import ItemSerializer, PriceSerializer, TagSerializer
@@ -109,7 +111,7 @@ class ItemPrices(generics.ListAPIView):
 
 class ItemTags(generics.ListAPIView):
     """
-
+    Gets the item tags for a given item.
     """
     serializer_class = TagSerializer
     authentication_classes = (SessionAuthentication, TokenAuthentication,)
@@ -130,6 +132,57 @@ class ItemTags(generics.ListAPIView):
                 tags = unowned_tags
 
             return tags
+
+    def post(self, request: Request, version, item_id):
+        """
+        Adds a tag to an item associated with a given user,
+        :param request: The request object.
+        :param version: The API version number.
+        :param item_id: The item_id of the item.
+        :return: 201 if created or an error.
+        """
+        if not request.user.is_authenticated:
+            return Response({"detail": "Authenticate to add tags."}, status.HTTP_403_FORBIDDEN)
+
+        if "name" in request.data:
+            try:
+                TaggedItem.objects.create(
+                    tag=Tag.objects.get_or_create(name=request.data.get("name"))[0],
+                    item=Item.objects.get(item_id=item_id),
+                    user=request.user.merchant
+                )
+                return Response(None, status.HTTP_201_CREATED)
+            except IntegrityError:
+                return Response({"detail": "Already exists."}, status.HTTP_409_CONFLICT)
+            except Item.DoesNotExist:
+                raise Http404("Item does not exist.")
+        else:
+            return Response({"detail": "Include the name of the tag."}, status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request: Request, version, item_id):
+        """
+        Deletes a list of tags for the given item. Ignores tags that
+        aren't owned by the authorized user or
+        :param request:
+        :param version:
+        :param item_id:
+        :return:
+        """
+        if not request.user.is_authenticated:
+            return Response({"detail": "Authenticate to delete tags."}, status.HTTP_403_FORBIDDEN)
+
+        if "tags" in request.data and request.data.getlist('tags'):
+            try:
+                TaggedItem.objects.filter(
+                    item=Item.objects.get(item_id=item_id),
+                    user=request.user.merchant,
+                    tag__name__in=request.data.getlist('tags')
+                ).delete()
+                return Response(None, status.HTTP_200_OK)
+            except Item.DoesNotExist:
+                raise Http404("Item does not exist.")
+        else:
+            return Response({"detail": "Include the list of tags."}, status.HTTP_400_BAD_REQUEST)
 
 
 class PriceForItemList(generics.ListAPIView):

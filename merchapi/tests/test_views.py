@@ -12,7 +12,7 @@ class ItemTest(APITestCase):
 
     fixtures = ['items.json']
 
-    def test_get_all_items(self):
+    def test_get_items_list(self):
         """
         Tests the endpoint to get all items. /v1/items/
         """
@@ -40,7 +40,7 @@ class ItemTest(APITestCase):
         data = response.json()
         self.assertEqual(data["item_id"], item_id)
 
-    def test_get_item_prices(self):
+    def test_get_item_price_list(self):
         """
         Tests the endpoint to get all prices for an item. /v1/items/2/prices/
         """
@@ -58,30 +58,12 @@ class ItemTest(APITestCase):
         data = response.json()
         self.assertIsInstance(data, list)
 
-    def test_get_item_tags(self):
-        """
-        Tests the endpoint to get all tags for an item. /v1/items/2/tags/
-        """
-        invalid_id = 1
-
-        url = reverse('item tags', kwargs={'version': 1, 'item_id': invalid_id})
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-
-        item_id = 2
-
-        url = reverse('item prices', kwargs={'version': 1, 'item_id': item_id})
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        data = response.json()
-        self.assertIsInstance(data, list)
-
 
 class PricesTest(APITestCase):
     """
     Regression tests to make sure the prices API conforms to expectations.
     """
-    def test_prices(self):
+    def test_get_prices(self):
         url = reverse('prices', kwargs={"version": 1})
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -93,6 +75,7 @@ class FavoriteTest(APITransactionTestCase):
     """
     Regression tests to make sure the favorite API conforms to expectations.
     """
+    fixtures = ['items.json']
 
     def setUp(self):
         User.objects.create_user(
@@ -111,9 +94,7 @@ class FavoriteTest(APITransactionTestCase):
         token = response.json()["key"]
         self.auth = f"Token {token}"
 
-    fixtures = ['items.json']
-
-    def test_list_favorites(self):
+    def test_get_favorites_list(self):
         """
         Tests that:
          - you need an auth token to see favorites
@@ -129,7 +110,7 @@ class FavoriteTest(APITransactionTestCase):
         favorites = response.json()
         self.assertIsInstance(favorites, list)
 
-    def test_view_favorite(self):
+    def test_get_favorite(self):
         """
         Tests that:
          - you need an auth token to see
@@ -202,20 +183,43 @@ class FavoriteTest(APITransactionTestCase):
         self.assertEqual(Favorite.objects.count(), 0)
 
 
-class TagsTest(APITestCase):
+class TagsTest(APITransactionTestCase):
     """
     Regression tests to make sure the tags API conforms to expectations.
     """
     fixtures = ['items.json', 'tags.json', 'taggeditems.json', 'merchants.json']
 
-    def test_tags_list(self):
+    def setUp(self):
+        User.objects.create_user(
+            username="test",
+            password="test"
+        )
+
+        auth_url = "/api/v1/auth/login/"
+        response = self.client.post(auth_url, {
+            "username": "test",
+            "password": "test"
+        }, 'json')
+
+        self.client.logout()  # testing token only
+
+        token = response.json()["key"]
+        self.auth = f"Token {token}"
+
+    def test_get_tags_list(self):
+        """
+        Tests the tags list endpoint. /v1/tags/
+        """
         url = reverse('tags', kwargs={"version": 1})
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         data = response.json()
         self.assertIsInstance(data, list)
 
-    def test_tag_items(self):
+    def test_get_tag_items(self):
+        """
+        Tests the item tags endpoint. /v1/tags/weapon/
+        """
         url = reverse('tags', kwargs={"version": 1})
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -226,3 +230,94 @@ class TagsTest(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         items = response.json()
         self.assertIsInstance(items, list)
+
+    def test_get_item_tags(self):
+        """
+        Tests the endpoint to get all tags for an item. /v1/items/2/tags/
+        """
+        invalid_id = 1
+        item_id = 2
+
+        # 404 for invalid id
+        url = reverse('item tags', kwargs={'version': 1, 'item_id': invalid_id})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+        # 200 for valid id
+        url = reverse('item tags', kwargs={'version': 1, 'item_id': item_id})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        data = response.json()
+        self.assertIsInstance(data, list)
+
+    def test_add_tag(self):
+        """
+        Tests adding a tag to an item. /v1/items/2/tags/
+        """
+        invalid_id = 1
+        item_id = 2
+        tag = {"name": "weapon"}
+
+        # forbidden without auth
+        url = reverse('item tags', kwargs={'version': 1, 'item_id': invalid_id})
+        response = self.client.post(url, tag)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+        # 404 for invalid item id
+        response = self.client.post(url, tag, HTTP_AUTHORIZATION=self.auth)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+        # adding should give a 201
+        url = reverse('item tags', kwargs={'version': 1, 'item_id': item_id})
+        response = self.client.post(url, tag, HTTP_AUTHORIZATION=self.auth)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        # adding again should raise a 409
+        response = self.client.post(url, tag, HTTP_AUTHORIZATION=self.auth)
+        self.assertEqual(response.status_code, status.HTTP_409_CONFLICT)
+
+        # tag should not be there for other users
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        data = response.json()
+        self.assertIsInstance(data, list)
+        self.assertNotIn("weapon", data)
+
+        # tag should be there for the owner
+        response = self.client.get(url, HTTP_AUTHORIZATION=self.auth)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        data = response.json()
+        self.assertIsInstance(data, list)
+        self.assertIn("weapon", data)
+
+    def test_remove_tag(self):
+        """
+        Tests removing a tag from an item. /v1/items/2/tags/
+        """
+        invalid_id = 1
+        item_id = 2
+
+        # 403 without auth
+        url = reverse('item tags', kwargs={'version': 1, 'item_id': invalid_id})
+        response = self.client.delete(url, {"tags": ["weapon", "fuck"]})
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+        # 404 with invalid id
+        url = reverse('item tags', kwargs={'version': 1, 'item_id': invalid_id})
+        response = self.client.delete(url, {"tags": ["weapon", "lol"]}, HTTP_AUTHORIZATION=self.auth)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+        # create a tag
+        url = reverse('item tags', kwargs={'version': 1, 'item_id': item_id})
+        response = self.client.post(url, {"name": "weapon"}, HTTP_AUTHORIZATION=self.auth)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        # delete the tag
+        response = self.client.delete(url, {"tags": ["weapon"]}, HTTP_AUTHORIZATION=self.auth)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        # tag should not be there
+        url = reverse('item tags', kwargs={'version': 1, 'item_id': item_id})
+        response = self.client.get(url, HTTP_AUTHORIZATION=self.auth)
+        data = response.json()
+        self.assertNotIn("weapon", data)
