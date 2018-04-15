@@ -131,6 +131,9 @@ class UniqueNullForeignKey(models.ForeignKey):
 
 
 class TaggedItem(models.Model):
+    """
+    The many to many relationship between tags and items, with an optional user.
+    """
     tag = models.ForeignKey('Tag', on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     user = UniqueNullForeignKey(Merchant, on_delete=models.CASCADE, default=None, blank=True, null=True)
@@ -141,6 +144,9 @@ class TaggedItem(models.Model):
 
 
 class Tag(models.Model):
+    """
+    A tag for an item.
+    """
     name = models.CharField(max_length=256, unique=True)
     items = models.ManyToManyField('Item', through=TaggedItem, related_name='tags')
 
@@ -157,6 +163,6 @@ class Tag(models.Model):
 
 class Rune(Item):
     """
-    A rune in runescape.
+    A rune in Runescape.
     """
     pass

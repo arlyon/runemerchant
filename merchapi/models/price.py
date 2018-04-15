@@ -2,8 +2,7 @@ from typing import Iterable
 
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models import F, FloatField, Subquery, OuterRef, Max
-from django.db.models.functions import Cast
+from django.db.models import Subquery, OuterRef, Max
 
 
 class PriceManager(models.QuerySet):
@@ -11,24 +10,17 @@ class PriceManager(models.QuerySet):
     A price manager.
     """
 
-    def calculate_data(self):
-        return self.annotate(
-            profit=F('sell_price') - F('buy_price'),
-            roi=Cast(F('sell_price'), FloatField()) / Cast(F('buy_price'), FloatField()),
-            demand=Cast(F('buy_volume'), FloatField()) / Cast(F('sell_volume'), FloatField())
-        )
-
-    def most_recent_for_each_item(self, items: Iterable=None):
+    def most_recent_for_each_item(self, items: Iterable = None):
         """
         Gets the most recent price for a list of items (or all of them)
-        :param items: A list of items to get the price of.
-        :return: 
+        :param items: A list of items to get the price of. None for all.
+        :return: A queryset of prices, one for each item.
         """
-        sub_query = Price.objects.filter(item=OuterRef('item'))\
-                        .values('item')\
-                        .annotate(last_price=Max('date'))\
+        sub_query = Price.objects.filter(item=OuterRef('item')) \
+                        .values('item') \
+                        .annotate(last_price=Max('date')) \
                         .values('last_price')[:1]
-        
+
         return self.filter(date=Subquery(sub_query)) \
             if items is None else \
             self.filter(item__in=items).filter(date=Subquery(sub_query))

@@ -31,14 +31,6 @@ class ItemPriceSerializer(ItemSerializer):
 
 
 @composed_serializer
-class ItemPriceFavoriteSerializer(ItemFavoriteSerializer, ItemPriceSerializer):
-    """
-    A composed serializer consisting of favorites.
-    """
-    pass
-
-
-@composed_serializer
 class SingleItemPriceSerializer(ItemSerializer):
     """
     Serializes an Item and embeds the most recent
@@ -65,6 +57,14 @@ class SingleItemPriceSerializer(ItemSerializer):
 @composed_serializer
 class SingleItemPriceFavoriteSerializer(ItemFavoriteSerializer, SingleItemPriceSerializer):
     """
-    A composed serializer consisting of favorites.
+    A composed item serializer with price and favorite.
+    """
+    pass
+
+
+@composed_serializer
+class ItemPriceFavoriteSerializer(ItemFavoriteSerializer, ItemPriceSerializer):
+    """
+    A composed item serializer with price and favorite.
     """
     pass

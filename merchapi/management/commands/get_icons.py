@@ -1,11 +1,9 @@
 import os
 from django.core.management import BaseCommand
 
+from merchapi import ICONS_DIR
 from merchapi.models import Item
 from util.merch.scrape import download_icons
-from runemerchant.settings import BASE_DIR
-
-ICONS_DIR = os.path.join(BASE_DIR, 'merchapi/static/icons')
 
 
 class Command(BaseCommand):

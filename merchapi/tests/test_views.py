@@ -117,14 +117,14 @@ class FavoriteTest(APITransactionTestCase):
          - invalid item ids are 404'd
          - correct ids and tokens are given the favorite status
         """
-        missing_url = reverse('favorite', kwargs={'version': 1, 'item_id': 1})
+        missing_url = reverse('item favorite', kwargs={'version': 1, 'item_id': 1})
         response = self.client.get(missing_url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
         response = self.client.get(missing_url, HTTP_AUTHORIZATION=self.auth)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
-        url = reverse('favorite', kwargs={'version': 1, 'item_id': 2})
+        url = reverse('item favorite', kwargs={'version': 1, 'item_id': 2})
         response = self.client.get(url, HTTP_AUTHORIZATION=self.auth)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         value = response.json()
@@ -138,14 +138,14 @@ class FavoriteTest(APITransactionTestCase):
          - newly created is a 201
          - creating again is a 409
         """
-        missing_url = reverse('favorite', kwargs={'version': 1, 'item_id': 1})
+        missing_url = reverse('item favorite', kwargs={'version': 1, 'item_id': 1})
         response = self.client.post(missing_url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
         response = self.client.post(missing_url, HTTP_AUTHORIZATION=self.auth)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
-        url = reverse('favorite', kwargs={'version': 1, 'item_id': 2})
+        url = reverse('item favorite', kwargs={'version': 1, 'item_id': 2})
         response = self.client.post(url, HTTP_AUTHORIZATION=self.auth)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Favorite.objects.count(), 1)
@@ -162,14 +162,14 @@ class FavoriteTest(APITransactionTestCase):
          - delete on a false favorite is a 404
          - delete of a true favorite is a 204
         """
-        missing_url = reverse('favorite', kwargs={'version': 1, 'item_id': 1})
+        missing_url = reverse('item favorite', kwargs={'version': 1, 'item_id': 1})
         response = self.client.delete(missing_url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
         response = self.client.delete(missing_url, HTTP_AUTHORIZATION=self.auth)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
-        url = reverse('favorite', kwargs={'version': 1, 'item_id': 2})
+        url = reverse('item favorite', kwargs={'version': 1, 'item_id': 2})
         response = self.client.delete(url, HTTP_AUTHORIZATION=self.auth)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
         self.assertEqual(Favorite.objects.count(), 0)
@@ -321,3 +321,15 @@ class TagsTest(APITransactionTestCase):
         response = self.client.get(url, HTTP_AUTHORIZATION=self.auth)
         data = response.json()
         self.assertNotIn("weapon", data)
+
+
+class FlipsTest(APITestCase):
+
+    def test_get_flips(self):
+        pass
+
+    def test_get_flip(self):
+        pass
+
+    def test_get_item_flips(self):
+        pass

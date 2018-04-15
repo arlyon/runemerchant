@@ -15,7 +15,7 @@ class Spell(models.Model):
     def get_price(self) -> int:
         """
         Gets the price of casting the given spell.
-        :return:
+        :return: The price in gp.
         """
 
         required_runes = self.requiredrunes_set.select_related('rune').all()

@@ -1,13 +1,9 @@
 from enum import Enum
 
 from django.db import models
-from django.conf import settings
 from datetime import timedelta
 
 from merchapi.models.user import Merchant
-
-BASE_DIR = settings.BASE_DIR
-OS_BUDDY = 'https://api.rsbuddy.com/grandExchange?a=guidePrice&i='
 
 
 class IncompleteFlipError(Exception):
@@ -47,7 +43,7 @@ class Flip(models.Model):
         :return: The duration of the flip.
         :raises IncompleteFlipError: When the flip is incomplete.
         """
-        if self.get_flip_state() == FlipState.SOLD:
+        if self.flip_state == FlipState.SOLD:
             return self.sell_date - self.order_date
         else:
             raise IncompleteFlipError('Cannot calculate duration on incomplete flip.')
@@ -69,7 +65,7 @@ class Flip(models.Model):
         :return: The roi in decimal format.
         :raises IncompleteFlipError: When the flip is incomplete.
         """
-        if self.get_flip_state() == FlipState.SELLING:
+        if self.flip_state == FlipState.SELLING:
             return self.sell_price / self.buy_price
         else:
             raise IncompleteFlipError('Cannot calculate roi with no sell price.')
@@ -80,7 +76,7 @@ class Flip(models.Model):
         :return: The profit per item in gp.
         :raises IncompleteFlipError: When the flip is incomplete.
         """
-        if self.get_flip_state() == FlipState.SELLING:
+        if self.flip_state == FlipState.SELLING:
             return self.sell_price - self.buy_price
         else:
             raise IncompleteFlipError('Cannot calculate profit with no sell price.')
@@ -93,7 +89,8 @@ class Flip(models.Model):
         """
         return self.quantity * self.get_profit_each()
 
-    def get_flip_state(self) -> FlipState:
+    @property
+    def flip_state(self) -> FlipState:
         """
         Returns the status of the flip (buy/bank/sell/sold)
         :return: A FlipState representing the status of the flip.

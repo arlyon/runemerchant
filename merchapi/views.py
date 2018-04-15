@@ -13,7 +13,7 @@ from rest_framework.serializers import Serializer
 from merchapi.models import Item, Price, Favorite, Tag, TaggedItem
 from merchapi.serializers.item import ItemPriceSerializer, ItemPriceFavoriteSerializer, ItemFavoriteSerializer, \
     SingleItemPriceSerializer, SingleItemPriceFavoriteSerializer
-from merchapi.serializers.base import ItemSerializer, PriceSerializer, TagSerializer
+from merchapi.serializers.base import ItemSerializer, PriceSerializer, TagSerializer, FlipSerializer
 
 
 class ItemList(generics.ListAPIView):
@@ -96,8 +96,7 @@ class ItemSingle(generics.RetrieveAPIView):
 
 class ItemPrices(generics.ListAPIView):
     """
-    Gets the prices for an item.
-    todo add querystring for granularity and range
+    Gets the prices for a given item.
     """
 
     def get_queryset(self):
@@ -185,6 +184,22 @@ class ItemTags(generics.ListAPIView):
             return Response({"detail": "Include the list of tags."}, status.HTTP_400_BAD_REQUEST)
 
 
+class ItemFlips(generics.ListAPIView):
+    """
+    Gets the flips for a given item.
+    """
+    authentication_classes = (SessionAuthentication, TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    lookup_field = 'item_id'
+
+    def get_queryset(self):
+        return self.request.user.merchant.flip_set.\
+            filter(merchant=self.request.user.merchant, item=Item.objects.get(item_id=self.kwargs[self.lookup_field]))
+
+    serializer_class = FlipSerializer
+
+
 class PriceForItemList(generics.ListAPIView):
     """
     Gets the most recent price logs for each item.
@@ -195,7 +210,7 @@ class PriceForItemList(generics.ListAPIView):
 
 class FavoriteList(generics.ListAPIView):
     """
-    Gets the favorited items for a user.
+    Gets the favorited items for a given user.
     """
 
     authentication_classes = (SessionAuthentication, TokenAuthentication,)
@@ -207,7 +222,7 @@ class FavoriteList(generics.ListAPIView):
     serializer_class = ItemSerializer
 
 
-class FavoriteSingle(generics.GenericAPIView, mixins.DestroyModelMixin):
+class ItemFavorite(generics.GenericAPIView, mixins.DestroyModelMixin):
     """
     Manages the creation and deletion of favorites.
     """
@@ -266,7 +281,7 @@ class FavoriteSingle(generics.GenericAPIView, mixins.DestroyModelMixin):
 
 class TagList(generics.ListAPIView):
     """
-
+    Gets a list of all the tags.
     """
     authentication_classes = (SessionAuthentication, TokenAuthentication,)
     queryset = Tag.objects.all()
@@ -274,6 +289,9 @@ class TagList(generics.ListAPIView):
 
 
 class TagItems(generics.ListAPIView):
+    """
+    Gets a list of items associated with a given tag.
+    """
     authentication_classes = (SessionAuthentication, TokenAuthentication,)
     serializer_class = ItemSerializer
 
@@ -291,3 +309,31 @@ class TagItems(generics.ListAPIView):
             items = unowned_tagged
 
         return items.filter(tags__name=self.kwargs[self.lookup_field])
+
+
+class FlipList(generics.ListAPIView):
+    """
+    Gets all the flips made by a given user.
+    """
+    authentication_classes = (SessionAuthentication, TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        return self.request.user.merchant.flip_set.all()
+
+    serializer_class = FlipSerializer
+
+
+class FlipSingle(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Gets, updates, and destroys a flip.
+    """
+    authentication_classes = (SessionAuthentication, TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    lookup_field = 'id'
+
+    def get_queryset(self):
+        return self.request.user.merchant.flip_set.all()
+
+    serializer_class = FlipSerializer

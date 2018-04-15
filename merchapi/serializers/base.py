@@ -2,7 +2,7 @@ import itertools
 
 from rest_framework import serializers
 
-from merchapi.models import Item, Tag
+from merchapi.models import Item, Tag, Flip
 from merchapi.models.price import Price
 
 
@@ -41,7 +41,7 @@ class ItemSerializer(serializers.ModelSerializer):
 
 class PriceSerializer(serializers.ModelSerializer):
     """
-    Serializes a price log with basic information.
+    Serializes a price.
     """
 
     class Meta:
@@ -51,7 +51,7 @@ class PriceSerializer(serializers.ModelSerializer):
 
 class TagSerializer(serializers.ModelSerializer):
     """
-
+    Serializes a tag. Simply returns a string with the name.
     """
 
     def to_representation(self, tag: Tag):
@@ -60,3 +60,13 @@ class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = ('name',)  # overridden by to_representation
+
+
+class FlipSerializer(serializers.ModelSerializer):
+    """
+    Serializes a flip.
+    """
+
+    class Meta:
+        model = Flip
+        fields = ('id', 'item', 'quantity')
