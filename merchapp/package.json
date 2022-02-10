@@ -26,7 +26,7 @@
     "file-loader": "^1.1.11",
     "mobx": "^4.1.1",
     "mobx-react": "^5.0.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.1",
     "react-hot-loader": "^4.0.0",
